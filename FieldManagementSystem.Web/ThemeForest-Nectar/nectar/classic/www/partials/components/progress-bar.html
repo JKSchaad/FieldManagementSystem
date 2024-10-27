@@ -1,0 +1,95 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Progress Bar</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Progress Bar indicates the progress of an operation.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Determinate</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="progressbar" data-progress="35"></div>
+                        <div class="progressbar margin-top" data-progress="75" data-label="Please wait..."></div>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="progressbar-determinate" class="progressbar" data-progress="10"></div>
+                        <div class="row margin-top">
+                            <button type="button" class="col button button-fill" @click="${() => setDeterminateProgressBarValue(0)}">0%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setDeterminateProgressBarValue(25)}">25%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setDeterminateProgressBarValue(50)}">50%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setDeterminateProgressBarValue(75)}">75%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setDeterminateProgressBarValue(100)}">100%</button>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Infinite</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="progressbar-infinite"></div>
+                        <button type="button" class="button button-fill margin-top" @click="${showProgressBarInfiniteOverlay}">Overlay</button>
+                    </div>
+
+                    <div class="block-title margin-vertical">Colored</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="progressbar progressbar-round color-red" data-progress="5" data-label="5%"></div>
+                        <div class="progressbar progressbar-round margin-top color-pink" data-progress="10" data-label="10%"></div>
+                        <div class="progressbar progressbar-round margin-top color-purple" data-progress="15" data-label="15%"></div>
+                        <div class="progressbar progressbar-round margin-top color-deeppurple" data-progress="20" data-label="20%"></div>
+                        <div class="progressbar progressbar-round margin-top color-indigo" data-progress="25" data-label="25%"></div>
+                        <div class="progressbar progressbar-round margin-top color-blue" data-progress="30" data-label="30%"></div>
+                        <div class="progressbar progressbar-round margin-top color-lightblue" data-progress="35" data-label="35%"></div>
+                        <div class="progressbar progressbar-round margin-top color-cyan" data-progress="40" data-label="40%"></div>
+                        <div class="progressbar progressbar-round margin-top color-teal" data-progress="45" data-label="45%"></div>
+                        <div class="progressbar progressbar-round margin-top color-green" data-progress="50" data-label="50%"></div>
+                        <div class="progressbar progressbar-round margin-top color-lightgreen" data-progress="55" data-label="55%"></div>
+                        <div class="progressbar progressbar-round margin-top color-lime" data-progress="60" data-label="60%"></div>
+                        <div class="progressbar progressbar-round margin-top color-yellow" data-progress="65" data-label="65%"></div>
+                        <div class="progressbar progressbar-round margin-top color-amber" data-progress="70" data-label="70%"></div>
+                        <div class="progressbar progressbar-round margin-top color-orange" data-progress="75" data-label="75%"></div>
+                        <div class="progressbar progressbar-round margin-top color-deeporange" data-progress="80" data-label="80%"></div>
+                        <div class="progressbar progressbar-round margin-top color-brown" data-progress="85" data-label="85%"></div>
+                        <div class="progressbar progressbar-round margin-top color-gray" data-progress="90" data-label="90%"></div>
+                        <div class="progressbar progressbar-round margin-top color-bluegray" data-progress="95" data-label="95%"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let setDeterminateProgressBarValue = function(value) {
+            $f7.progressbar.set($el.value.find('#progressbar-determinate'), value);
+        }
+
+        let showProgressBarInfiniteOverlay = function() {
+            $f7.progressbar.show('multi');
+            setTimeout(function() {
+                $f7.progressbar.hide();
+            }, 5000);
+        }
+
+        return $render;
+    }
+</script>

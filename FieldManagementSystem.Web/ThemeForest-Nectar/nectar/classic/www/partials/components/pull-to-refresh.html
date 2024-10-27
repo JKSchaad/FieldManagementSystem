@@ -1,0 +1,197 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Pull-to-Refresh</div>
+            </div>
+        </div>
+
+        <div class="page-content ptr-content">
+
+            <div class="ptr-preloader">
+                <div class="preloader"></div>
+                <div class="ptr-arrow"></div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Pull-to-Refresh can be used to refresh the page's contents with a drag-down gesture at the top of the page.</p>
+                    </div>
+
+                    ${flags.entriesLoaded ? $h`
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-content">
+                            <div class="list media-list">
+                                <ul>
+                                    ${data.entries.map((item, index) => $h`
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media align-self-center">
+                                                <img src="https://assets.coincap.io/assets/icons/${item.symbol.toLowerCase()}@2x.png" loading="lazy" height="40" width="40" alt="" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">${item.name}</div>
+                                                    <div class="item-after">${Number(item.priceUsd).toFixed(2) + ' USD'}</div>
+                                                </div>
+                                                <div class="item-text">${item.symbol}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    `)}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="font-size-12">Last updated on ${window.moment ? moment(data.lastUpdateTimestamp).format('dddd, MMMM DD, YYYY') + ' at ' + moment(data.lastUpdateTimestamp).format('hh:mm:ss A') : new Date(data.lastUpdateTimestamp).toLocaleString()}</span>
+                        </div>
+                    </div>
+                    ` : $h` `}
+
+                    ${flags.loadingEntries ? $h`
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-content">
+                            <div class="list media-list">
+                                <ul>
+                                    ${Array(5).fill().map((item, index) => $h`
+                                    <li>
+                                        <div class="item-content skeleton-effect-wave">
+                                            <div class="item-media align-self-center">
+                                                <div class="shape-circle size-40 skeleton-block"></div>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title skeleton-text">Item Title Here</div>
+                                                    <div class="item-after skeleton-text">Item After</div>
+                                                </div>
+                                                <div class="item-text skeleton-text">Item Text</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    `)}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer skeleton-effect-wave">
+                            <span class="skeleton-text">Some Text Goes Here. Some Text Goes Here.</span>
+                        </div>
+                    </div>
+                    ` : $h` `}
+
+                    ${flags.noEntriesFound ? $h`
+                    <div class="empty-state empty-state-strong inset margin-vertical">
+                        <div class="empty-state-media">
+                            <lottie-player src="${$f7.config.lottie.assetUrl + 'no-data-found.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                        </div>
+                        <div class="empty-state-title">No Data Found</div>
+                        <div class="empty-state-text">There is no data available at the moment.</div>
+                        <div class="empty-state-actions">
+                            <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-mono-invert" @click="${loadEntries}">Retry</button>
+                        </div>
+                    </div>
+                    ` : $h` `}
+
+                    ${flags.apiError ? $h`
+                    <div class="empty-state empty-state-strong inset margin-vertical">
+                        <div class="empty-state-media">
+                            <lottie-player src="${$f7.config.lottie.assetUrl + 'data-load-error.json'}" autoplay loop background="transparent" speed="1" style="height: 128px; transform: scale(2);"></lottie-player>
+                        </div>
+                        <div class="empty-state-title">API Error</div>
+                        <div class="empty-state-text">An error occured while fetching data.</div>
+                        <div class="empty-state-actions">
+                            <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-mono-invert" @click="${loadEntries}">Retry</button>
+                        </div>
+                    </div>
+                    ` : $h` `}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let pullToRefresh = null;
+
+        let flags = {
+            apiError: false,
+            entriesLoaded: false,
+            loadingEntries: false,
+            noEntriesFound: false
+        }
+
+        let data = {
+            entries: null,
+            lastUpdateTimestamp: null
+        }
+
+        let loadEntries = function() {
+            flags.apiError = false;
+            flags.entriesLoaded = false;
+            flags.loadingEntries = true;
+            flags.noEntriesFound = false;
+            data.entries = null;
+            $update();
+
+            $f7.request({
+                url: $f7.config.coincap.rootEndpoint + '/assets',
+                method: 'GET',
+                data: {
+                    ids: 'bitcoin,ethereum,cardano,xrp,basic-attention-token'
+                },
+                dataType: 'json'
+            })
+            .then(function(response) {
+                if (response.data.data.length) {
+                    flags.entriesLoaded = true;
+                    flags.loadingEntries = false;
+                    data.entries = response.data.data;
+                    data.lastUpdateTimestamp = response.data.timestamp;
+                    $update(function() {
+                        initializePullToRefresh();
+                    });
+                }
+                else {
+                    flags.loadingEntries = false;
+                    flags.noEntriesFound = true;
+                    $update();
+                }
+            })
+            .catch(function(response) {
+                flags.apiError = true;
+                flags.loadingEntries = false;
+                $update();
+            });
+        }
+
+        let initializePullToRefresh = function() {
+            pullToRefresh = $f7.ptr.create($el.value.find('.ptr-content'));
+            pullToRefresh.on('refresh', function() {
+                setTimeout(function() {
+                    pullToRefresh.done();
+                    loadEntries();
+                }, 1000);
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            loadEntries();
+        });
+
+        return $render;
+    }
+</script>

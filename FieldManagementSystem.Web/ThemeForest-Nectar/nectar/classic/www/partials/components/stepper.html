@@ -1,0 +1,517 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Stepper</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Stepper provides a way to increment or decrement a numeric value.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Shape & Size</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="stepper stepper-init">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Default</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-fill">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Fill</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-fill stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Fill Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-small">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Small</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-small stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Small Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-small stepper-fill">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Small Fill</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-small stepper-fill stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Small Fill Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-large">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Large</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-large stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Large Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-large stepper-fill">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Large Fill</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-init stepper-large stepper-fill stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Large Fill Round</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Vertical</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Default</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-fill">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Fill</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-fill stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Fill Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-small">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Small</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-small stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Small Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-small stepper-fill">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Small Fill</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-small stepper-fill stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Small Fill Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-large">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Large</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-large stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Large Round</div>
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-large stepper-fill">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Large Fill</div>
+                            </div>
+                            <div class="col">
+                                <div class="stepper stepper-vertical stepper-init stepper-large stepper-fill stepper-round">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" min="0" max="10" step="1" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="margin-top-half text-color-gray">Large Fill Round</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Icon</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div class="stepper stepper-init stepper-large stepper-fill stepper-round color-mono">
+                            <div class="stepper-button-minus custom-icon text-color-mono-invert">
+                                <i class="icon material-icons">keyboard_arrow_down</i>
+                            </div>
+                            <div class="stepper-value"></div>
+                            <div class="stepper-button-plus custom-icon text-color-mono-invert">
+                                <i class="icon material-icons">keyboard_arrow_up</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Style</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div class="stepper stepper-init stepper-small custom-style">
+                            <div class="stepper-button-minus custom-icon color-red ripple-color-red">
+                                <i class="icon f7-icons color-red">minus_circle_fill</i>
+                            </div>
+                            <div class="stepper-input-wrap">
+                                <input type="number" class="text-color-body" value="0" min="0" max="10" step="1" readonly />
+                            </div>
+                            <div class="stepper-button-plus custom-icon color-green ripple-color-green">
+                                <i class="icon f7-icons color-green">plus_circle_fill</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Min, Max & Step Values</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div id="stepper-custom-attribute-values" class="stepper stepper-large stepper-fill stepper-round color-pink">
+                            <div class="stepper-button-minus"></div>
+                            <div class="stepper-input-wrap">
+                                <input type="number" value="-3.50" readonly />
+                            </div>
+                            <div class="stepper-button-plus"></div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-top">Autorepeat (Tap & Hold)</div>
+                    <div class="block-header">In autorepeat mode, the stepper value repeatedly increases/decreases when the user long hold the plus/minus button.</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div class="row">
+                            <div class="col">
+                                <div id="stepper-autorepeat-default" class="stepper stepper-large stepper-fill stepper-round color-amber">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Default</div>
+                            </div>
+                            <div class="col">
+                                <div id="stepper-autorepeat-dynamic" class="stepper stepper-large stepper-fill stepper-round color-amber">
+                                    <div class="stepper-button-minus"></div>
+                                    <div class="stepper-input-wrap">
+                                        <input type="number" value="0" readonly />
+                                    </div>
+                                    <div class="stepper-button-plus"></div>
+                                </div>
+                                <div class="text-color-gray">Dynamic</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-top">Wraps</div>
+                    <div class="block-header">In wraps mode, incrementing beyond maximum value sets the stepper to minimum value, likewise, decrementing below minimum value sets the stepper to maximum value.</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div id="stepper-wraps" class="stepper stepper-large stepper-fill stepper-round color-teal">
+                            <div class="stepper-button-minus"></div>
+                            <div class="stepper-input-wrap">
+                                <input type="number" value="55" readonly />
+                            </div>
+                            <div class="stepper-button-plus"></div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-top">Manual Input</div>
+                    <div class="block-header">In manual input mode, the user can enter the stepper value manually by tapping the input field.</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div id="stepper-manual-input" class="stepper stepper-large stepper-fill stepper-round color-lightblue">
+                            <div class="stepper-button-minus"></div>
+                            <div class="stepper-input-wrap">
+                                <input type="number" inputmode="numeric" value="35" />
+                            </div>
+                            <div class="stepper-button-plus"></div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Value Element</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">I am <span id="stepper-value-age"></span> years old.</div>
+                                        <div class="item-after">
+                                            <div id="stepper-custom-value-element" class="stepper stepper-raised stepper-small color-bluegray">
+                                                <div class="stepper-button-minus"></div>
+                                                <div class="stepper-button-plus"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let stepperCustomAttributeValues = null;
+        let stepperAutorepeatDefault = null;
+        let stepperAutorepeatDynamic = null;
+        let stepperWraps = null;
+        let stepperManualInput = null;
+        let stepperCustomValueElement = null;
+
+        let initializeStepperCustomAttributeValues = function() {
+            stepperCustomAttributeValues = $f7.stepper.create({
+                el: $el.value.find('#stepper-custom-attribute-values'),
+                step: 0.5,
+                min: -5,
+                max: 5,
+                value: -3.5,
+                formatValue: function(value) {
+                    return value.toFixed(2);
+                }
+            });
+        }
+
+        let initializeStepperAutorepeatDefault = function() {
+            stepperAutorepeatDefault = $f7.stepper.create({
+                el: $el.value.find('#stepper-autorepeat-default'),
+                step: 0.25,
+                min: -5,
+                max: 5,
+                value: 0,
+                autorepeat: true,
+                formatValue: function(value) {
+                    return value.toFixed(2);
+                }
+            });
+        }
+
+        let initializeStepperAutorepeatDynamic = function() {
+            stepperAutorepeatDynamic = $f7.stepper.create({
+                el: $el.value.find('#stepper-autorepeat-dynamic'),
+                step: 0.1,
+                min: -5,
+                max: 5,
+                value: 0,
+                autorepeat: true,
+                autorepeatDynamic: true,
+                formatValue: function(value) {
+                    return value.toFixed(2);
+                }
+            });
+        }
+
+        let initializeStepperWraps = function() {
+            stepperWraps = $f7.stepper.create({
+                el: $el.value.find('#stepper-wraps'),
+                step: 1,
+                min: 0,
+                max: 100,
+                value: 55,
+                autorepeat: true,
+                autorepeatDynamic: true,
+                wraps: true
+            });
+        }
+
+        let initializeStepperManualInput = function() {
+            stepperManualInput = $f7.stepper.create({
+                el: $el.value.find('#stepper-manual-input'),
+                step: 1,
+                min: 0,
+                max: 100,
+                value: 35,
+                autorepeat: true,
+                autorepeatDynamic: true,
+                wraps: true
+            });
+        }
+
+        let initializeStepperCustomValueElement = function() {
+            stepperCustomValueElement = $f7.stepper.create({
+                el: $el.value.find('#stepper-custom-value-element'),
+                valueEl: $el.value.find('#stepper-value-age'),
+                step: 1,
+                min: 13,
+                max: 100,
+                value: 18,
+                autorepeat: true,
+                autorepeatDynamic: true
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeStepperCustomAttributeValues();
+            initializeStepperAutorepeatDefault();
+            initializeStepperAutorepeatDynamic();
+            initializeStepperWraps();
+            initializeStepperManualInput();
+            initializeStepperCustomValueElement();
+        });
+
+        return $render;
+    }
+</script>

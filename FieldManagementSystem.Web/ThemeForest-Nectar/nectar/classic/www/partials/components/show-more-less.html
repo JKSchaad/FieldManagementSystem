@@ -1,0 +1,102 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Show More/Less</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Show More/Less can be used to reveal or hide contextual content. It saves space while preserving visual balance and maintaining information hierarchy.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Text</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="show-more-less" data-config='{"type": "text", "limit": 500}'>
+                            <p>${faker.lorem.paragraph(25)}</p>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">List</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <ul class="show-more-less" data-config='{"type": "list", "limit": 5}'>
+                            ${Array(10).fill().map((item, index) => $h`
+                            <li>${faker.vehicle.vehicle()}</li>
+                            `)}
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Table</div>
+                    <div class="data-table data-table-init card margin-vertical no-shadow">
+                        <table class="show-more-less" data-config='{"type": "table", "limit": 5}'>
+                            <thead>
+                                <tr>
+                                    <th class="label-cell">Name</th>
+                                    <th class="label-cell">Country</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${Array(10).fill().map((item, index) => $h`
+                                <tr>
+                                    <td class="label-cell">${faker.name.firstName() + ' ' + faker.name.lastName()}</td>
+                                    <td class="label-cell">${faker.address.country()}</td>
+                                </tr>
+                                `)}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="block-title margin-vertical">HTML</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="show-more-less" data-config='{"type": "text", "limit": 500}'>
+                            <p class="dropcap">${faker.lorem.sentences(10)}</p>
+                            <img class="shape-rounded-square" src="https://source.unsplash.com/IuF6G4b4XSI/1920x1080" loading="lazy" alt="" />
+                            <p>${faker.lorem.sentences(10)}</p>
+                            <video class="shape-rounded-square" controls playsinline preload="metadata">
+                                <source src="https://player.vimeo.com/external/519858979.sd.mp4?s=c190ec51c4db221079668aac1d76a42fec38fa50&profile_id=165" type="video/mp4" />
+                            </video>
+                            <p>${faker.lorem.sentences(10)}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let initialize = function() {
+            new ShowMore('.show-more-less', {
+                config: {
+                    more: 'Read More',
+                    less: 'Read Less',
+                    element: 'div'
+                }
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initialize();
+        });
+
+        return $render;
+    }
+</script>

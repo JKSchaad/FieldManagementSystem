@@ -1,0 +1,236 @@
+<template>
+    <div class="page no-tabbar" data-name="cart" style="--f7-toolbar-height: 80px;">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Cart</div>
+            </div>
+        </div>
+
+        <div class="toolbar toolbar-bottom">
+            <div class="toolbar-inner">
+                ${cart.products.length ? $h`
+                <span class="font-size-24 font-weight-900 flex-shrink-0 margin-horizontal-half">${'₹' + cart.grand_total}</span>
+                <a href="/checkout/" class="button button-fill button-large flex-grow-1 margin-horizontal-half">Checkout</a>
+                ` : $h`
+                <a href="/products-list/" class="button button-fill button-large flex-grow-1 margin-horizontal-half">Start Shopping</a>
+                `}
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            ${cart.products.length ? $h`
+            <div class="card margin-vertical no-shadow">
+                <div class="card-header">
+                    <span>Your Cart</span>
+                    <a href="#" class="link link-button font-size-14 font-weight-600" @click="${clearCart}">Clear All</a>
+                </div>
+                <div class="card-content">
+                    <div class="list no-safe-areas">
+                        <ul>
+                            ${cart.products.map((item, index) => $h`
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner item-cell padding-vertical">
+                                        <div class="item-row">
+                                            <div class="item-cell align-self-flex-start flex-shrink-0 width-auto">
+                                                <img class="shape-rounded-square" src="${item.image}" loading="lazy" height="80" width="80" alt="" />
+                                            </div>
+                                            <div class="item-cell align-self-stretch display-flex flex-direction-column">
+                                                <div class="row">
+                                                    <div class="col-100 small-80">
+                                                        <a href="#" class="font-size-16 font-weight-600 single-line-text text-color-body">${item.name}</a>
+                                                        ${item.attributes.length ? $h`
+                                                        <div class="font-size-12 single-line-text text-color-gray">${item.attributes.map(attribute => attribute.name + ': ' + attribute.value).join(' | ')}</div>
+                                                        ` : $h` `}
+                                                    </div>
+                                                    <div class="col-100 small-20 width-auto">
+                                                        <div class="font-size-16 font-weight-bold">${'₹' + (item.price * item.quantity).toLocaleString()}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row margin-top-auto padding-top-half">
+                                                    <div class="col-50">
+                                                        <div class="stepper stepper-small stepper-init custom-style" @change="${(event) => updateQuantity(item.id, event.target.value)}">
+                                                            <div class="stepper-button-minus custom-icon color-red ripple-color-red">
+                                                                <i class="icon f7-icons color-red">minus_circle_fill</i>
+                                                            </div>
+                                                            <div class="stepper-input-wrap">
+                                                                <input type="number" class="text-color-body" value="${item.quantity}" min="1" step="1" readonly />
+                                                            </div>
+                                                            <div class="stepper-button-plus custom-icon color-green ripple-color-green">
+                                                                <i class="icon f7-icons color-green">plus_circle_fill</i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-50 width-auto">
+                                                        <div class="font-size-12 margin-top-half">
+                                                            <a href="#" class="link link-button color-blue">Save For Later</a>
+                                                            <a href="#" class="link link-button color-red" @click="${(event) => removeProduct(item.id)}">Remove</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card margin-vertical no-shadow">
+                <div class="card-header">Order Summary</div>
+                <div class="card-content">
+                    <div class="list no-safe-areas">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Subtotal</div>
+                                        <div class="item-after font-size-16">${'₹' + cart.subtotal}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Discount @ ${cart.discount_percent + '%'}</div>
+                                        <div class="item-after font-size-16">${'₹' + cart.discount_value}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Shipping Charges</div>
+                                        <div class="item-after font-size-16">${'₹' + cart.shipping}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="font-size-18 font-weight-bold text-color-body">Grand Total</span>
+                    <span class="font-size-18 font-weight-bold text-color-body">${'₹' + cart.grand_total}</span>
+                </div>
+            </div>
+            ` : $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <span class="shape-container shape-auto size-72 bg-color-chrome">
+                        <i class="icon f7-icons font-size-40">cart</i>
+                    </span>
+                </div>
+                <div class="empty-state-title">Empty Cart</div>
+                <div class="empty-state-text">Looks like you haven't added anything to your cart. Go ahead and explore our products.</div>
+            </div>
+            `}
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let cart = {
+            products: [
+                {
+                    id: 1,
+                    name: 'Sony PS4 Dualshock Magma - V2',
+                    image: 'https://source.unsplash.com/IuF6G4b4XSI/128x128',
+                    attributes: [
+                        {
+                            name: 'Color',
+                            value: 'Red'
+                        }
+                    ],
+                    price: 4099,
+                    quantity: 1
+                },
+                {
+                    id: 2,
+                    name: 'Xbox One Series X Console',
+                    image: 'https://source.unsplash.com/DPOdCl4bGJU/128x128',
+                    attributes: [
+                        {
+                            name: 'Storage',
+                            value: '512 GB'
+                        },
+                        {
+                            name: 'Resolution',
+                            value: '4K'
+                        }
+                    ],
+                    price: 52990,
+                    quantity: 1
+                },
+                {
+                    id: 3,
+                    name: 'Nintendo Gameboy Color',
+                    image: 'https://source.unsplash.com/v8XaVfyo41Q/128x128',
+                    attributes: [],
+                    price: 5399,
+                    quantity: 1
+                }
+            ],
+            subtotal: 0,
+            discount_percent: 10,
+            discount_value: 0,
+            shipping: 50,
+            grand_total: 0
+        }
+
+        let updateQuantity = function(id, quantity) {
+            cart.products.find(product => product.id == id).quantity = quantity;
+            $update(function() {
+                calculateCart();
+            });
+        }
+
+        let removeProduct = function(id) {
+            cart.products.splice(cart.products.findIndex(function(product) {
+                return product.id == id;
+            }), 1);
+            $update(function() {
+                calculateCart();
+            });
+        }
+
+        let clearCart = function() {
+            cart.products = [];
+            $update(function() {
+                calculateCart();
+            });
+        }
+
+        let calculateCart = function() {
+            let subtotal = cart.products.map(product => (product.price * product.quantity)).reduce((previous, current) => previous + current, 0);
+            let discount_percent = cart.discount_percent;
+            let discount_value = subtotal * discount_percent / 100;
+            let shipping = cart.shipping;
+            let grand_total = subtotal - discount_value + shipping;
+            cart.subtotal = Math.round(subtotal).toLocaleString();
+            cart.discount_value = Math.round(discount_value).toLocaleString();
+            cart.grand_total = Math.round(grand_total).toLocaleString();
+            $update();
+        }
+
+        $on('pageBeforeIn', function() {
+            calculateCart();
+        });
+
+        return $render;
+    }
+</script>

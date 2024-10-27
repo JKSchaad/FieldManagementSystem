@@ -1,0 +1,184 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Tour Guide</div>
+                <div class="right">
+                    <a href="#" class="link icon-only">
+                        <i class="icon material-icons">search</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Tour Guide can be used to introduce users to new product features or familiarize them with some UI functionality.</p>
+                    </div>
+
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${startTourGuide}">Start Tour</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="fab ${$f7.rtl ? 'fab-left-bottom' : 'fab-right-bottom'}">
+            <a href="#">
+                <i class="icon material-icons">add</i>
+            </a>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let tourguide = null;
+
+        let initializeTourGuide = function() {
+            tourguide = new Shepherd.Tour({
+                defaultStepOptions: {
+                    cancelIcon: {
+                        enabled: true
+                    },
+                    scrollTo: {
+                        behavior: 'smooth',
+                        block: 'center'
+                    }
+                },
+                useModalOverlay: true
+            });
+
+            tourguide.addSteps([
+                {
+                    id: 'step-1',
+                    title: 'Welcome to Nectar',
+                    text: $f7.config.app.description,
+                    attachTo: {
+                        element: $($f7.navbar.getElByPage($el.value)).find('.title')[0],
+                        on: 'auto'
+                    },
+                    buttons: [
+                        {
+                            text: 'Close',
+                            secondary: true,
+                            classes: 'color-red',
+                            action: function() {
+                                this.cancel();
+                            }
+                        },
+                        {
+                            text: 'Next',
+                            action: function() {
+                                this.next();
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: 'step-2',
+                    title: 'Searchbar',
+                    text: faker.lorem.sentence(15),
+                    attachTo: {
+                        element: $($f7.navbar.getElByPage($el.value)).find('.right')[0],
+                        on: 'auto'
+                    },
+                    buttons: [
+                        {
+                            text: 'Back',
+                            secondary: true,
+                            action: function() {
+                                this.back();
+                            }
+                        },
+                        {
+                            text: 'Next',
+                            action: function() {
+                                this.next();
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: 'step-3',
+                    title: 'Floating Action Button',
+                    text: faker.lorem.sentence(25),
+                    attachTo: {
+                        element: $el.value.find('.fab')[0],
+                        on: 'auto'
+                    },
+                    buttons: [
+                        {
+                            text: 'Back',
+                            secondary: true,
+                            action: function() {
+                                this.back();
+                            }
+                        },
+                        {
+                            text: 'Next',
+                            action: function() {
+                                this.next();
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: 'step-4',
+                    title: 'Back Button',
+                    text: faker.lorem.sentence(10),
+                    attachTo: {
+                        element: $($f7.navbar.getElByPage($el.value)).find('.left')[0],
+                        on: 'auto'
+                    },
+                    buttons: [
+                        {
+                            text: 'Back',
+                            secondary: true,
+                            action: function() {
+                                this.back();
+                            }
+                        },
+                        {
+                            text: 'Done',
+                            classes: 'color-green',
+                            action: function() {
+                                this.complete();
+                            }
+                        }
+                    ]
+                }
+            ]);
+        }
+
+        let startTourGuide = function() {
+            tourguide.start();
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeTourGuide();
+        });
+
+        $on('pageBeforeRemove', function() {
+            tourguide.complete();
+        });
+
+        return $render;
+    }
+</script>

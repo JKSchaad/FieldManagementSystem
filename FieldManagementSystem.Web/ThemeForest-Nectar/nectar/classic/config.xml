@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<widget id="website.nectar.classic" version="3.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>Nectar</name>
+    <description>Build Beautiful &amp; Performant Progressive Web Apps, Hybrid Apps &amp; Desktop Apps.</description>
+    <author email="praveen.mujawdiya@gmail.com" href="https://nectar.website" />
+
+    <content src="index.html" />
+
+    <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
+
+    <!-- Begin: Platform Engines -->
+    <engine name="android" spec="13.0.0" />
+    <engine name="ios" spec="7.1.0" />
+    <engine name="electron" spec="4.0.0" />
+    <!-- End: Platform Engines -->
+
+    <!-- Begin: Global Preferences -->
+    <platform name="android">
+        <preference name="android-minSdkVersion" value="24" /> <!-- Android 7.0 -->
+        <preference name="android-maxSdkVersion" value="34" /> <!-- Android 14.0 -->
+        <preference name="android-targetSdkVersion" value="34" /> <!-- Android 14.0 -->
+        <preference name="AndroidLaunchMode" value="singleInstance" />
+        <preference name="AndroidXEnabled" value="true" />
+        <preference name="GradlePluginKotlinEnabled" value="true" />
+        <preference name="GradlePluginKotlinCodeStyle" value="official" />
+        <preferance name="android-usesCleartextTraffic" value="true" />
+        <preference name="StatusBarOverlaysWebView" value="false" />
+    </platform>
+    <platform name="ios">
+        <preference name="SwiftVersion" value="5" />
+        <preference name="AllowInlineMediaPlayback" value="true" />
+        <preference name="AllowNewWindows" value="true" />
+        <preference name="DisallowOverscroll" value="true" />
+        <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+        <preference name="Orientation" value="all" />
+    </platform>
+    <platform name="electron">
+        <preference name="ElectronSettingsFilePath" value="res/electron/settings.json" />
+    </platform>
+    <!-- End: Global Preferences -->
+
+    <!-- Begin: Required Plugins -->
+    <plugin name="cordova-plugin-buildinfo" spec="4.0.0" />
+    <plugin name="cordova-plugin-device" spec="2.1.0" />
+    <plugin name="cordova-plugin-file" spec="8.0.1" />
+    <plugin name="cordova-plugin-inappbrowser" spec="6.0.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="6.0.2" />
+    <plugin name="cordova-plugin-statusbar" spec="4.0.0" />
+    <plugin name="cordova-plugin-webview-checker" spec="1.0.1" />
+    <plugin name="cordova-plugin-wkwebview-file-xhr" spec="3.1.1" />
+    <!-- End: Required Plugins -->
+
+    <!-- Begin: Optional Plugins -->
+    <plugin name="admob-plus-cordova" spec="1.28.0">
+        <variable name="APP_ID_ANDROID" value="ca-app-pub-3940256099942544~3347511713" />
+        <variable name="APP_ID_IOS" value="ca-app-pub-3940256099942544~1458002511" />
+    </plugin>
+    <plugin name="cordova-plugin-battery-status" spec="2.0.3" />
+    <plugin name="cordova-plugin-camera" spec="7.0.0" />
+    <plugin name="cordova-plugin-contacts-info" spec="0.2.0" />
+    <plugin name="cordova-plugin-dialogs" spec="2.0.2" />
+    <plugin name="cordova-plugin-fingerprint-aio" spec="6.0.0" />
+    <plugin name="cordova-plugin-geolocation" spec="5.0.0" />
+    <plugin name="cordova-plugin-media-capture" spec="5.0.0" />
+    <plugin name="cordova-plugin-network-information" spec="3.0.0" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="6.0.4" />
+    <plugin name="cordova-sqlite-storage" spec="6.1.0" />
+    <plugin name="cordova-plugin-vibration" spec="3.1.1" />
+    <!-- End: Optional Plugins -->
+
+    <!-- Begin: Launch Icons -->
+    <platform name="android">
+        <icon src="res/android/launch-icons/ldpi.png" density="ldpi" background="@color/adaptive_icon_background" foreground="res/android/launch-icons/ldpi-foreground.png" monochrome="res/android/launch-icons/ldpi-monochrome.png" /> <!-- 36x36 -->
+        <resource-file src="res/android/launch-icons/ldpi-dark.png" target="/app/src/main/res/mipmap-night-ldpi/ic_launcher.png" />
+        <resource-file src="res/android/launch-icons/ldpi-foreground-dark.png" target="/app/src/main/res/mipmap-night-ldpi-v26/ic_launcher_foreground.png" />
+        <resource-file src="res/android/resource-files/adaptive-icon.xml" target="/app/src/main/res/mipmap-night-ldpi-v26/ic_launcher.xml" />
+        <icon src="res/android/launch-icons/mdpi.png" density="mdpi" background="@color/adaptive_icon_background" foreground="res/android/launch-icons/mdpi-foreground.png" monochrome="res/android/launch-icons/mdpi-monochrome.png" /> <!-- 48x48 -->
+        <resource-file src="res/android/launch-icons/mdpi-dark.png" target="/app/src/main/res/mipmap-night-mdpi/ic_launcher.png" />
+        <resource-file src="res/android/launch-icons/mdpi-foreground-dark.png" target="/app/src/main/res/mipmap-night-mdpi-v26/ic_launcher_foreground.png" />
+        <resource-file src="res/android/resource-files/adaptive-icon.xml" target="/app/src/main/res/mipmap-night-mdpi-v26/ic_launcher.xml" />
+        <icon src="res/android/launch-icons/hdpi.png" density="hdpi" background="@color/adaptive_icon_background" foreground="res/android/launch-icons/hdpi-foreground.png" monochrome="res/android/launch-icons/hdpi-monochrome.png" /> <!-- 72x72 -->
+        <resource-file src="res/android/launch-icons/hdpi-dark.png" target="/app/src/main/res/mipmap-night-hdpi/ic_launcher.png" />
+        <resource-file src="res/android/launch-icons/hdpi-foreground-dark.png" target="/app/src/main/res/mipmap-night-hdpi-v26/ic_launcher_foreground.png" />
+        <resource-file src="res/android/resource-files/adaptive-icon.xml" target="/app/src/main/res/mipmap-night-hdpi-v26/ic_launcher.xml" />
+        <icon src="res/android/launch-icons/xhdpi.png" density="xhdpi" background="@color/adaptive_icon_background" foreground="res/android/launch-icons/xhdpi-foreground.png" monochrome="res/android/launch-icons/xhdpi-monochrome.png" /> <!-- 96x96 -->
+        <resource-file src="res/android/launch-icons/xhdpi-dark.png" target="/app/src/main/res/mipmap-night-xhdpi/ic_launcher.png" />
+        <resource-file src="res/android/launch-icons/xhdpi-foreground-dark.png" target="/app/src/main/res/mipmap-night-xhdpi-v26/ic_launcher_foreground.png" />
+        <resource-file src="res/android/resource-files/adaptive-icon.xml" target="/app/src/main/res/mipmap-night-xhdpi-v26/ic_launcher.xml" />
+        <icon src="res/android/launch-icons/xxhdpi.png" density="xxhdpi" background="@color/adaptive_icon_background" foreground="res/android/launch-icons/xxhdpi-foreground.png" monochrome="res/android/launch-icons/xxhdpi-monochrome.png" /> <!-- 144x144 -->
+        <resource-file src="res/android/launch-icons/xxhdpi-dark.png" target="/app/src/main/res/mipmap-night-xxhdpi/ic_launcher.png" />
+        <resource-file src="res/android/launch-icons/xxhdpi-foreground-dark.png" target="/app/src/main/res/mipmap-night-xxhdpi-v26/ic_launcher_foreground.png" />
+        <resource-file src="res/android/resource-files/adaptive-icon.xml" target="/app/src/main/res/mipmap-night-xxhdpi-v26/ic_launcher.xml" />
+        <icon src="res/android/launch-icons/xxxhdpi.png" density="xxxhdpi" background="@color/adaptive_icon_background" foreground="res/android/launch-icons/xxxhdpi-foreground.png" monochrome="res/android/launch-icons/xxxhdpi-monochrome.png" /> <!-- 192x192 -->
+        <resource-file src="res/android/launch-icons/xxxhdpi-dark.png" target="/app/src/main/res/mipmap-night-xxxhdpi/ic_launcher.png" />
+        <resource-file src="res/android/launch-icons/xxxhdpi-foreground-dark.png" target="/app/src/main/res/mipmap-night-xxxhdpi-v26/ic_launcher_foreground.png" />
+        <resource-file src="res/android/resource-files/adaptive-icon.xml" target="/app/src/main/res/mipmap-night-xxxhdpi-v26/ic_launcher.xml" />
+    </platform>
+    <platform name="ios">
+        <icon src="res/ios/launch-icons/icon-small.png" width="29" height="29" />
+        <icon src="res/ios/launch-icons/icon-small@2x.png" width="58" height="58" />
+        <icon src="res/ios/launch-icons/icon-small@3x.png" width="87" height="87" />
+        <icon src="res/ios/launch-icons/icon.png" width="57" height="57" />
+        <icon src="res/ios/launch-icons/icon@2x.png" width="114" height="114" />
+        <icon src="res/ios/launch-icons/icon-40.png" width="40" height="40" />
+        <icon src="res/ios/launch-icons/icon-40@2x.png" width="80" height="80" />
+        <icon src="res/ios/launch-icons/icon-50.png" width="50" height="50" />
+        <icon src="res/ios/launch-icons/icon-50@2x.png" width="100" height="100" />
+        <icon src="res/ios/launch-icons/icon-60.png" width="60" height="60" />
+        <icon src="res/ios/launch-icons/icon-60@2x.png" width="120" height="120" />
+        <icon src="res/ios/launch-icons/icon-60@3x.png" width="180" height="180" />
+        <icon src="res/ios/launch-icons/icon-72.png" width="72" height="72" />
+        <icon src="res/ios/launch-icons/icon-72@2x.png" width="144" height="144" />
+        <icon src="res/ios/launch-icons/icon-76.png" width="76" height="76" />
+        <icon src="res/ios/launch-icons/icon-76@2x.png" width="152" height="152" />
+        <icon src="res/ios/launch-icons/icon-167.png" width="167" height="167" />
+        <icon src="res/ios/launch-icons/icon-1024.png" width="1024" height="1024" />
+    </platform>
+    <platform name="electron">
+        <icon src="res/electron/launch-icons/icon.png" />
+    </platform>
+    <!-- End: Launch Icons -->
+
+    <!-- Begin: Splash Screens -->
+    <platform name="android">
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/splash-screens/splash-icon.png" />
+        <resource-file src="res/android/splash-screens/splash-icon-dark.png" target="/app/src/main/res/drawable-night-nodpi/ic_cdv_splashscreen.png" />
+    </platform>
+    <platform name="ios">
+        <splash src="res/ios/splash-screens/Default@2x~universal~anyany.png" />
+        <splash src="res/ios/splash-screens/Default@2x~universal~anyany~light.png" />
+        <splash src="res/ios/splash-screens/Default@2x~universal~anyany~dark.png" />
+    </platform>
+    <platform name="electron">
+        <preference name="AutoHideSplashScreen" value="true" />
+        <preference name="ShowSplashScreen" value="false" />
+    </platform>
+    <!-- End: Splash Screens -->
+
+    <!-- Begin: Configs & Resources -->
+    <platform name="android">
+        <resource-file src="res/android/resource-files/colors.xml" target="/app/src/main/res/values/colors.xml" />
+        <resource-file src="res/android/resource-files/colors-dark.xml" target="/app/src/main/res/values-night/colors.xml" />
+    </platform>
+    <platform name="ios">
+        <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Camera Usage Description</string>
+        </edit-config>
+        <edit-config target="NSContactsUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Contacts Usage Description</string>
+        </edit-config>
+        <edit-config target="NSLocationAlwaysUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Location Always Usage Description</string>
+        </edit-config>
+        <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Location When In Use Usage Description</string>
+        </edit-config>
+        <edit-config target="NSLocationAlwaysAndWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Location Always And When In Use Usage Description</string>
+        </edit-config>
+        <edit-config target="NSMicrophoneUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Microphone Usage Description</string>
+        </edit-config>
+        <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Photo Library Usage Description</string>
+        </edit-config>
+        <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Photo Library Add Usage Description</string>
+        </edit-config>
+    </platform>
+    <!-- End: Configs & Resources -->
+
+    <!-- Begin: Hooks -->
+    <platform name="android">
+        <hook type="after_prepare" src="hooks/RemoveExtraWriteExternalStoragePermission.js" />
+    </platform>
+    <!-- End: Hooks -->
+
+</widget>

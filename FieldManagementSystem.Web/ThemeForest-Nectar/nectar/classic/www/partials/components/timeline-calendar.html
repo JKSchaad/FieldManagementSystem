@@ -1,0 +1,117 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Calendar Timeline</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            ${timeline ? $h`
+            <div class="timeline timeline-horizontal col-50 tablet-25">
+                ${Object.keys(timeline).map((year) => $h`
+                <div class="timeline-year">
+                    <div class="timeline-year-title">
+                        <span>${year}</span>
+                    </div>
+                    ${Object.keys(timeline[year]).map((month) => $h`
+                    <div class="timeline-month">
+                        <div class="timeline-month-title">
+                            <span>${month}</span>
+                        </div>
+                        ${Object.keys(timeline[year][month]).map((day) => $h`
+                        <div class="timeline-item">
+                            <div class="timeline-item-date">${day.split('_')[0]} <small class="timeline-item-day">${day.split('_')[1]}</small></div>
+                            <div class="timeline-item-content">
+                                ${Object.keys(timeline[year][month][day]).map((timestamp) => $h`
+                                <div class="timeline-item-inner no-shadow">
+                                    <div class="timeline-item-time">
+                                        <span class="badge badge-fade badge-round color-primary no-margin-horizontal">${moment.unix(timestamp).utc().format('hh:mm A')}</span>
+                                    </div>
+                                    ${timeline[year][month][day][timestamp].map((item, index) => $h`
+                                    <div class="timeline-item-title text-color-primary">${item.event.title}</div>
+                                    <div class="timeline-item-subtitle">${item.event.description}</div>
+                                    `)}
+                                </div>
+                                `)}
+                            </div>
+                        </div>
+                        `)}
+                    </div>
+                    `)}
+                </div>
+                `)}
+            </div>
+            ` : $h` `}
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let timeline = null;
+
+        let loadData = function() {
+            $f7.request({
+                url: 'assets/custom/dataset/timeline.json',
+                method: 'GET',
+                data: null,
+                dataType: 'json'
+            })
+            .then(function(response) {
+                let data = response.data;
+
+                let sorted = fastSort.sort(data).asc([
+                    item => item.date
+                ]);
+
+                let year, month, day;
+
+                let groupedTimeline = sorted.reduce(function(acc, obj) {
+                    let dt = {
+                        y: moment(obj.date).utc().format('YYYY'),
+                        m: moment(obj.date).utc().format('MMMM'),
+                        d: moment(obj.date).utc().format('DD_ddd'),
+                        t: moment(obj.date).utc().format('X')
+                    }
+
+                    if (!acc[dt.y]) acc[dt.y] = {};
+                    year = acc[dt.y];
+
+                    if (!year[dt.m]) year[dt.m] = {};
+                    month = year[dt.m];
+
+                    if (!month[dt.d]) month[dt.d] = {};
+                    day = month[dt.d];
+
+                    if (!day[dt.t]) day[dt.t] = [];
+                    day[dt.t].push(obj);
+
+                    return acc;
+                }, Object.create(null));
+
+                timeline = groupedTimeline;
+
+                $update();
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            loadData();
+        });
+
+        return $render;
+    }
+</script>

@@ -1,0 +1,158 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Signature Pad</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Signature Pad allows to draw smooth signatures and save them as an image.</p>
+                    </div>
+
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="signature-pad">
+                            <canvas class="signature-pad-canvas"></canvas>
+                        </div>
+                        <div class="menu margin-top">
+                            <div class="menu-inner justify-content-center">
+                                <a href="#" class="menu-item" @click="${clearSignature}">
+                                    <div class="menu-item-content">Clear</div>
+                                </a>
+                                <a href="#" class="menu-item" @click="${undoSignature}">
+                                    <div class="menu-item-content">Undo</div>
+                                </a>
+                                <a href="#" class="menu-item menu-item-change-color" @click="${() => colorPicker.open()}">
+                                    <div class="menu-item-content">Change Color</div>
+                                </a>
+                                <div class="menu-item menu-item-dropdown">
+                                    <div class="menu-item-content">Save</div>
+                                    <div class="menu-dropdown menu-dropdown-center">
+                                        <div class="menu-dropdown-content">
+                                            <a href="#" class="menu-dropdown-link menu-close" @click="${() => saveSignature('image/jpeg')}">As JPG</a>
+                                            <a href="#" class="menu-dropdown-link menu-close" @click="${() => saveSignature('image/png')}">As PNG</a>
+                                            <a href="#" class="menu-dropdown-link menu-close" @click="${() => saveSignature('image/svg+xml')}">As SVG</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let signaturePad = null;
+        let signaturePadCanvas = null;
+        let colorPicker = null;
+
+        let initializeSignaturePad = function() {
+            signaturePadCanvas = $el.value.find('.signature-pad .signature-pad-canvas')[0];
+            signaturePad = new SignaturePad(signaturePadCanvas, {
+                backgroundColor: 'rgb(255, 255, 255)',
+                penColor: 'rgb(0, 0, 0)'
+            });
+            resizeSignaturePadCanvas();
+            let resizeObserver = new ResizeObserver(resizeSignaturePadCanvas);
+            resizeObserver.observe(signaturePadCanvas, {box: 'content-box'});
+            initializeColorPicker();
+        }
+
+        let initializeColorPicker = function() {
+            colorPicker = $f7.colorPicker.create({
+                targetEl: $el.value.find('.menu-item-change-color'),
+                modules: ['initial-current-colors', 'rgb-sliders'],
+                openIn: 'popover',
+                sliderValue: true,
+                sliderLabel: true,
+                value: {
+                    rgb: [0, 0, 0]
+                },
+                on: {
+                    change: function(colorPicker) {
+                        let color = 'rgb(' + colorPicker.value.rgb.join(', ') + ')';
+                        changePenColor(color);
+                    }
+                }
+            });
+        }
+
+        let resizeSignaturePadCanvas = function() {
+            let ratio = Math.max(window.devicePixelRatio || 1, 1);
+            signaturePadCanvas.width = signaturePadCanvas.offsetWidth * ratio;
+            signaturePadCanvas.height = signaturePadCanvas.offsetHeight * ratio;
+            signaturePadCanvas.getContext('2d').scale(ratio, ratio);
+            signaturePad.clear();
+        }
+
+        let clearSignature = function() {
+            signaturePad.clear();
+        }
+
+        let undoSignature = function() {
+            let data = signaturePad.toData();
+            if (data) {
+                data.pop();
+                signaturePad.fromData(data);
+            }
+        }
+
+        let changePenColor = function(color) {
+            signaturePad.penColor = color;
+        }
+
+        let saveSignature = function(type) {
+            if (signaturePad.isEmpty()) {
+                $f7.toast.show({
+                    text: 'Please provide signature first.',
+                    cssClass: 'color-red'
+                });
+            }
+            else {
+                let dataUrl = null;
+                switch (type) {
+                    case 'image/jpeg':
+                        dataUrl = signaturePad.toDataURL('image/jpeg');
+                    break;
+                    case 'image/png':
+                        dataUrl = signaturePad.toDataURL('image/png');
+                    break;
+                    case 'image/svg+xml':
+                        dataUrl = signaturePad.toDataURL('image/svg+xml');
+                    break;
+                    default:
+                        dataUrl = signaturePad.toDataURL();
+                }
+                let blob = $f7.dataUrlToBlob(dataUrl);
+                saveAs(blob, 'signature');
+            }
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeSignaturePad();
+        });
+
+        return $render;
+    }
+</script>

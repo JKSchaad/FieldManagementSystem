@@ -1,0 +1,375 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Smart Select</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Smart Select converts usual form selects into dynamic page, popover, popup or sheet with grouped radios and checkboxes.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Open In Page</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-page" class="item-link smart-select">
+                                    <select name="today">
+                                        <option value="monday">Monday</option>
+                                        <option value="tuesday">Tuesday</option>
+                                        <option value="wednesday">Wednesday</option>
+                                        <option value="thursday">Thursday</option>
+                                        <option value="friday">Friday</option>
+                                        <option value="saturday">Saturday</option>
+                                        <option value="sunday">Sunday</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Today</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Open In Popover</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-popover" class="item-link smart-select">
+                                    <select name="gender">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Gender</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Open In Popup</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-popup" class="item-link smart-select">
+                                    <select name="month">
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Month</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Open In Sheet</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-sheet" class="item-link smart-select">
+                                    <select name="zodiac-sign">
+                                        <option value="aries">Aries</option>
+                                        <option value="taurus">Taurus</option>
+                                        <option value="gemini">Gemini</option>
+                                        <option value="cancer">Cancer</option>
+                                        <option value="leo">Leo</option>
+                                        <option value="virgo">Virgo</option>
+                                        <option value="libra">Libra</option>
+                                        <option value="scorpio">Scorpio</option>
+                                        <option value="sagittarius">Sagittarius</option>
+                                        <option value="capricorn">Capricorn</option>
+                                        <option value="aquarius">Aquarius</option>
+                                        <option value="pisces">Pisces</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Zodiac Sign</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Multiple Select & Grouped</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-multiple-select-grouped" class="item-link smart-select">
+                                    <select name="cars" multiple>
+                                        <optgroup label="American">
+                                            <option value="cadillac">Cadillac</option>
+                                            <option value="chrysler">Chrysler</option>
+                                            <option value="dodge">Dodge</option>
+                                            <option value="ford" selected>Ford</option>
+                                        </optgroup>
+                                        <optgroup label="German">
+                                            <option value="audi">Audi</option>
+                                            <option value="bmw">BMW</option>
+                                            <option value="mercedes" selected>Mercedes</option>
+                                            <option value="volkswagen">Volkswagen</option>
+                                            <option value="volvo">Volvo</option>
+                                        </optgroup>
+                                        <optgroup label="Japanese">
+                                            <option value="honda">Honda</option>
+                                            <option value="lexus" selected>Lexus</option>
+                                            <option value="mazda">Mazda</option>
+                                            <option value="nissan">Nissan</option>
+                                            <option value="toyota">Toyota</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Cars</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Multiple Select & Maxlength</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-multiple-select-maxlength" class="item-link smart-select">
+                                    <select name="superheroes" multiple maxlength="3">
+                                        <option value="aquaman">Aquaman</option>
+                                        <option value="batman">Batman</option>
+                                        <option value="black-panther">Black Panther</option>
+                                        <option value="captain-america">Captain America</option>
+                                        <option value="captain-marvel">Captain Marvel</option>
+                                        <option value="iron-man">Iron Man</option>
+                                        <option value="spider-man">Spider-Man</option>
+                                        <option value="superman">Superman</option>
+                                        <option value="wolverine">Wolverine</option>
+                                        <option value="wonder-woman">Wonder Woman</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Superheroes</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Options - Color</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-custom-options-color" class="item-link smart-select">
+                                    <select name="color">
+                                        <option value="red" data-option-class="color-red">Red</option>
+                                        <option value="yellow" data-option-class="color-yellow">Yellow</option>
+                                        <option value="blue" data-option-class="color-blue">Blue</option>
+                                        <option value="orange" data-option-class="color-orange">Orange</option>
+                                        <option value="purple" data-option-class="color-purple">Purple</option>
+                                        <option value="green" data-option-class="color-green">Green</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Color</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Options - Icon</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-custom-options-icon" class="item-link smart-select">
+                                    <select name="icon">
+                                        <option value="male" data-option-icon="material:male">Male</option>
+                                        <option value="female" data-option-icon="material:female">Female</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Gender</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Options - Image</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" id="smart-select-custom-options-image" class="item-link smart-select">
+                                    <select name="languages" multiple>
+                                        <option value="en" data-option-image="https://flagcdn.com/32x24/gb.png">English</option>
+                                        <option value="zh" data-option-image="https://flagcdn.com/32x24/cn.png">Chinese</option>
+                                        <option value="hi" data-option-image="https://flagcdn.com/32x24/in.png">Hindi</option>
+                                        <option value="es" data-option-image="https://flagcdn.com/32x24/es.png">Spanish</option>
+                                        <option value="fr" data-option-image="https://flagcdn.com/32x24/fr.png">French</option>
+                                        <option value="ar" data-option-image="https://flagcdn.com/32x24/sa.png">Arabic</option>
+                                        <option value="bn" data-option-image="https://flagcdn.com/32x24/in.png">Bengali</option>
+                                        <option value="ru" data-option-image="https://flagcdn.com/32x24/ru.png">Russian</option>
+                                        <option value="pt" data-option-image="https://flagcdn.com/32x24/pt.png">Portuguese</option>
+                                        <option value="id" data-option-image="https://flagcdn.com/32x24/id.png">Indonesian</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Languages</div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let smartSelectPage = null;
+        let smartSelectPopover = null;
+        let smartSelectPopup = null;
+        let smartSelectSheet = null;
+        let smartSelectMultipleSelectGrouped = null;
+        let smartSelectMultipleSlectMaxlength = null;
+        let smartSelectCustomOptionsColor = null;
+        let smartSelectCustomOptionsIcon = null;
+        let smartSelectCustomOptionsImage = null;
+
+        let initializeSmartSelectPage = function() {
+            smartSelectPage = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-page'),
+                openIn: 'page'
+            });
+        }
+
+        let initializeSmartSelectPopover = function() {
+            smartSelectPopover = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-popover'),
+                openIn: 'popover',
+                closeOnSelect: true,
+                searchbar: false
+            });
+        }
+
+        let initializeSmartSelectPopup = function() {
+            smartSelectPopup = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-popup'),
+                openIn: 'popup'
+            });
+        }
+
+        let initializeSmartSelectSheet = function() {
+            smartSelectSheet = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-sheet'),
+                openIn: 'sheet',
+                searchbar: false
+            });
+        }
+
+        let initializeSmartSelectMultipleSelectGrouped = function() {
+            smartSelectMultipleSelectGrouped = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-multiple-select-grouped'),
+                openIn: 'page'
+            });
+        }
+
+        let initializeSmartSelectMultipleSelectMaxlength = function() {
+            smartSelectMultipleSelectMaxlength = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-multiple-select-maxlength'),
+                openIn: 'popup'
+            });
+        }
+
+        let initializeSmartSelectCustomOptionsColor = function() {
+            smartSelectCustomOptionsColor = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-custom-options-color'),
+                openIn: 'popover',
+                closeOnSelect: true,
+                searchbar: false
+            });
+        }
+
+        let initializeSmartSelectCustomOptionsIcon = function() {
+            smartSelectCustomOptionsIcon = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-custom-options-icon'),
+                openIn: 'popover',
+                closeOnSelect: true,
+                searchbar: false
+            });
+        }
+
+        let initializeSmartSelectCustomOptionsImage = function() {
+            smartSelectCustomOptionsImage = $f7.smartSelect.create({
+                el: $el.value.find('#smart-select-custom-options-image'),
+                openIn: 'popup'
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeSmartSelectPage();
+            initializeSmartSelectPopover();
+            initializeSmartSelectPopup();
+            initializeSmartSelectSheet();
+            initializeSmartSelectMultipleSelectGrouped();
+            initializeSmartSelectMultipleSelectMaxlength();
+            initializeSmartSelectCustomOptionsColor();
+            initializeSmartSelectCustomOptionsIcon();
+            initializeSmartSelectCustomOptionsImage();
+        });
+
+        return $render;
+    }
+</script>

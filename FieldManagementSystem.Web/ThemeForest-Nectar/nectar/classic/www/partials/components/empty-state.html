@@ -1,0 +1,74 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Empty State</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Empty State can be used when there is no data to display to the user.</p>
+                        <p>It may include a call to action to guide the user on what to do next.</p>
+                        <p>It can also be used to communicate completion or other status at the end of a sequential task.</p>
+                    </div>
+
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill popup-open" data-popup="#popup-empty-state">Show Empty State</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="popup-empty-state" class="popup">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner">
+                        <div class="title">Empty State</div>
+                        <div class="right">
+                            <a class="link icon-only popup-close">
+                                <i class="icon material-icons">cancel</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="empty-state empty-state-strong inset">
+                        <div class="empty-state-media">
+                            <img class="shape-auto if-not-dark" src="${$f7.config.app.logos.logomarkSquareLight}" height="84" width="84" alt="" />
+                            <img class="shape-auto if-dark" src="${$f7.config.app.logos.logomarkSquareDark}" height="84" width="84" alt="" />
+                        </div>
+                        <div class="empty-state-title">Welcome to ${$f7.config.app.title}</div>
+                        <div class="empty-state-text">${$f7.config.app.description}</div>
+                        <div class="empty-state-actions">
+                            <button class="empty-state-action button button-fill button-round color-cyan popup-close">Explore</button>
+                            <a href="${$f7.config.app.themeforestUrl}" target="${$f7.getExternalUrlTarget()}" class="empty-state-action button button-fill button-round external color-amber">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

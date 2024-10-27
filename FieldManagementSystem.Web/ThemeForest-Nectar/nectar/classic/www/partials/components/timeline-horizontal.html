@@ -1,0 +1,196 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Horizontal Timeline</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="timeline timeline-horizontal col-50 tablet-25">
+                <div class="timeline-item">
+                    <div class="timeline-item-date">2021</div>
+                    <div class="timeline-item-content">
+                        <div class="list cards-list inset no-hairlines-between">
+                            <ul>
+                                <li class="no-margin-top">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">20 January</div>
+                                                <div class="font-size-14">Joe Biden Becomes President</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">23 March</div>
+                                                <div class="font-size-14">Cargo Ship Gets Stuck In Suez Canal</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">31 May</div>
+                                                <div class="font-size-14">B.1.617.2 Variant Gets The Name Delta</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">15 September</div>
+                                                <div class="font-size-14">SpaceX Launches First All-civilian Spaceflight</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">23 July - 8 August</div>
+                                                <div class="font-size-14">Tokyo Olympics</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                <div class="item-header">15 August</div>
+                                                <div class="font-size-14">Kabul Falls To Taliban</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-item-date">2022</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-inner">
+                            <div class="timeline-item-time">${window.moment ? moment('2020-01-01').format('dddd, MMMM DD') : new Date('2020-01-01').toLocaleString()}</div>
+                            <div class="timeline-item-title text-color-primary">Happy New Year</div>
+                            <div class="timeline-item-subtitle">In the Gregorian calendar, the most widely used calendar system today, New Year occurs on January 1.</div>
+                        </div>
+                        <div class="timeline-item-inner">
+                            <div class="timeline-item-time">${window.moment ? moment('2020-12-25').format('dddd, MMMM DD') : new Date('2020-12-25').toLocaleString()}</div>
+                            <div class="timeline-item-title text-color-primary">Merry Christmas</div>
+                            <div class="timeline-item-subtitle">Christmas is an annual festival commemorating the birth of Jesus Christ, observed primarily on December 25, as a religious and cultural celebration among billions of people around the world.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-item-date">2023</div>
+                    <div class="timeline-item-content">
+                        <div class="card">
+                            <div class="card-header no-hairline">Lorem Ipsum</div>
+                            <div class="card-content">
+                                <img src="https://picsum.photos/640/480?r=1" loading="lazy" alt="" />
+                            </div>
+                            <div class="card-footer no-hairline">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-item-date">2024</div>
+                    <div class="timeline-item-content">
+                        <div class="list links-list inset">
+                            <ul>
+                                <li>
+                                    <a href="#">Item 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Item 2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Item 3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-item-date">2025</div>
+                    <div class="timeline-item-content">
+                        <div class="timeline-item-inner">
+                            <div class="timeline-item-time">
+                                <span class="badge badge-fade badge-round color-pink no-margin-horizontal">January</span>
+                            </div>
+                            <div class="list simple-list">
+                                <ul>
+                                    <li class="no-padding-horizontal">Pellentesque non tincidunt urna.</li>
+                                    <li class="no-padding-horizontal">Nunc dui lacus dictum eget.</li>
+                                    <li class="no-padding-horizontal">Integer diam ex hendrerit a.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item-inner">
+                            <div class="timeline-item-time">
+                                <span class="badge badge-fade badge-round color-deeppurple no-margin-horizontal">March</span>
+                            </div>
+                            <div class="timeline-item-subtitle">${faker.lorem.sentences(5)}</div>
+                        </div>
+                        <div class="timeline-item-inner">
+                            <div class="timeline-item-time">
+                                <span class="badge badge-fade badge-round color-brown no-margin-horizontal">May</span>
+                            </div>
+                            <div class="timeline-item-text">
+                                <img class="shape-rounded-square" src="https://picsum.photos/640/480?r=2" loading="lazy" alt="" />
+                            </div>
+                        </div>
+                        <div class="timeline-item-inner">
+                            <div class="timeline-item-time">
+                                <span class="badge badge-fade badge-round color-cyan no-margin-horizontal">July</span>
+                            </div>
+                            <div class="timeline-item-title text-color-primary">Lorem Ipsum</div>
+                            <div class="timeline-item-text">${faker.lorem.sentences(5)}</div>
+                        </div>
+                        <div class="timeline-item-inner">
+                            <div class="timeline-item-time">
+                                <span class="badge badge-fade badge-round color-green no-margin-horizontal">September</span>
+                            </div>
+                            <div class="timeline-item-subtitle">${faker.lorem.sentences(5)}</div>
+                        </div>
+                        <div class="timeline-item-inner">
+                            <div class="timeline-item-time">
+                                <span class="badge badge-fade badge-round color-amber no-margin-horizontal">November</span>
+                            </div>
+                            <div class="timeline-item-text">${faker.lorem.sentences(5)}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

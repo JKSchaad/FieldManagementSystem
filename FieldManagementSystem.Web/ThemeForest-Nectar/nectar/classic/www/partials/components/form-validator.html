@@ -1,0 +1,207 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Form Validator</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Form Validator can be used to validate user input.</p>
+                    </div>
+
+                    <form name="validator" method="POST" action="#" enctype="multipart/form-data">
+                        <div class="list inset margin-vertical">
+                            <ul>
+                                <li>
+                                    <div class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">Name</div>
+                                            <div class="item-input-wrap">
+                                                <input type="text" name="name" required />
+                                                <span class="input-clear-button"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">Age</div>
+                                            <div class="item-input-wrap">
+                                                <input type="text" name="age" inputmode="numeric" required @input="${(event) => stepperAge.setValue(event.target.value)}" />
+                                                <div id="stepper-age" class="stepper stepper-small">
+                                                    <div class="stepper-button-minus"></div>
+                                                    <div class="stepper-button-plus"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">Gender</div>
+                                            <div class="item-input-wrap input-dropdown-wrap">
+                                                <select name="gender" required>
+                                                    <option value="">Select</option>
+                                                    <option value="M">Male</option>
+                                                    <option value="F">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">Email</div>
+                                            <div class="item-input-wrap">
+                                                <input type="email" name="email" inputmode="email" required />
+                                                <span class="input-clear-button"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">URL</div>
+                                            <div class="item-input-wrap">
+                                                <input type="url" name="url" inputmode="url" required />
+                                                <span class="input-clear-button"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label">Decimal Number</div>
+                                            <div class="item-input-wrap">
+                                                <input type="text" name="decimal_number" inputmode="tel" required />
+                                                <span class="input-clear-button"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block margin-vertical">
+                            <button type="submit" class="button button-fill button-large">Validate</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let stepperAge = null;
+        let formValidator = null;
+
+        let initializeStepperAge = function() {
+            stepperAge = $f7.stepper.create({
+                el: $el.value.find('#stepper-age'),
+                step: 1,
+                min: 13,
+                max: 100,
+                value: 17,
+                autorepeat: true,
+                autorepeatDynamic: true,
+                on: {
+                    change: function(stepper, value) {
+                        $el.value.find('input[name=age]').val(value);
+                    }
+                }
+            });
+        }
+
+        let initializeFormValidator = function() {
+            formValidator = jQuery($el.value.find('form[name=validator]')).validate({
+                rules: {
+                    name: {
+                        required: true
+                    },
+                    age: {
+                        required: true,
+                        digits: true,
+                        range: [13, 100]
+                    },
+                    gender: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    url: {
+                        required: true,
+                        url: true
+                    },
+                    decimal_number: {
+                        required: true,
+                        number: true
+                    }
+                },
+                messages: {
+                    name: {
+                        required: 'Please enter name.'
+                    },
+                    age: {
+                        required: 'Please enter age.',
+                        digits: 'Age must be in digits only.',
+                        range: 'Please enter age between 13 and 100 only.'
+                    },
+                    gender: {
+                        required: 'Please select gender.'
+                    },
+                    email: {
+                        required: 'Please enter email.',
+                        email: 'Please enter a valid email.'
+                    },
+                    url: {
+                        required: 'Please enter URL.',
+                        url: 'Please enter a valid URL.'
+                    },
+                    decimal_number: {
+                        required: 'Please enter decimal number.',
+                        number: 'Please enter a valid decimal number.'
+                    }
+                },
+                submitHandler: function(form) {
+                    $f7.toast.show({
+                        text: 'The form has been validated successfully.',
+                        cssClass: 'color-green'
+                    });
+                }
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeStepperAge();
+            initializeFormValidator();
+        });
+
+        return $render;
+    }
+</script>

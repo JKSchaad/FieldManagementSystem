@@ -1,0 +1,333 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Skeleton</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Skeleton can be used display a placeholder preview of content before the data is loaded.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="list media-list inset margin-vertical">
+                        <ul>
+                            ${Array(2).fill().map((item, index) => $h`
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="skeleton-block shape-circle size-48"></div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title skeleton-text">Title Goes Here.</div>
+                                            <div class="item-after">
+                                                <div class="shape-circle size-24"></div>
+                                            </div>
+                                        </div>
+                                        <div class="item-subtitle skeleton-text">Subtitle Goes Here. Subtitle Goes Here.</div>
+                                        <div class="item-text skeleton-text">Text Goes Here. Text Goes Here. Text Goes Here. Text Goes Here.</div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+                    ${Array(1).fill().map((item, index) => $h`
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header align-items-flex-start justify-content-flex-start no-hairline padding-vertical">
+                            <div class="skeleton-block shape-circle size-48 flex-shrink-0"></div>
+                            <div class="skeleton-text margin-horizontal">
+                                <div>Some Text Here.</div>
+                                <div>Some Text Here. Some Text Here. Some Text Here.</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="skeleton-block width-100" style="height: 256px;"></div>
+                        </div>
+                        <div class="card-footer no-hairline">
+                            <div class="skeleton-text">Some Text Here. Some Text Here.</div>
+                        </div>
+                    </div>
+                    `)}
+                    <div class="block margin-vertical">
+                        <div class="row no-gap">
+                            ${Array(4).fill().map((item, index) => $h`
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas no-shadow">
+                                    <div class="card-content">
+                                        <div class="skeleton-block width-100" style="border-radius: var(--f7-card-border-radius) var(--f7-card-border-radius) 0 0; height: 96px;"></div>
+                                    </div>
+                                    <div class="card-footer justify-content-flex-start no-hairline">
+                                        <div class="skeleton-block shape-circle size-24 flex-shrink-0"></div>
+                                        <div class="skeleton-text margin-horizontal-half">Text Here</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Fade Effect</div>
+                    <div class="list media-list inset margin-vertical">
+                        <ul>
+                            ${Array(2).fill().map((item, index) => $h`
+                            <li>
+                                <div class="item-content skeleton-effect-fade">
+                                    <div class="item-media">
+                                        <div class="skeleton-block shape-circle size-48"></div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title skeleton-text">Title Goes Here.</div>
+                                            <div class="item-after">
+                                                <div class="shape-circle size-24"></div>
+                                            </div>
+                                        </div>
+                                        <div class="item-subtitle skeleton-text">Subtitle Goes Here. Subtitle Goes Here.</div>
+                                        <div class="item-text skeleton-text">Text Goes Here. Text Goes Here. Text Goes Here. Text Goes Here.</div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+                    ${Array(1).fill().map((item, index) => $h`
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header skeleton-effect-fade align-items-flex-start justify-content-flex-start no-hairline padding-vertical">
+                            <div class="skeleton-block shape-circle size-48 flex-shrink-0"></div>
+                            <div class="skeleton-text margin-horizontal">
+                                <div>Some Text Here.</div>
+                                <div>Some Text Here. Some Text Here. Some Text Here.</div>
+                            </div>
+                        </div>
+                        <div class="card-content skeleton-effect-fade">
+                            <div class="skeleton-block width-100" style="height: 256px;"></div>
+                        </div>
+                        <div class="card-footer skeleton-effect-fade no-hairline">
+                            <div class="skeleton-text">Some Text Here. Some Text Here.</div>
+                        </div>
+                    </div>
+                    `)}
+                    <div class="block margin-vertical">
+                        <div class="row no-gap">
+                            ${Array(4).fill().map((item, index) => $h`
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas no-shadow">
+                                    <div class="card-content skeleton-effect-fade">
+                                        <div class="skeleton-block width-100" style="border-radius: var(--f7-card-border-radius) var(--f7-card-border-radius) 0 0; height: 96px;"></div>
+                                    </div>
+                                    <div class="card-footer skeleton-effect-fade justify-content-flex-start no-hairline">
+                                        <div class="skeleton-block shape-circle size-24 flex-shrink-0"></div>
+                                        <div class="skeleton-text margin-horizontal-half">Text Here</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Pulse Effect</div>
+                    <div class="list media-list inset margin-vertical">
+                        <ul>
+                            ${Array(2).fill().map((item, index) => $h`
+                            <li>
+                                <div class="item-content skeleton-effect-pulse">
+                                    <div class="item-media">
+                                        <div class="skeleton-block shape-circle size-48"></div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title skeleton-text">Title Goes Here.</div>
+                                            <div class="item-after">
+                                                <div class="shape-circle size-24"></div>
+                                            </div>
+                                        </div>
+                                        <div class="item-subtitle skeleton-text">Subtitle Goes Here. Subtitle Goes Here.</div>
+                                        <div class="item-text skeleton-text">Text Goes Here. Text Goes Here. Text Goes Here. Text Goes Here.</div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+                    ${Array(1).fill().map((item, index) => $h`
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header skeleton-effect-pulse align-items-flex-start justify-content-flex-start no-hairline padding-vertical">
+                            <div class="skeleton-block shape-circle size-48 flex-shrink-0"></div>
+                            <div class="skeleton-text margin-horizontal">
+                                <div>Some Text Here.</div>
+                                <div>Some Text Here. Some Text Here. Some Text Here.</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="skeleton-block width-100" style="height: 256px;"></div>
+                        </div>
+                        <div class="card-footer skeleton-effect-pulse no-hairline">
+                            <div class="skeleton-text">Some Text Here. Some Text Here.</div>
+                        </div>
+                    </div>
+                    `)}
+                    <div class="block margin-vertical">
+                        <div class="row no-gap">
+                            ${Array(4).fill().map((item, index) => $h`
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas no-shadow">
+                                    <div class="card-content">
+                                        <div class="skeleton-block width-100" style="border-radius: var(--f7-card-border-radius) var(--f7-card-border-radius) 0 0; height: 96px;"></div>
+                                    </div>
+                                    <div class="card-footer skeleton-effect-pulse justify-content-flex-start no-hairline">
+                                        <div class="skeleton-block shape-circle size-24 flex-shrink-0"></div>
+                                        <div class="skeleton-text margin-horizontal-half">Text Here</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Wave Effect</div>
+                    <div class="list media-list inset margin-vertical">
+                        <ul>
+                            ${Array(2).fill().map((item, index) => $h`
+                            <li>
+                                <div class="item-content skeleton-effect-wave">
+                                    <div class="item-media">
+                                        <div class="skeleton-block shape-circle size-48"></div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title skeleton-text">Title Goes Here.</div>
+                                            <div class="item-after">
+                                                <div class="shape-circle size-24"></div>
+                                            </div>
+                                        </div>
+                                        <div class="item-subtitle skeleton-text">Subtitle Goes Here. Subtitle Goes Here.</div>
+                                        <div class="item-text skeleton-text">Text Goes Here. Text Goes Here. Text Goes Here. Text Goes Here.</div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+                    ${Array(1).fill().map((item, index) => $h`
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header skeleton-effect-wave align-items-flex-start justify-content-flex-start no-hairline padding-vertical">
+                            <div class="skeleton-block shape-circle size-48 flex-shrink-0"></div>
+                            <div class="skeleton-text margin-horizontal">
+                                <div>Some Text Here.</div>
+                                <div>Some Text Here. Some Text Here. Some Text Here.</div>
+                            </div>
+                        </div>
+                        <div class="card-content skeleton-effect-wave">
+                            <div class="skeleton-block width-100" style="height: 256px;"></div>
+                        </div>
+                        <div class="card-footer skeleton-effect-wave no-hairline">
+                            <div class="skeleton-text">Some Text Here. Some Text Here.</div>
+                        </div>
+                    </div>
+                    `)}
+                    <div class="block margin-vertical">
+                        <div class="row no-gap">
+                            ${Array(4).fill().map((item, index) => $h`
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas no-shadow">
+                                    <div class="card-content skeleton-effect-wave">
+                                        <div class="skeleton-block width-100" style="border-radius: var(--f7-card-border-radius) var(--f7-card-border-radius) 0 0; height: 96px;"></div>
+                                    </div>
+                                    <div class="card-footer skeleton-effect-wave justify-content-flex-start no-hairline">
+                                        <div class="skeleton-block shape-circle size-24 flex-shrink-0"></div>
+                                        <div class="skeleton-text margin-horizontal-half">Text Here</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Colored</div>
+                    <div class="list media-list inset margin-vertical">
+                        <ul>
+                            ${Array(2).fill().map((item, index) => $h`
+                            <li>
+                                <div class="item-content skeleton-effect-fade">
+                                    <div class="item-media">
+                                        <div class="skeleton-block shape-circle size-48 color-teal"></div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title skeleton-text color-teal">Title Goes Here.</div>
+                                            <div class="item-after">
+                                                <div class="shape-circle size-24"></div>
+                                            </div>
+                                        </div>
+                                        <div class="item-subtitle skeleton-text color-teal">Subtitle Goes Here. Subtitle Goes Here.</div>
+                                        <div class="item-text skeleton-text color-teal">Text Goes Here. Text Goes Here. Text Goes Here. Text Goes Here.</div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+                    ${Array(1).fill().map((item, index) => $h`
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header skeleton-effect-pulse align-items-flex-start justify-content-flex-start no-hairline padding-vertical">
+                            <div class="skeleton-block shape-circle size-48 flex-shrink-0 color-orange"></div>
+                            <div class="skeleton-text margin-horizontal color-orange">
+                                <div>Some Text Here.</div>
+                                <div>Some Text Here. Some Text Here. Some Text Here.</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="skeleton-block width-100 color-orange" style="height: 256px;"></div>
+                        </div>
+                        <div class="card-footer skeleton-effect-pulse no-hairline">
+                            <div class="skeleton-text color-orange">Some Text Here. Some Text Here.</div>
+                        </div>
+                    </div>
+                    `)}
+                    <div class="block margin-vertical">
+                        <div class="row no-gap">
+                            ${Array(4).fill().map((item, index) => $h`
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas no-shadow">
+                                    <div class="card-content skeleton-effect-wave">
+                                        <div class="skeleton-block width-100 color-purple" style="border-radius: var(--f7-card-border-radius) var(--f7-card-border-radius) 0 0; height: 96px;"></div>
+                                    </div>
+                                    <div class="card-footer skeleton-effect-wave justify-content-flex-start no-hairline">
+                                        <div class="skeleton-block shape-circle size-24 flex-shrink-0 color-purple"></div>
+                                        <div class="skeleton-text margin-horizontal-half color-purple">Text Here</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

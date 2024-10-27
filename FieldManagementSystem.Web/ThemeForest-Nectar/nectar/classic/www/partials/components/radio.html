@@ -1,0 +1,421 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Radio</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Radio allows the user to select one option from a set.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Inline</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <label class="radio radio-inline">
+                            <input type="radio" name="radio-inline-gender" value="male" checked />
+                            <i class="icon-radio"></i>
+                            <span>Male</span>
+                        </label>
+                        ${`\u0020`}
+                        <label class="radio radio-inline">
+                            <input type="radio" name="radio-inline-gender" value="female" />
+                            <i class="icon-radio"></i>
+                            <span>Female</span>
+                        </label>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <label class="radio radio-inline">
+                            <input type="radio" name="radio-inline-direction" value="east" checked />
+                            <i class="icon-radio"></i>
+                            <span>East</span>
+                        </label>
+                        ${`\u0020`}
+                        <label class="radio radio-inline">
+                            <input type="radio" name="radio-inline-direction" value="west" />
+                            <i class="icon-radio"></i>
+                            <span>West</span>
+                        </label>
+                        ${`\u0020`}
+                        <label class="radio radio-inline">
+                            <input type="radio" name="radio-inline-direction" value="north" />
+                            <i class="icon-radio"></i>
+                            <span>North</span>
+                        </label>
+                        ${`\u0020`}
+                        <label class="radio radio-inline">
+                            <input type="radio" name="radio-inline-direction" value="south" />
+                            <i class="icon-radio"></i>
+                            <span>South</span>
+                        </label>
+                    </div>
+
+                    <div class="block-title margin-top">List</div>
+                    <div class="block-header">Radio icon at the start of the list item</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-start">
+                                    <input type="radio" name="radio-list-start-gender" value="male" checked />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Male</div>
+                                        <div class="item-after">
+                                            <i class="icon material-icons">male</i>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-start">
+                                    <input type="radio" name="radio-list-start-gender" value="female" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Female</div>
+                                        <div class="item-after">
+                                            <i class="icon material-icons">female</i>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-start">
+                                    <input type="radio" name="radio-list-start-direction" value="east" checked />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">East</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-start">
+                                    <input type="radio" name="radio-list-start-direction" value="west" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">West</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-start">
+                                    <input type="radio" name="radio-list-start-direction" value="north" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">North</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-start">
+                                    <input type="radio" name="radio-list-start-direction" value="south" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">South</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block-header margin-top">Radio icon at the end of the list item</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-end">
+                                    <input type="radio" name="radio-list-end-gender" value="male" checked />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-media">
+                                        <i class="icon material-icons">male</i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Male</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-end">
+                                    <input type="radio" name="radio-list-end-gender" value="female" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-media">
+                                        <i class="icon material-icons">female</i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Female</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-end">
+                                    <input type="radio" name="radio-list-end-direction" value="east" checked />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">East</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-end">
+                                    <input type="radio" name="radio-list-end-direction" value="west" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">West</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-end">
+                                    <input type="radio" name="radio-list-end-direction" value="north" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">North</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-end">
+                                    <input type="radio" name="radio-list-end-direction" value="south" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">South</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list media-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-end">
+                                    <input type="radio" name="radio-media-list-visibility" value="public" checked />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-media">
+                                        <span class="shape-container shape-auto" style="background-color: var(--color-green-50);">
+                                            <i class="icon material-icons text-gradient-green">people</i>
+                                        </span>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">Public</div>
+                                        </div>
+                                        <div class="item-text">Visible to everyone.</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio item-radio-icon-end">
+                                    <input type="radio" name="radio-media-list-visibility" value="private" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-media">
+                                        <span class="shape-container shape-auto" style="background-color: var(--color-amber-50);">
+                                            <i class="icon material-icons text-gradient-amber">verified_users</i>
+                                        </span>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">Private</div>
+                                        </div>
+                                        <div class="item-text">Visible to logged in users only.</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">List (Fill)</div>
+                    <div class="list cards-list radio-list radio-fill inset margin-vertical no-hairlines-between">
+                        <ul>
+                            <li>
+                                <label class="item-content item-radio color-blue">
+                                    <input type="radio" name="radio-list-fill-platform" value="web" />
+                                    <div class="item-inner item-cell">
+                                        <div class="item-row">
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <span class="shape-container shape-auto size-40" style="background-color: var(--color-blue-100);">
+                                                    <i class="icon f7-icons color-blue">globe</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-cell">Web</div>
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <i class="icon icon-radio"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio color-green">
+                                    <input type="radio" name="radio-list-fill-platform" value="android" checked />
+                                    <div class="item-inner item-cell">
+                                        <div class="item-row">
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <span class="shape-container shape-auto size-40" style="background-color: var(--color-green-100);">
+                                                    <i class="icon f7-icons color-green">logo_android</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-cell">Android</div>
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <i class="icon icon-radio"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio color-bluegray">
+                                    <input type="radio" name="radio-list-fill-platform" value="ios" />
+                                    <div class="item-inner item-cell">
+                                        <div class="item-row">
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <span class="shape-container shape-auto size-40" style="background-color: var(--color-bluegray-100);">
+                                                    <i class="icon f7-icons color-bluegray">logo_ios</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-cell">iOS</div>
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <i class="icon icon-radio"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">List (Outline)</div>
+                    <div class="list cards-list radio-list radio-outline inset margin-vertical no-hairlines-between">
+                        <ul>
+                            <li>
+                                <label class="item-content item-radio color-blue">
+                                    <input type="radio" name="radio-list-outline-platform" value="web" />
+                                    <div class="item-inner item-cell">
+                                        <div class="item-row">
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <span class="shape-container shape-auto size-40" style="background-color: var(--color-blue-100);">
+                                                    <i class="icon f7-icons color-blue">globe</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-cell">Web</div>
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <i class="icon icon-radio"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio color-green">
+                                    <input type="radio" name="radio-list-outline-platform" value="android" checked />
+                                    <div class="item-inner item-cell">
+                                        <div class="item-row">
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <span class="shape-container shape-auto size-40" style="background-color: var(--color-green-100);">
+                                                    <i class="icon f7-icons color-green">logo_android</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-cell">Android</div>
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <i class="icon icon-radio"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio color-bluegray">
+                                    <input type="radio" name="radio-list-outline-platform" value="ios" />
+                                    <div class="item-inner item-cell">
+                                        <div class="item-row">
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <span class="shape-container shape-auto size-40" style="background-color: var(--color-bluegray-100);">
+                                                    <i class="icon f7-icons color-bluegray">logo_ios</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-cell">iOS</div>
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <i class="icon icon-radio"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Media</div>
+                    <div class="block block-strong inset margin-vertical padding-half text-align-center">
+                        <label class="radio-media margin-half color-brown">
+                            <input type="radio" name="radio-media-image" value="chair" />
+                            <div class="radio-inner">
+                                <img src="https://source.unsplash.com/CKLF34baCTQ/128x128" height="96" width="96" alt="" />
+                            </div>
+                        </label>
+                        <label class="radio-media margin-half color-cyan">
+                            <input type="radio" name="radio-media-image" value="shoes" />
+                            <div class="radio-inner">
+                                <img src="https://source.unsplash.com/kP6knT7tjn4/128x128" height="96" width="96" alt="" />
+                            </div>
+                        </label>
+                        <label class="radio-media margin-half color-red">
+                            <input type="radio" name="radio-media-image" value="gameboy" checked />
+                            <div class="radio-inner">
+                                <img src="https://source.unsplash.com/v8XaVfyo41Q/128x128" height="96" width="96" alt="" />
+                            </div>
+                        </label>
+                    </div>
+                    <div class="block block-strong inset margin-vertical padding-half text-align-center">
+                        <label class="radio-media margin-half color-brown">
+                            <input type="radio" name="radio-media-image-label" value="chair" />
+                            <div class="radio-inner shape-circle">
+                                <img src="https://source.unsplash.com/CKLF34baCTQ/128x128" height="96" width="96" alt="" />
+                            </div>
+                            <div class="radio-label">Chair</div>
+                        </label>
+                        <label class="radio-media margin-half color-cyan">
+                            <input type="radio" name="radio-media-image-label" value="shoes" checked />
+                            <div class="radio-inner shape-circle">
+                                <img src="https://source.unsplash.com/kP6knT7tjn4/128x128" height="96" width="96" alt="" />
+                            </div>
+                            <div class="radio-label">Shoes</div>
+                        </label>
+                        <label class="radio-media margin-half color-red">
+                            <input type="radio" name="radio-media-image-label" value="gameboy" />
+                            <div class="radio-inner shape-circle">
+                                <img src="https://source.unsplash.com/v8XaVfyo41Q/128x128" height="96" width="96" alt="" />
+                            </div>
+                            <div class="radio-label">Gameboy</div>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

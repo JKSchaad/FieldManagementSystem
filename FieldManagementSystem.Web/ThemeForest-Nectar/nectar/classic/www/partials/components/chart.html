@@ -1,0 +1,148 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Chart</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Chart can be used to present data in a visualized form.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Area Chart</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="block-title justify-content-center">Wildlife Population</div>
+                        <div id="area-chart" class="area-chart"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Line Chart</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="block-title justify-content-center">Wildlife Population</div>
+                        <div id="line-chart" class="area-chart"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Pie Chart</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="pie-chart" class="pie-chart margin-horizontal-auto" style="max-height: 320px; max-width: 320px;"></div>
+                        <div class="block-title justify-content-center margin-top no-margin-bottom">Web Browser Market Share</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let areaChart = null;
+        let lineChart = null;
+        let pieChart = null;
+
+        let initializeAreaChart = function() {
+            areaChart = $f7.areaChart.create({
+                el: $el.value.find('#area-chart'),
+                datasets: [
+                    {
+                        values: [8, 54, 93, 116, 137],
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-brown'),
+                        label: 'Bears'
+                    },
+                    {
+                        values: [150, 77, 32, 11, 6],
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-blue'),
+                        label: 'Dolphins'
+                    },
+                    {
+                        values: [80, 54, 100, 76, 93],
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-bluegray'),
+                        label: 'Whales'
+                    }
+                ],
+                axis: true,
+                axisLabels: [2017, 2018, 2019, 2020, 2021],
+                legend: true,
+                toggleDatasets: true,
+                tooltip: true
+            });
+        }
+
+        let initializeLineChart = function() {
+            lineChart = $f7.areaChart.create({
+                el: $el.value.find('#line-chart'),
+                datasets: [
+                    {
+                        values: [8, 54, 93, 116, 137],
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-brown'),
+                        label: 'Bears'
+                    },
+                    {
+                        values: [150, 77, 32, 11, 6],
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-blue'),
+                        label: 'Dolphins'
+                    },
+                    {
+                        values: [80, 54, 100, 76, 93],
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-bluegray'),
+                        label: 'Whales'
+                    }
+                ],
+                axis: true,
+                axisLabels: [2017, 2018, 2019, 2020, 2021],
+                legend: true,
+                lineChart: true,
+                toggleDatasets: true,
+                tooltip: true
+            });
+        }
+
+        let initializePieChart = function() {
+            pieChart = $f7.pieChart.create({
+                el: $el.value.find('#pie-chart'),
+                datasets: [
+                    {
+                        value: 65.87,
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-blue'),
+                        label: 'Google Chrome'
+                    },
+                    {
+                        value: 18.61,
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-black'),
+                        label: 'Apple Safari'
+                    },
+                    {
+                        value: 15.52,
+                        color: $f7.stylesheet.getPropertyValue('--f7-color-amber'),
+                        label: 'Other'
+                    }
+                ],
+                tooltip: true
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeAreaChart();
+            initializeLineChart();
+            initializePieChart();
+        });
+
+        return $render;
+    }
+</script>

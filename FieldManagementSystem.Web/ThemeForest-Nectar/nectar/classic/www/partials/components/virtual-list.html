@@ -1,0 +1,200 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Virtual List</div>
+                <div class="right">
+                    <a href="#" class="link icon-only" @click="${enableSearchbar}">
+                        <i class="icon material-icons">search</i>
+                    </a>
+                </div>
+                <form class="searchbar searchbar-expandable">
+                    <div class="searchbar-inner">
+                        <div class="searchbar-input-wrap">
+                            <input type="search" placeholder="Search" />
+                            <i class="searchbar-icon"></i>
+                            <span class="input-clear-button"></span>
+                        </div>
+                        <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Virtual List can be used to render list with huge number of items without any loss of performance.</p>
+                    </div>
+
+                    <div class="searchbar-found">
+                        <div class="list media-list virtual-list inset margin-vertical">
+                            ${virtualListUsers && virtualListUsers.items.length ? $h`
+                            <ul style="height: ${virtualListUsers.listHeight + 'px;'}">
+                                ${virtualListUsers.items.map((item, index) => $h`
+                                <li class="swipeout" style="top: ${virtualListUsers.topPosition + 'px;'}">
+                                    <div class="swipeout-content">
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <img class="shape-auto" src="${item.avatar}" loading="lazy" height="40" width="40" alt="" />
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title white-space-nowrap">${item.name}</div>
+                                                </div>
+                                                <div class="item-text lines-1">${item.country}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="${$f7.rtl ? 'swipeout-actions-left' : 'swipeout-actions-right'}">
+                                        <a href="#" class="swipeout-close color-red" @click="${() => deleteVirtualListItem(item.id)}">
+                                            ${$theme.md ? $h`
+                                            <i class="icon material-icons">delete</i>
+                                            ` : $h`
+                                            <i class="icon f7-icons">trash</i>
+                                            `}
+                                            <span>Delete</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                `)}
+                            </ul>
+                            ` : $h`
+                            <div class="empty-state empty-state-strong inset margin-vertical no-margin-horizontal">
+                                <div class="empty-state-media">
+                                    <span class="shape-container shape-auto bg-color-chrome">
+                                        <i class="icon material-icons font-size-32">list_alt</i>
+                                    </span>
+                                </div>
+                                <div class="empty-state-subtitle">It's Empty Here</div>
+                            </div>
+                            `}
+                        </div>
+                    </div>
+
+                    <div class="searchbar-not-found">
+                        <div class="empty-state empty-state-strong inset margin-vertical">
+                            <div class="empty-state-media">
+                                <span class="shape-container shape-auto bg-color-chrome">
+                                    <i class="icon material-icons font-size-32">search_off</i>
+                                </span>
+                            </div>
+                            <div class="empty-state-subtitle">No Search Results</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let users = null;
+        let virtualListUsers = null;
+
+        let virtualList = null;
+        let searchbar = null;
+
+        let loadData = function() {
+            let data = [];
+            for (i=0; i<10000; i++) {
+                data.push({
+                    id: i+1,
+                    name: faker.name.firstName() + ' ' + faker.name.lastName(),
+                    avatar: faker.internet.avatar(),
+                    country: faker.address.country()
+                });
+            }
+            let sorted = fastSort.sort(data).by([
+                { asc: user => user.name },
+                { asc: user => user.country }
+            ]);
+            users = sorted;
+
+            $update(function() {
+                initializeVirtualList();
+            });
+        }
+
+        let initializeVirtualList = function() {
+            virtualList = $f7.virtualList.create({
+                el: $el.value.find('.virtual-list'),
+                items: users,
+                createUl: false,
+                height: function() {
+                    if ($theme.aurora) return 76;
+                    if ($theme.ios) return 63.4;
+                    if ($theme.md) return 72;
+                },
+                renderExternal: function(vl, vlData) {
+                    virtualListUsers = vlData;
+                    $update();
+                },
+                searchAll: function(query, items) {
+                    let found = [];
+                    for (i=0; i<items.length; i++) {
+                        if (items[i].name.toLowerCase().indexOf(query.toLowerCase()) >= 0 || items[i].country.toLowerCase().indexOf(query.toLowerCase()) >= 0 || query.trim() == '') {
+                            found.push(i);
+                        }
+                    }
+                    return found;
+                }
+            });
+            initializeSearchbar();
+        }
+
+        let deleteVirtualListItem = function(id) {
+            let index = virtualList.items.findIndex(item => item.id == id);
+            virtualList.deleteItem(index);
+            $f7.toast.show({
+                text: 'Deleted!',
+                icon: $theme.md ? '<i class="icon material-icons">delete</i>' : '<i class="icon f7-icons">trash</i>',
+                position: 'center',
+                cssClass: 'color-red'
+            });
+        }
+
+        let initializeSearchbar = function() {
+            let navbarEl = $f7.navbar.getElByPage($el.value);
+            searchbar = $f7.searchbar.create({
+                el: $(navbarEl).find('.searchbar'),
+                searchContainer: $el.value.find('.list'),
+                searchItem: 'li',
+                searchIn: '.item-title, .item-text',
+                backdrop: false,
+                removeDiacritics: true,
+                on: {
+                    enable: function(searchbar) {
+                        searchbar.$el.find('input').focus();
+                    }
+                }
+            });
+        }
+
+        let enableSearchbar = function() {
+            searchbar.enable();
+        }
+
+        $on('pageBeforeIn', function() {
+            loadData();
+        });
+
+        return $render;
+    }
+</script>

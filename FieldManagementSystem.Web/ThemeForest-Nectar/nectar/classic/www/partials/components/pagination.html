@@ -1,0 +1,151 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Pagination</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Pagination can be used to divide large amounts of content into smaller chunks across multiple pages.</p>
+                    </div>
+
+                    ${users && users.length ? $h`
+                    <div class="block-title margin-vertical">List</div>
+                    <div id="paginated-list" class="list media-list paginated-list inset margin-vertical">
+                        <ul>
+                            ${users.map((item, index) => $h`
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <img class="shape-auto" src="${item.avatar}" loading="lazy" height="40" width="40" alt="" />
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">${item.name}</div>
+                                        </div>
+                                        <div class="item-text">${item.country}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+                    <div id="paginated-list-pagination" class="pagination margin-top color-deeppurple"></div>
+
+                    <div class="block-title margin-vertical">Data Table</div>
+                    <div id="paginated-data-table" class="data-table paginated-data-table card margin-vertical no-shadow">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="label-cell">Name</th>
+                                    <th class="label-cell">Country</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${users.map((item, index) => $h`
+                                <tr>
+                                    <td class="label-cell">${item.name}</td>
+                                    <td class="label-cell">${item.country}</td>
+                                </tr>
+                                `)}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="paginated-data-table-pagination" class="pagination pagination-round margin-top color-deeporange"></div>
+                    ` : $h`
+                    <div class="block margin-vertical text-align-center">
+                        <div class="preloader"></div>
+                    </div>
+                    `}
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let users = null;
+
+        let paginationList = null;
+        let paginationDataTable = null;
+
+        let loadData = function() {
+            let data = [];
+            for (i=0; i<500; i++) {
+                data.push({
+                    id: i+1,
+                    name: faker.name.firstName() + ' ' + faker.name.lastName(),
+                    avatar: faker.internet.avatar(),
+                    country: faker.address.country()
+                });
+            }
+            let sorted = fastSort.sort(data).by([
+                { asc: user => user.name },
+                { asc: user => user.country }
+            ]);
+            users = sorted;
+
+            $update(function() {
+                initializePaginationList();
+                initializePaginationDataTable();
+            });
+        }
+
+        let initializePaginationList = function() {
+            paginationList = new purePajinate({
+                containerSelector: '#paginated-list ul',
+                itemSelector: 'li',
+                navigationSelector: '#paginated-list-pagination',
+                itemsPerPage: 5,
+                pageLinksToDisplay: 5,
+                showFirstLast: true,
+                showPrevNext: true,
+                navLabelFirst: '<<',
+                navLabelLast: '>>',
+                navLabelPrev: '<',
+                navLabelNext: '>'
+            });
+        }
+
+        let initializePaginationDataTable = function() {
+            paginationDataTable = new purePajinate({
+                containerSelector: '#paginated-data-table tbody',
+                itemSelector: 'tr',
+                navigationSelector: '#paginated-data-table-pagination',
+                itemsPerPage: 5,
+                pageLinksToDisplay: 5,
+                showFirstLast: true,
+                showPrevNext: true,
+                navLabelFirst: '<<',
+                navLabelLast: '>>',
+                navLabelPrev: '<',
+                navLabelNext: '>'
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            loadData();
+        });
+
+        return $render;
+    }
+</script>

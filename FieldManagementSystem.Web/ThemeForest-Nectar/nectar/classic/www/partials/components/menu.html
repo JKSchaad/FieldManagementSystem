@@ -1,0 +1,139 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Menu</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Menu can be used to place actions or controls on the top of maps, images, text editors or other elements as overlay.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Links</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="menu">
+                            <div class="menu-inner no-padding">
+                                <a href="#" class="menu-item">
+                                    <div class="menu-item-content">Rewind</div>
+                                </a>
+                                <a href="#" class="menu-item">
+                                    <div class="menu-item-content">Forward</div>
+                                </a>
+                                <a href="#" class="menu-item icon-only">
+                                    <div class="menu-item-content">
+                                        <i class="icon f7-icons if-not-md">gear_alt</i>
+                                        <i class="icon material-icons if-md">settings</i>
+                                    </div>
+                                </a>
+                                <a href="#" class="menu-item icon-only">
+                                    <div class="menu-item-content">
+                                        <i class="icon f7-icons if-not-md">square_arrow_up</i>
+                                        <i class="icon material-icons if-md">share</i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Dropdown</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="menu">
+                            <div class="menu-inner no-padding">
+                                <div class="menu-item menu-item-dropdown">
+                                    <div class="menu-item-content">Left</div>
+                                    <div class="menu-dropdown menu-dropdown-left">
+                                        <div class="menu-dropdown-content">
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 1</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 2</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 3</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 4</a>
+                                            <div class="menu-dropdown-divider"></div>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 5</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 6</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menu-item menu-item-dropdown color-amber">
+                                    <div class="menu-item-content">Center</div>
+                                    <div class="menu-dropdown menu-dropdown-center">
+                                        <div class="menu-dropdown-content">
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 1</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 2</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 3</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 4</a>
+                                            <div class="menu-dropdown-divider"></div>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 5</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 6</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 7</a>
+                                            <div class="menu-dropdown-divider"></div>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 8</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 9</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 10</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menu-item menu-item-dropdown color-pink">
+                                    <div class="menu-item-content">Right</div>
+                                    <div class="menu-dropdown menu-dropdown-right">
+                                        <div class="menu-dropdown-content">
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 1</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 2</a>
+                                            <div class="menu-dropdown-divider"></div>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 3</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 4</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 5</a>
+                                            <a href="#" class="menu-dropdown-link menu-close">Menu Item 6</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Overlay</div>
+                    <div class="block block-strong inset margin-vertical z-index-0">
+                        <img class="shape-rounded-square" src="https://source.unsplash.com/random" loading="lazy" alt="" />
+                        <div class="menu menu-overlay margin-half">
+                            <div class="menu-inner">
+                                <a href="#" class="menu-item icon-only tooltip-init" data-tooltip="Download">
+                                    <div class="menu-item-content">
+                                        <i class="icon material-icons">download</i>
+                                    </div>
+                                </a>
+                                <a href="#" class="menu-item icon-only tooltip-init" data-tooltip="Share">
+                                    <div class="menu-item-content">
+                                        <i class="icon f7-icons if-not-md">square_arrow_up</i>
+                                        <i class="icon material-icons if-md">share</i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

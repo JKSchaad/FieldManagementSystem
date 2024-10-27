@@ -1,0 +1,416 @@
+<template>
+    <div class="page" data-name="home">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    ${$f7.config.layout[$f7.config.layout.default].sidebar.enabled && $h`
+                    <a href="#" class="link ripple-color-gray" @click="${() => $f7.sidebar.toggle()}">
+                        <span class="shape-container shape-auto size-32 bg-color-mono">
+                            <i class="icon material-icons font-size-20 color-mono-invert">menu</i>
+                        </span>
+                    </a>
+                    `}
+                </div>
+                <div class="title">
+                    <img class="if-not-dark" src="${$f7.config.app.logos.logotypeLight}" alt="" />
+                    <img class="if-dark" src="${$f7.config.app.logos.logotypeDark}" alt="" />
+                </div>
+                <div class="right">
+                    ${$f7.config.i18n.enabled && $h`
+                    <a href="/select-language/" class="link ripple-color-gray tooltip-init" data-open-in="popup" data-tooltip="Language">
+                        <span class="shape-container shape-auto size-32 bg-color-chrome">
+                            <i class="icon material-icons font-size-20 color-mono">language</i>
+                        </span>
+                    </a>
+                    `}
+                    ${$f7.config.theming.enabled && $h`
+                    <a href="/select-appearance/" class="link ripple-color-gray tooltip-init" data-open-in="popup" data-tooltip="Appearance">
+                        <span class="shape-container shape-auto size-32 bg-color-chrome">
+                            <i class="icon material-icons font-size-20 color-mono">palette</i>
+                        </span>
+                    </a>
+                    `}
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="swiper margin-vertical padding-horizontal" style="height: 288px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card overlay-container height-100 no-margin no-shadow bg-color-pink">
+                            <div class="card-content overlay-content">
+                                <img src="${$f7.config.app.logos.logomarkDark}" height="64" width="64" alt="" />
+                                <div class="card-title margin-top-half">Welcome to Nectar</div>
+                                <div class="card-subtitle">${$f7.config.app.description}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card overlay-container height-100 no-margin no-shadow bg-color-deeppurple">
+                            <div class="card-content overlay-content">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa-solid fa-stack-2x fa-circle text-color-white"></i>
+                                    <i class="fa-solid fa-stack-1x fa-mobile-screen text-gradient-deeppurple"></i>
+                                </span>
+                                <div class="card-title margin-top-half">Modern & Responsive</div>
+                                <div class="card-subtitle">Nectar is designed with modern trends and techniques in mind. It will look smashing on every device.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card overlay-container height-100 no-margin no-shadow bg-color-deeporange">
+                            <div class="card-content overlay-content">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa-solid fa-stack-2x fa-circle text-color-white"></i>
+                                    <i class="fa-solid fa-stack-1x fa-pencil-ruler text-gradient-deeporange"></i>
+                                </span>
+                                <div class="card-title margin-top-half">Intuitive UI/UX</div>
+                                <div class="card-subtitle">Nectar takes advantage of common design patterns, allowing for a seamless experience for users of all levels.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card overlay-container height-100 no-margin no-shadow bg-color-blue">
+                            <div class="card-content overlay-content">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa-solid fa-stack-2x fa-circle text-color-white"></i>
+                                    <i class="fa-solid fa-stack-1x fa-palette text-gradient-blue"></i>
+                                </span>
+                                <div class="card-title margin-top-half">Easily Customizable</div>
+                                <div class="card-subtitle">Easily customize Nectar to suit your needs and bring your product to life.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card overlay-container height-100 no-margin no-shadow bg-color-green">
+                            <div class="card-content overlay-content">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa-solid fa-stack-2x fa-circle text-color-white"></i>
+                                    <i class="fa-solid fa-stack-1x fa-rocket text-gradient-green"></i>
+                                </span>
+                                <div class="card-title margin-top-half">Explore Nectar</div>
+                                <div class="card-subtitle">Nectar will drive your product forward. It will help you stand out in the market.</div>
+                                <a href="${$f7.config.app.themeforestUrl}" target="${$f7.getExternalUrlTarget()}" class="external button button-fill button-large margin-top color-white text-color-green">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-title block-title-large margin-vertical">${$f7.renderUnicode('1F984')} Features</div>
+            <div class="list cards-list media-list inset margin-vertical no-chevron no-hairlines-between">
+                <ul class="row align-items-stretch">
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-red-50);">
+                                    <img src="https://cdn.svgporn.com/logos/framework7-icon.svg" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Based on Framework7 Core v7</div>
+                                </div>
+                                <div class="item-text">Nectar is built on the top of Framework7 Core v7 ${`\u2013`} a fully-featured, free and open-source framework for developing web, mobile, and desktop apps with native look and feel.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-blue-50);">
+                                    <img src="https://cdn.svgporn.com/logos/google-icon.svg" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Google's Material Design</div>
+                                </div>
+                                <div class="item-text">Provide your users the best experience on Android with native look and feel using Google's Material Design.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-bluegray-50);">
+                                    <img src="https://cdn.svgporn.com/logos/apple.svg" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Apple's Cupertino Design</div>
+                                </div>
+                                <div class="item-text">Provide your users the best experience on iOS with native look and feel using Apple's Cupertino Design.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-red-50);">
+                                    <img src="https://cdn.svgporn.com/logos/framework7-icon.svg" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Framework7's Aurora Design</div>
+                                </div>
+                                <div class="item-text">Provide your users the best experience on Desktop using Framework7's Aurora Design.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-bluegray-50);">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/402/402057.png" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Multiple Devices & Screen Resolutions</div>
+                                </div>
+                                <div class="item-text">Design responsive layout for your app supporting devices with different sizes and screen resolutions ${`\u2013`} mobiles, tablets or desktops.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-bluegray-50);">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/2489/2489014.png" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Multiple Navigation Patterns</div>
+                                </div>
+                                <div class="item-text">Navigate your users within the app using two different navigation patterns ${`\u2013`} Sidebar and Tabbar.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-bluegray-50);">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/1203/1203887.png" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Unlimited Colors & Dark Mode</div>
+                                </div>
+                                <div class="item-text">Style your app by choosing from 19 pre-built theme colors or apply any custom color matching your brand, with support for both Light & Dark modes.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-blue-50);">
+                                    <img src="https://cdn-icons-png.flaticon.com/128/484/484531.png" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Internationalization & RTL Support</div>
+                                </div>
+                                <div class="item-text">Build your app for users around the world by localizing your user interface in various languages.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-indigo-50);">
+                                    <img src="https://cdn.svgporn.com/logos/pwa.svg" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Progressive Web App Ready</div>
+                                </div>
+                                <div class="item-text">Add functionalities such as offline working, push notifications to your web app with the help of service workers and provide your users the best of both worlds ${`\u2013`} the web and the app.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-bluegray-50);">
+                                    <img src="https://cdn.svgporn.com/logos/cordova.svg" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Hybrid App Ready</div>
+                                </div>
+                                <div class="item-text">Convert your mobile web app into native mobile app for Android or iOS using Apache Cordova.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-teal-50);">
+                                    <img src="https://cdn.svgporn.com/logos/electron.svg" loading="lazy" alt="" />
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row">
+                                    <div class="item-title font-size-18 font-weight-bold">Desktop App Ready</div>
+                                </div>
+                                <div class="item-text">Convert your web app into native desktop app for Windows, Linux, or macOS using Electron.</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="block-title block-title-large margin-vertical">${$f7.renderUnicode('1F308')} Elements</div>
+            <div class="list cards-list media-list inset margin-vertical no-chevron no-hairlines-between">
+                <ul class="row align-items-stretch">
+                    <li class="col-100 medium-50 xlarge-33">
+                        <a href="/components/" class="item-link height-100">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-green-50);">
+                                        <i class="icon f7-icons font-size-40 text-gradient-green">square_grid_2x2_fill</i>
+                                    </span>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title font-size-18 font-weight-bold">Components</div>
+                                    </div>
+                                    <div class="item-text">Basic building blocks for creating beautiful and intuitive UI/UX.</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <a href="/screens/" class="item-link height-100">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-blue-50);">
+                                        <i class="icon f7-icons font-size-40 text-gradient-blue">layers_alt_fill</i>
+                                    </span>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title font-size-18 font-weight-bold">Screens</div>
+                                    </div>
+                                    <div class="item-text">Ready-to-use screens built using various components.</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <a href="/web-apis/" class="item-link height-100">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-orange-50);">
+                                        <i class="icon f7-icons font-size-40 text-gradient-orange">chevron_left_slash_chevron_right</i>
+                                    </span>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title font-size-18 font-weight-bold">Web APIs</div>
+                                    </div>
+                                    <div class="item-text">Access to native device and platform functionalities via JavaScript.</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <a href="/cordova-plugins/" class="item-link height-100">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-deeppurple-50);">
+                                        <i class="icon f7-icons font-size-40 text-gradient-deeppurple">device_phone_portrait</i>
+                                    </span>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title font-size-18 font-weight-bold">Cordova Plugins</div>
+                                    </div>
+                                    <div class="item-text">Access to native device and platform functionalities via Cordova.</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col-100 medium-50 xlarge-33">
+                        <a href="/integrations/" class="item-link height-100">
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <span class="shape-container shape-auto size-64 padding" style="background-color: var(--color-pink-50);">
+                                        <i class="icon f7-icons font-size-40 text-gradient-pink">flame_fill</i>
+                                    </span>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title font-size-18 font-weight-bold">Integrations</div>
+                                    </div>
+                                    <div class="item-text">Integrations for popular third-party services right out-of-the-box.</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let swiperSlider = null;
+
+        let initializeSwiperSlider = function() {
+            swiperSlider = $f7.swiper.create(
+                $el.value.find('.swiper'),
+                {
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    },
+                    breakpoints: {
+                        1024: {
+                            slidesPerView: 2
+                        },
+                        1920: {
+                            slidesPerView: 3
+                        }
+                    },
+                    centeredSlides: true,
+                    grabCursor: true,
+                    keyboard: {
+                        enabled: true,
+                        pageUpDown: false
+                    },
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 16
+                }
+            );
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeSwiperSlider();
+        });
+
+        $on('tabInit', function() {
+            initializeSwiperSlider();
+        });
+
+        return $render;
+    }
+</script>

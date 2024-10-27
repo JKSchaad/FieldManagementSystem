@@ -1,0 +1,79 @@
+<template>
+    <div class="page no-tabbar">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Routable Tabs</div>
+                <div class="right">
+                    <a href="#" class="link icon-only" @click="${toggleToolbarPosition}">
+                        <i class="icon material-icons">swap_vert</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolbar toolbar-${toolbarPosition} tabbar tabbar-labels no-tab-link-highlight">
+            <div class="toolbar-inner">
+                <a href="/components/tab/routable/" class="tab-link color-bluegray" data-route-tab-id="tab-home">
+                    <span class="icons">
+                        <i class="icon f7-icons">house</i>
+                        <i class="icon icon-active f7-icons text-gradient-bluegray">house_fill</i>
+                    </span>
+                    <span class="tabbar-label">Home</span>
+                </a>
+                <a href="/components/tab/routable/apps/" class="tab-link color-blue" data-route-tab-id="tab-apps">
+                    <span class="icons">
+                        <i class="icon f7-icons">circle_grid_3x3</i>
+                        <i class="icon icon-active f7-icons text-gradient-blue">circle_grid_3x3_fill</i>
+                    </span>
+                    <span class="tabbar-label">Apps</span>
+                </a>
+                <a href="/components/tab/routable/games/" class="tab-link color-amber" data-route-tab-id="tab-games">
+                    <span class="icons">
+                        <i class="icon f7-icons">gamecontroller</i>
+                        <i class="icon icon-active f7-icons text-gradient-amber">gamecontroller_fill</i>
+                    </span>
+                    <span class="tabbar-label">Games</span>
+                </a>
+                <a href="/components/tab/routable/movies/" class="tab-link color-pink" data-route-tab-id="tab-movies">
+                    <span class="icons">
+                        <i class="icon f7-icons">film</i>
+                        <i class="icon icon-active f7-icons text-gradient-pink">film_fill</i>
+                    </span>
+                    <span class="tabbar-label">Movies</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="tabs-swipeable-wrap">
+            <div class="tabs tabs-routable">
+                <div id="tab-home" class="tab"></div>
+                <div id="tab-apps" class="tab"></div>
+                <div id="tab-games" class="tab"></div>
+                <div id="tab-movies" class="tab"></div>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let toolbarPosition = 'bottom';
+
+        let toggleToolbarPosition = function() {
+            toolbarPosition = toolbarPosition == 'bottom' ? 'top' : 'bottom';
+            $update();
+        }
+
+        return $render;
+    }
+</script>

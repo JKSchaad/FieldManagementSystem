@@ -1,0 +1,114 @@
+<template>
+    <div class="page page-with-subnavbar">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Static Subnavbar</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="subnavbar">
+                <div class="subnavbar-inner">
+                    <form class="searchbar searchbar-inline width-100">
+                        <div class="searchbar-input-wrap">
+                            <input type="search" placeholder="Search" />
+                            <i class="searchbar-icon"></i>
+                            <span class="input-clear-button"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="searchbar-found">
+                        <div class="list inset margin-vertical">
+                            ${vehicles && vehicles.length ? $h`
+                            <ul>
+                                ${vehicles.map((item, index) => $h`
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">${item.name}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                `)}
+                            </ul>
+                            ` : $h` `}
+                        </div>
+                    </div>
+
+                    <div class="searchbar-not-found">
+                        <div class="empty-state empty-state-strong inset margin-vertical">
+                            <div class="empty-state-media">
+                                <span class="shape-container shape-auto bg-color-chrome">
+                                    <i class="icon material-icons font-size-32">search_off</i>
+                                </span>
+                            </div>
+                            <div class="empty-state-subtitle">No Search Results</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let vehicles = null;
+        let searchbar = null;
+
+        let loadData = function() {
+            let data = [];
+            for (i=0; i<100; i++) {
+                data.push({
+                    id: i+1,
+                    name: faker.vehicle.vehicle()
+                });
+            }
+            let sorted = fastSort.sort(data).by([
+                { asc: vehicle => vehicle.name }
+            ]);
+            vehicles = sorted;
+
+            $update(function() {
+                initializeSearchbar();
+            });
+        }
+
+        let initializeSearchbar = function() {
+            searchbar = $f7.searchbar.create({
+                el: $el.value.find('.searchbar'),
+                searchContainer: $el.value.find('.list'),
+                searchItem: 'li',
+                searchIn: '.item-title',
+                backdrop: false,
+                removeDiacritics: true
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            loadData();
+        });
+
+        return $render;
+    }
+</script>

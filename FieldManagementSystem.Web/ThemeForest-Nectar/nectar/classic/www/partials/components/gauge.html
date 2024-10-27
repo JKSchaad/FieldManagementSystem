@@ -1,0 +1,210 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Gauge</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Gauge can be used for visualizing numeric values on a circular scale.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Circle</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div id="gauge-circle" class="gauge"></div>
+                        <div class="row margin-top">
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeCircleValue(0)}">0%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeCircleValue(25)}">25%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeCircleValue(50)}">50%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeCircleValue(75)}">75%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeCircleValue(100)}">100%</button>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Semicircle</div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <div id="gauge-semicircle" class="gauge"></div>
+                        <div class="row margin-top">
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeSemicircleValue(0)}">0%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeSemicircleValue(25)}">25%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeSemicircleValue(50)}">50%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeSemicircleValue(75)}">75%</button>
+                            <button type="button" class="col button button-fill" @click="${() => setGaugeSemicircleValue(100)}">100%</button>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Circular Progress</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            ${courses.map((item, index) => $h`
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner item-cell">
+                                        <div class="item-row">
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <span class="shape-container shape-circle size-48" style="background-color: ${item.colors[0]};">
+                                                    <img src="${item.image}" loading="lazy" alt="" />
+                                                </span>
+                                            </div>
+                                            <div class="item-cell flex-shrink-1">
+                                                <div class="font-size-16 font-weight-bold">${item.title}</div>
+                                                <div class="font-size-14 text-color-gray">${item.subtitle}</div>
+                                            </div>
+                                            <div class="item-cell flex-shrink-0 width-auto">
+                                                <div class="gauge gauge-init" data-type="circle" data-size="48" data-value="${item.progress / 100}" data-border-bg-color="${item.colors[0]}" data-border-color="${item.colors[1]}" data-border-width="6" data-value-text="${item.progress}" data-value-text-color="${item.colors[1]}" data-value-font-size="12"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let gaugeCircle = null;
+        let gaugeSemicircle = null;
+
+        let courses = [
+            {
+                title: 'Mastering HTML',
+                subtitle: faker.lorem.sentence(5),
+                image: 'https://cdn.svgporn.com/logos/html-5.svg',
+                progress: faker.datatype.number({min: 50, max: 100}),
+                colors: [
+                    $f7.stylesheet.getPropertyValue('--color-deeporange-50').trim(),
+                    $f7.stylesheet.getPropertyValue('--color-deeporange-500').trim()
+                ]
+            },
+            {
+                title: 'Mastering CSS',
+                subtitle: faker.lorem.sentence(5),
+                image: 'https://cdn.svgporn.com/logos/css-3.svg',
+                progress: faker.datatype.number({min: 50, max: 100}),
+                colors: [
+                    $f7.stylesheet.getPropertyValue('--color-indigo-50').trim(),
+                    $f7.stylesheet.getPropertyValue('--color-indigo-500').trim()
+                ]
+            },
+            {
+                title: 'Mastering JavaScript',
+                subtitle: faker.lorem.sentence(5),
+                image: 'https://cdn.svgporn.com/logos/javascript.svg',
+                progress: faker.datatype.number({min: 50, max: 100}),
+                colors: [
+                    $f7.stylesheet.getPropertyValue('--color-amber-50').trim(),
+                    $f7.stylesheet.getPropertyValue('--color-amber-500').trim()
+                ]
+            },
+            {
+                title: 'Mastering React',
+                subtitle: faker.lorem.sentence(5),
+                image: 'https://cdn.svgporn.com/logos/react.svg',
+                progress: faker.datatype.number({min: 50, max: 100}),
+                colors: [
+                    $f7.stylesheet.getPropertyValue('--color-cyan-50').trim(),
+                    $f7.stylesheet.getPropertyValue('--color-cyan-500').trim()
+                ]
+            },
+            {
+                title: 'Mastering Vue',
+                subtitle: faker.lorem.sentence(5),
+                image: 'https://cdn.svgporn.com/logos/vue.svg',
+                progress: faker.datatype.number({min: 50, max: 100}),
+                colors: [
+                    $f7.stylesheet.getPropertyValue('--color-teal-50').trim(),
+                    $f7.stylesheet.getPropertyValue('--color-teal-500').trim()
+                ]
+            },
+            {
+                title: 'Mastering Svelte',
+                subtitle: faker.lorem.sentence(5),
+                image: 'https://cdn.svgporn.com/logos/svelte-icon.svg',
+                progress: faker.datatype.number({min: 50, max: 100}),
+                colors: [
+                    $f7.stylesheet.getPropertyValue('--color-deeporange-50').trim(),
+                    $f7.stylesheet.getPropertyValue('--color-deeporange-500').trim()
+                ]
+            }
+        ]
+
+        let initializeGaugeCircle = function() {
+            gaugeCircle = $f7.gauge.create({
+                el: $el.value.find('#gauge-circle'),
+                type: 'circle',
+                value: 0.75,
+                borderBgColor: $f7.stylesheet.getPropertyValue('--color-purple-50').trim(),
+                borderColor: $f7.stylesheet.getPropertyValue('--color-purple-500').trim(),
+                borderWidth: 16,
+                valueText: '$75',
+                valueTextColor: $f7.stylesheet.getPropertyValue('--color-purple-500').trim(),
+                valueFontSize: 20,
+                valueFontWeight: 'bold',
+                labelText: 'of $100 budget',
+                labelFontSize: 12
+            });
+        }
+
+        let setGaugeCircleValue = function(value) {
+            gaugeCircle.update({
+                value: value / 100,
+                valueText: '$' + (value / 100) * 100
+            });
+        }
+
+        let initializeGaugeSemicircle = function() {
+            gaugeSemicircle = $f7.gauge.create({
+                el: $el.value.find('#gauge-semicircle'),
+                type: 'semicircle',
+                value: 0.5,
+                borderBgColor: $f7.stylesheet.getPropertyValue('--color-orange-50').trim(),
+                borderColor: $f7.stylesheet.getPropertyValue('--color-orange-500').trim(),
+                borderWidth: 16,
+                valueText: '30mg',
+                valueTextColor: $f7.stylesheet.getPropertyValue('--color-orange-500').trim(),
+                valueFontSize: 20,
+                valueFontWeight: 'bold',
+                labelText: 'of 60mg',
+                labelFontSize: 12
+            });
+        }
+
+        let setGaugeSemicircleValue = function(value) {
+            gaugeSemicircle.update({
+                value: value / 100,
+                valueText: (value / 100) * 60 + 'mg'
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeGaugeCircle();
+            initializeGaugeSemicircle();
+        });
+
+        return $render;
+    }
+</script>

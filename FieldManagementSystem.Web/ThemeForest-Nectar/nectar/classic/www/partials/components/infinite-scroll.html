@@ -1,0 +1,294 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Infinite Scroll</div>
+            </div>
+        </div>
+
+        <div class="page-content infinite-scroll-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 large-75">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Infinite Scroll allows to load additional content or perform an action when the page scroll approaches the bottom.</p>
+                    </div>
+
+                    ${data.entries && data.entries.length ? $h`
+                    <div class="data-table data-table-init data-table-collapsible card margin-vertical no-shadow">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="numeric-cell">Rank</th>
+                                    <th class="label-cell">Name</th>
+                                    <th class="label-cell">Symbol</th>
+                                    <th class="numeric-cell">Price (USD)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.entries.map((item, index) => $h`
+                                <tr>
+                                    <td class="numeric-cell" data-collapsible-title="Rank">${item.rank}</td>
+                                    <td class="label-cell" data-collapsible-title="Name">
+                                        <img src="https://assets.coincap.io/assets/icons/${item.symbol.toLowerCase()}@2x.png" loading="lazy" height="24" width="24" alt="" />
+                                        <span class="margin-horizontal-half">${item.name}</span>
+                                    </td>
+                                    <td class="label-cell" data-collapsible-title="Symbol">${item.symbol}</td>
+                                    <td class="numeric-cell" data-collapsible-title="Price (USD)">${Number(item.priceUsd).toFixed(5)}</td>
+                                </tr>
+                                `)}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    ${!flags.allEntriesLoaded ? $h`
+                    ${widgets.infiniteScroll.enabled ? $h`
+                    <div id="infinite-scroll-handler" class="block margin-vertical text-align-center">
+                        ${flags.loadMoreEntriesError ? $h`
+                        <button type="button" class="button button-fill button-round margin-horizontal-auto color-mono text-color-mono-invert" style="width: 144px;" @click="${loadMoreEntries}">Load More</button>
+                        ` : $h`
+                        <span class="preloader" key="preloader-infinite-scroll"></span>
+                        `}
+                    </div>
+                    ` : $h` `}
+                    ${!widgets.infiniteScroll.enabled ? $h`
+                    <div id="load-more-handler" class="block margin-vertical text-align-center">
+                        ${flags.loadingMoreEntries ? $h`
+                        <span class="preloader" key="preloader-load-more"></span>
+                        ` : $h`
+                        <button type="button" class="button button-fill button-round margin-horizontal-auto color-mono text-color-mono-invert" style="width: 144px;" @click="${loadMoreEntries}">Load More</button>
+                        `}
+                    </div>
+                    ` : $h` `}
+                    ` : $h` `}
+                    ` : $h` `}
+
+                    ${flags.loadingInitialEntries ? $h`
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <span class="preloader color-multi"></span>
+                    </div>
+                    ` : $h` `}
+
+                </div>
+            </div>
+
+            ${flags.noEntriesFound ? $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${$7.config.lottie.assetUrl + 'no-data-found.json'}" autoplay loop background="transparent" speed="1" style="height: 128px;"></lottie-player>
+                </div>
+                <div class="empty-state-title">No Data Found</div>
+                <div class="empty-state-text">There is no data available at the moment.</div>
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-mono-invert" @click="${loadInitialEntries}">Retry</button>
+                </div>
+            </div>
+            ` : $h` `}
+
+            ${flags.apiErrorEntries ? $h`
+            <div class="empty-state empty-state-strong inset margin-vertical">
+                <div class="empty-state-media">
+                    <lottie-player src="${$7.config.lottie.assetUrl + 'data-load-error.json'}" autoplay loop background="transparent" speed="1" style="height: 128px; transform: scale(2);"></lottie-player>
+                </div>
+                ${$f7.online ? $h`
+                <div class="empty-state-title">Oops!</div>
+                <div class="empty-state-text">${messages.apiError}</div>
+                ` : $h`
+                <div class="empty-state-title">No Internet Connection</div>
+                <div class="empty-state-text">Please make sure you are connected to the Internet.</div>
+                `}
+                <div class="empty-state-actions">
+                    <button type="button" class="empty-state-action button button-fill button-round color-mono text-color-mono-invert" @click="${loadInitialEntries}">Retry</button>
+                </div>
+            </div>
+            ` : $h` `}
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let widgets = {
+            infiniteScroll: {
+                enabled: true
+            }
+        }
+
+        let data = {
+            entries: null
+        }
+
+        let messages = {
+            apiError: null
+        }
+
+        let flags = {
+            allowInfiniteScroll: false,
+            allEntriesLoaded: false,
+            apiErrorEntries: false,
+            initialEntriesLoaded: false,
+            loadingInitialEntries: false,
+            loadingMoreEntries: false,
+            loadMoreEntriesError: false,
+            noEntriesFound: false
+        }
+
+        let pagination = {
+            limit: 50,
+            offset: 0
+        }
+
+        let generateRequestParameters = function() {
+            let parameters = {};
+            parameters.limit = pagination.limit;
+            parameters.offset = pagination.offset;
+            return parameters;
+        }
+
+        let generateResponseData = function(response) {
+            let entries = [];
+            for (i=0; i<response.data.data.length; i++) {
+                var entry = response.data.data[i];
+                entries.push(entry);
+            }
+            return entries;
+        }
+
+        loadInitialEntries = function() {
+            flags.allEntriesLoaded = false;
+            flags.apiErrorEntries = false;
+            flags.initialEntriesLoaded = false;
+            flags.loadingInitialEntries = true;
+            flags.loadingMoreEntries = false;
+            flags.loadMoreEntriesError = false;
+            flags.noEntriesFound = false;
+            pagination.offset = 0;
+            data.entries = null;
+            messages.apiError = null;
+            $update();
+            let requestParameters = generateRequestParameters();
+            $f7.request({
+                url: $f7.config.coincap.rootEndpoint + '/assets',
+                method: 'GET',
+                data: requestParameters,
+                dataType: 'json'
+            })
+            .then(function(response) {
+                if (response.data.data.length) {
+                    flags.initialEntriesLoaded = true;
+                    flags.loadingInitialEntries = false;
+                    let entries = generateResponseData(response);
+                    data.entries = entries;
+                    $update(function() {
+                        if (response.data.data.length < pagination.limit) {
+                            flags.allEntriesLoaded = true;
+                            $update();
+                        }
+                        else {
+                            if (widgets.infiniteScroll.enabled) {
+                                flags.allowInfiniteScroll = true;
+                                $update(function() {
+                                    initializeInfiniteScroll();
+                                });
+                            }
+                        }
+                    });
+                }
+                else {
+                    flags.loadingInitialEntries = false;
+                    flags.noEntriesFound = true;
+                    $update();
+                }
+            })
+            .catch(function(response) {
+                flags.apiErrorEntries = true;
+                flags.loadingInitialEntries = false;
+                messages.apiError = JSON.parse(response.xhr.response).error;
+                $update();
+            });
+        }
+
+        let loadMoreEntries = function() {
+            flags.loadingMoreEntries = true;
+            flags.loadMoreEntriesError = false;
+            pagination.offset = pagination.offset + pagination.limit;
+            $update();
+            let requestParameters = generateRequestParameters();
+            $f7.request({
+                url: $f7.config.coincap.rootEndpoint + '/assets',
+                method: 'GET',
+                data: requestParameters,
+                dataType: 'json'
+            })
+            .then(function(response) {
+                if (response.data.data.length) {
+                    flags.loadingMoreEntries = false;
+                    entries = generateResponseData(response);
+                    data.entries = data.entries.concat(entries);
+                    $update(function() {
+                        if (response.data.data.length < pagination.limit) {
+                            if (widgets.infiniteScroll.enabled) {
+                                $f7.infiniteScroll.destroy($el.value.find('.infinite-scroll-content'));
+                            }
+                            flags.allEntriesLoaded = true;
+                            $update();
+                            return;
+                        }
+                        if (widgets.infiniteScroll.enabled) {
+                            if ($f7.elementInViewport($el.value.find('#infinite-scroll-handler')[0])) {
+                                loadMoreEntries();
+                            }
+                            else {
+                                flags.allowInfiniteScroll = true;
+                                $update();
+                            }
+                        }
+                    });
+                }
+            })
+            .catch(function(response) {
+                flags.loadingMoreEntries = false;
+                flags.loadMoreEntriesError = true;
+                pagination.offset = pagination.offset - pagination.limit
+                $update();
+            });
+        }
+
+        let initializeInfiniteScroll = function() {
+            $f7.infiniteScroll.create($el.value.find('.infinite-scroll-content'));
+            $el.value.find('.infinite-scroll-content').on('infinite', function() {
+                if (!flags.allowInfiniteScroll) {
+                    return;
+                }
+                flags.allowInfiniteScroll = false;
+                $update(function() {
+                    loadMoreEntries();
+                });
+            });
+            if ($f7.elementInViewport($el.value.find('#infinite-scroll-handler')[0])) {
+                flags.allowInfiniteScroll = false;
+                $update(function() {
+                    loadMoreEntries();
+                });
+            }
+        }
+
+        $on('pageBeforeIn', function() {
+            loadInitialEntries();
+        });
+
+        return $render;
+    }
+</script>

@@ -1,0 +1,56 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Video</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block-title margin-vertical">Default Video</div>
+                    <div class="block margin-vertical">
+                        <div class="responsive-container">
+                            <video class="responsive-content shape-rounded-square" controls playsinline preload="metadata">
+                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Background Video</div>
+                    <div class="block margin-vertical">
+                        <div class="overlay-container responsive-container shape-rounded-square elevation-24">
+                            <video class="responsive-content" autoplay loop muted playsinline>
+                                <source src="https://player.vimeo.com/external/521707474.hd.mp4?s=98c57d8ee2f46544e481fb54aa2b1ee767fbd97d&profile_id=174" type="video/mp4" />
+                            </video>
+                            <div class="overlay-content">
+                                <img src="${$f7.config.app.logos.logotypeDark}" height="32" alt="" />
+                                <div class="margin-top">${$f7.config.app.description}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

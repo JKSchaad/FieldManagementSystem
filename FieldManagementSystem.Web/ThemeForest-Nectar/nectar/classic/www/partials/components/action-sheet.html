@@ -1,0 +1,295 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Action Sheet</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Action Sheet is a slide-up pane which displays a set of buttons representing several alternative choices to complete a task initiated by the user.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Action Sheet</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${() => actionSheetWithoutIcons.open()}">Without Icons</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => actionSheetWithIcons.open()}">With Icons</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Action Grid</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => actionGrid.open()}">Open Action Grid</button>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Layout</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => actionsCustomLayout.open()}">Open Actions</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="actions-custom-layout" class="actions-modal">
+            <div class="actions-group text-align-center">
+                <a href="#" class="link shape-container shape-circle overflow-hidden ripple-color-gray" style="background-color: var(--f7-list-bg-color);" @click="${() => actionsCustomLayout.close()}">
+                    <i class="icon material-icons text-color-mono">close</i>
+                </a>
+            </div>
+            <div class="actions-group">
+                <div class="list media-list inset no-chevron no-hairlines-between no-margin">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link" @click="${() => actionsCustomLayout.close()}">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <span class="shape-container shape-auto size-40 bg-color-pink">
+                                            <i class="icon f7-icons font-size-20 color-white">play_fill</i>
+                                        </span>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">Play</div>
+                                        </div>
+                                        <div class="item-text">${faker.lorem.sentence(10)}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-link" @click="${() => actionsCustomLayout.close()}">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <span class="shape-container shape-auto size-40 bg-color-amber">
+                                            <i class="icon f7-icons font-size-20 color-white">qrcode_fill</i>
+                                        </span>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">Scan</div>
+                                        </div>
+                                        <div class="item-text">${faker.lorem.sentence(10)}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-link" @click="${() => actionsCustomLayout.close()}">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <span class="shape-container shape-auto size-40 bg-color-green">
+                                            <i class="icon f7-icons font-size-20 color-white">square_arrow_up</i>
+                                        </span>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">Share</div>
+                                        </div>
+                                        <div class="item-text">${faker.lorem.sentence(10)}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let actionSheetWithoutIcons = null;
+        let actionSheetWithIcons = null;
+        let actionGrid = null;
+        let actionsCustomLayout = null;
+
+        let initializeActionSheetWithoutIcons = function() {
+            actionSheetWithoutIcons = $f7.actions.create({
+                buttons: [
+                    [
+                        {
+                            text: 'Actions',
+                            label: true
+                        }
+                    ],
+                    [
+                        {
+                            text: 'Search'
+                        },
+                        {
+                            text: 'Bookmark'
+                        },
+                        {
+                            text: 'Share'
+                        },
+                        {
+                            text: 'Settings'
+                        },
+                        {
+                            text: 'Delete'
+                        }
+                    ],
+                    [
+                        {
+                            text: 'Cancel',
+                            color: 'red'
+                        }
+                    ]
+                ]
+            });
+        }
+
+        let initializeActionSheetWithIcons = function() {
+            actionSheetWithIcons = $f7.actions.create({
+                buttons: [
+                    [
+                        {
+                            text: 'Actions',
+                            label: true
+                        }
+                    ],
+                    [
+                        {
+                            text: 'Search',
+                            icon: $theme.md ? '<i class="icon material-icons">search</i>' : '<i class="icon f7-icons">search</i>'
+                        },
+                        {
+                            text: 'Bookmark',
+                            icon: $theme.md ? '<i class="icon material-icons">bookmark</i>' : '<i class="icon f7-icons">bookmark</i>'
+                        },
+                        {
+                            text: 'Share',
+                            icon: $theme.md ? '<i class="icon material-icons">share</i>' : '<i class="icon f7-icons">square_arrow_up</i>'
+                        },
+                        {
+                            text: 'Settings',
+                            icon: $theme.md ? '<i class="icon material-icons">settings</i>' : '<i class="icon f7-icons">gear_alt</i>'
+                        },
+                        {
+                            text: 'Delete',
+                            icon: $theme.md ? '<i class="icon material-icons">delete</i>' : '<i class="icon f7-icons">trash</i>'
+                        }
+                    ],
+                    [
+                        {
+                            text: 'Cancel',
+                            icon: $theme.md ? '<i class="icon material-icons">close</i>' : '<i class="icon f7-icons">multiply</i>',
+                            color: 'red'
+                        }
+                    ]
+                ]
+            });
+        }
+
+        let initializeActionGrid = function() {
+            actionGrid = $f7.actions.create({
+                grid: true,
+                buttons: [
+                    [
+                        {
+                            text: 'Search',
+                            icon: `<span class="shape-container shape-auto bg-color-blue">${$theme.md ? '<i class="icon material-icons color-white">search</i>' : '<i class="icon f7-icons color-white">search</i>'}</span>`,
+                            color: 'blue',
+                            onClick: function() {
+                                $f7.toast.show({
+                                    text: 'Search',
+                                    icon: $theme.md ? '<i class="icon material-icons">search</i>' : '<i class="icon f7-icons">search</i>',
+                                    position: 'center'
+                                });
+                            }
+                        },
+                        {
+                            text: 'Bookmark',
+                            icon: `<span class="shape-container shape-auto bg-color-purple">${$theme.md ? '<i class="icon material-icons color-white">bookmark</i>' : '<i class="icon f7-icons color-white">bookmark</i>'}</span>`,
+                            color: 'purple',
+                            onClick: function() {
+                                $f7.toast.show({
+                                    text: 'Bookmark',
+                                    icon: $theme.md ? '<i class="icon material-icons">bookmark</i>' : '<i class="icon f7-icons">bookmark</i>',
+                                    position: 'center'
+                                });
+                            }
+                        },
+                        {
+                            text: 'Share',
+                            icon: `<span class="shape-container shape-auto bg-color-green">${$theme.md ? '<i class="icon material-icons color-white">share</i>' : '<i class="icon f7-icons color-white">square_arrow_up</i>'}</span>`,
+                            color: 'green',
+                            onClick: function() {
+                                $f7.toast.show({
+                                    text: 'Share',
+                                    icon: $theme.md ? '<i class="icon material-icons">share</i>' : '<i class="icon f7-icons">square_arrow_up</i>',
+                                    position: 'center'
+                                });
+                            }
+                        },
+                        {
+                            text: 'Settings',
+                            icon: `<span class="shape-container shape-auto bg-color-bluegray">${$theme.md ? '<i class="icon material-icons color-white">settings</i>' : '<i class="icon f7-icons color-white">gear_alt</i>'}</span>`,
+                            color: 'bluegray',
+                            onClick: function() {
+                                $f7.toast.show({
+                                    text: 'Settings',
+                                    icon: $theme.md ? '<i class="icon material-icons">settings</i>' : '<i class="icon f7-icons">gear_alt</i>',
+                                    position: 'center'
+                                });
+                            }
+                        },
+                        {
+                            text: 'Delete',
+                            icon: `<span class="shape-container shape-auto bg-color-red">${$theme.md ? '<i class="icon material-icons color-white">delete</i>' : '<i class="icon f7-icons color-white">trash</i>'}</span>`,
+                            color: 'red',
+                            onClick: function() {
+                                $f7.toast.show({
+                                    text: 'Delete',
+                                    icon: $theme.md ? '<i class="icon material-icons">delete</i>' : '<i class="icon f7-icons">trash</i>',
+                                    position: 'center'
+                                });
+                            }
+                        }
+                    ]
+                ]
+            });
+        }
+
+        let initializeActionsCustomLayout = function() {
+            actionsCustomLayout = $f7.actions.create({
+                el: $el.value.find('#actions-custom-layout'),
+                closeByBackdropClick: false,
+                closeByOutsideClick: false,
+                closeOnEscape: false
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeActionSheetWithoutIcons();
+            initializeActionSheetWithIcons();
+            initializeActionGrid();
+            initializeActionsCustomLayout();
+        });
+
+        return $render;
+    }
+</script>

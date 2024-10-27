@@ -1,0 +1,125 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Static Searchbar</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <form class="searchbar">
+                <div class="searchbar-inner">
+                    <div class="searchbar-input-wrap">
+                        <input type="search" placeholder="Search" />
+                        <i class="searchbar-icon"></i>
+                        <span class="input-clear-button"></span>
+                    </div>
+                    <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+                </div>
+            </form>
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    ${countries && countries.length ? $h`
+                    <div class="searchbar-found">
+                        <div class="list inset margin-vertical">
+                            <ul>
+                                ${countries.map((item, index) => $h`
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <img src="${item.flags.svg}" loading="lazy" width="32" alt="" />
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title">${item.name.common}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                `)}
+                            </ul>
+                        </div>
+                    </div>
+                    ` : $h`
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <span class="preloader color-multi"></span>
+                    </div>
+                    `}
+
+                    <div class="searchbar-not-found">
+                        <div class="empty-state empty-state-strong inset margin-vertical">
+                            <div class="empty-state-media">
+                                <span class="shape-container shape-auto bg-color-chrome">
+                                    <i class="icon material-icons font-size-32">search_off</i>
+                                </span>
+                            </div>
+                            <div class="empty-state-subtitle">No Search Results</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let searchbar = null;
+        let countries = [];
+
+        let loadData = function() {
+            $f7.request({
+                url: $f7.config.restCountries.rootEndpoint + '/all',
+                method: 'GET',
+                data: {
+                    fields: 'name,flags'
+                },
+                dataType: 'json'
+            })
+            .then(function(response) {
+                countries = fastSort.sort(response.data).by([
+                    { asc: u => $f7.removeDiacritics(u.name.common) }
+                ]);
+                $update(function() {
+                    initializeSearchbar();
+                });
+            })
+            .catch(function(error) {
+                $f7.toast.show({
+                    text: error,
+                    cssClass: 'color-red'
+                });
+            });
+        }
+
+        let initializeSearchbar = function() {
+            searchbar = $f7.searchbar.create({
+                el: $el.value.find('.searchbar'),
+                searchContainer: $el.value.find('.list'),
+                searchItem: 'li',
+                searchIn: 'li',
+                backdrop: false,
+                removeDiacritics: true
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            loadData();
+        });
+
+        return $render;
+    }
+</script>

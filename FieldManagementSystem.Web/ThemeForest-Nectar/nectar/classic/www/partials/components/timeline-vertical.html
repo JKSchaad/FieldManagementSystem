@@ -1,0 +1,671 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Vertical Timeline</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block-title justify-content-center margin-top">Same Side</div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>21</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">06:00 AM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(2)}</div>
+                                        <div class="timeline-item-subtitle">${faker.lorem.sentences(1)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:30 AM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>22</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-media">
+                                            <img class="shape-rounded-square" src="https://picsum.photos/1920/1080?r=1" loading="lazy" alt="" />
+                                        </div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>25</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">03:45 PM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(5)}</div>
+                                        <div class="timeline-item-subtitle">${faker.lorem.sentences(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(5)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>31</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">11:59 PM</div>
+                                        <div class="timeline-item-media">
+                                            <video class="shape-rounded-square" controls playsinline preload="metadata">
+                                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline timeline-divider-icons">
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:30 PM (Estimated)</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-gray">shopping_bag</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Delivered</div>
+                                        <div class="timeline-item-text">Your order has been successfully delivered.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:15 PM (Estimated)</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-gray">local_shipping</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Ready</div>
+                                        <div class="timeline-item-text">Your order is ready for pickup by the delivery person.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-amber">
+                                <span class="preloader color-white size-16"></span>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:05 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-amber">microwave</i>
+                                        </div>
+                                        <div class="timeline-item-title">Processing Order</div>
+                                        <div class="timeline-item-text">We are processing your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-green">
+                                <i class="icon material-icons">check</i>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:02 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-green">credit_card</i>
+                                        </div>
+                                        <div class="timeline-item-title">Payment Confirmed</div>
+                                        <div class="timeline-item-text">Your payment for the order has been received.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-green">
+                                <i class="icon material-icons">check</i>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:00 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-green">receipt_long</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Placed</div>
+                                        <div class="timeline-item-text">We have received your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title justify-content-center">Alternate Side</div>
+                    <div class="timeline timeline-sides">
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>21</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">06:00 AM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(2)}</div>
+                                        <div class="timeline-item-subtitle">${faker.lorem.sentences(1)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:30 AM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>22</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-media">
+                                            <img class="shape-rounded-square" src="https://picsum.photos/384/256?r=1" loading="lazy" width="384" height="256" alt="" />
+                                        </div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>25</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">03:45 PM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(5)}</div>
+                                        <div class="timeline-item-subtitle">${faker.lorem.sentences(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(5)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>31</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">11:59 PM</div>
+                                        <div class="timeline-item-media">
+                                            <video class="shape-rounded-square" controls playsinline preload="metadata">
+                                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline timeline-sides timeline-divider-icons">
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:30 PM (Estimated)</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-gray">shopping_bag</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Delivered</div>
+                                        <div class="timeline-item-text">Your order has been successfully delivered.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:15 PM (Estimated)</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-gray">local_shipping</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Ready</div>
+                                        <div class="timeline-item-text">Your order is ready for pickup by the delivery person.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-amber">
+                                <span class="preloader color-white size-16"></span>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:05 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-amber">microwave</i>
+                                        </div>
+                                        <div class="timeline-item-title">Processing Order</div>
+                                        <div class="timeline-item-text">We are processing your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-green">
+                                <i class="icon material-icons">check</i>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:02 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-green">credit_card</i>
+                                        </div>
+                                        <div class="timeline-item-title">Payment Confirmed</div>
+                                        <div class="timeline-item-text">Your payment for the order has been received.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-green">
+                                <i class="icon material-icons">check</i>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:00 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-green">receipt_long</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Placed</div>
+                                        <div class="timeline-item-text">We have received your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title justify-content-center">Responsive Side</div>
+                    <div class="block-header text-align-center">Each timeline item will be on same side on mobile devices and on alternate sides on tablets & desktops.</div>
+                    <div class="timeline medium-sides">
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>21</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">06:00 AM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(2)}</div>
+                                        <div class="timeline-item-subtitle">${faker.lorem.sentences(1)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:30 AM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>22</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-media">
+                                            <img class="shape-rounded-square" src="https://picsum.photos/384/256?r=1" loading="lazy" width="384" height="256" alt="" />
+                                        </div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>25</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">03:45 PM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(5)}</div>
+                                        <div class="timeline-item-subtitle">${faker.lorem.sentences(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(5)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"><span>31</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">11:59 PM</div>
+                                        <div class="timeline-item-media">
+                                            <video class="shape-rounded-square" controls playsinline preload="metadata">
+                                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline medium-sides timeline-divider-icons">
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:30 PM (Estimated)</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-gray">shopping_bag</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Delivered</div>
+                                        <div class="timeline-item-text">Your order has been successfully delivered.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:15 PM (Estimated)</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-gray">local_shipping</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Ready</div>
+                                        <div class="timeline-item-text">Your order is ready for pickup by the delivery person.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-amber">
+                                <span class="preloader color-white size-16"></span>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:05 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-amber">microwave</i>
+                                        </div>
+                                        <div class="timeline-item-title">Processing Order</div>
+                                        <div class="timeline-item-text">We are processing your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-green">
+                                <i class="icon material-icons">check</i>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:02 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-green">credit_card</i>
+                                        </div>
+                                        <div class="timeline-item-title">Payment Confirmed</div>
+                                        <div class="timeline-item-text">Your payment for the order has been received.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-green">
+                                <i class="icon material-icons">check</i>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:00 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-green">receipt_long</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Placed</div>
+                                        <div class="timeline-item-text">We have received your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title justify-content-center">Forced Side</div>
+                    <div class="timeline timeline-sides">
+                        <div class="timeline-item timeline-item-left">
+                            <div class="timeline-item-date"><span>21</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">06:00 AM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(2)}</div>
+                                        <div class="timeline-item-subtitle">${faker.lorem.sentences(1)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:30 AM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-item-right">
+                            <div class="timeline-item-date"><span>22</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-media">
+                                            <img class="shape-rounded-square" src="https://picsum.photos/384/256?r=1" loading="lazy" width="384" height="256" alt="" />
+                                        </div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-item-right">
+                            <div class="timeline-item-date"><span>25</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">03:45 PM</div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(5)}</div>
+                                        <div class="timeline-item-subtitle">${faker.lorem.sentences(3)}</div>
+                                        <div class="timeline-item-text">${faker.lorem.sentences(5)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-item-left">
+                            <div class="timeline-item-date"><span>31</span> <small>DEC</small></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">11:59 PM</div>
+                                        <div class="timeline-item-media">
+                                            <video class="shape-rounded-square" controls playsinline preload="metadata">
+                                                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                                            </video>
+                                        </div>
+                                        <div class="timeline-item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline timeline-sides timeline-divider-icons">
+                        <div class="timeline-item timeline-item-left">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:30 PM (Estimated)</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-gray">shopping_bag</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Delivered</div>
+                                        <div class="timeline-item-text">Your order has been successfully delivered.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-item-left">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider"></div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:15 PM (Estimated)</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-gray">local_shipping</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Ready</div>
+                                        <div class="timeline-item-text">Your order is ready for pickup by the delivery person.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-item-right">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-amber">
+                                <span class="preloader color-white size-16"></span>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:05 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-amber">microwave</i>
+                                        </div>
+                                        <div class="timeline-item-title">Processing Order</div>
+                                        <div class="timeline-item-text">We are processing your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-item-left">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-green">
+                                <i class="icon material-icons">check</i>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:02 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-green">credit_card</i>
+                                        </div>
+                                        <div class="timeline-item-title">Payment Confirmed</div>
+                                        <div class="timeline-item-text">Your payment for the order has been received.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item timeline-item-left">
+                            <div class="timeline-item-date"></div>
+                            <div class="timeline-item-divider color-green">
+                                <i class="icon material-icons">check</i>
+                            </div>
+                            <div class="timeline-item-content">
+                                <div class="timeline-item-inner">
+                                    <div class="card-content">
+                                        <div class="timeline-item-time">09:00 PM</div>
+                                        <div class="timeline-item-media">
+                                            <i class="icon material-icons font-size-40 text-gradient-green">receipt_long</i>
+                                        </div>
+                                        <div class="timeline-item-title">Order Placed</div>
+                                        <div class="timeline-item-text">We have received your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

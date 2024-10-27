@@ -1,0 +1,351 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Sortable List</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Sortable List allows to sort list view elements.</p>
+                    </div>
+
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header">
+                            <span>Default</span>
+                            <a href="#" class="link icon-only" @click="${toggleSortableDefault}">
+                                <i class="icon material-icons">sort</i>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div id="sortable-list-default" class="list sortable no-safe-areas">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-red">
+                                                    <i class="icon material-icons color-white">medical_services</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Healthcare</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-green">
+                                                    <i class="icon material-icons color-white">shopping_basket</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Groceries</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-blue">
+                                                    <i class="icon material-icons color-white">home</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Mortgage</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-pink">
+                                                    <i class="icon material-icons color-white">directions_car</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Transportation</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-orange">
+                                                    <i class="icon material-icons color-white">wifi</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Utilities</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header">
+                            <span>Opposite</span>
+                            <a href="#" class="link icon-only" @click="${toggleSortableOpposite}">
+                                <i class="icon material-icons">sort</i>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div id="sortable-list-opposite" class="list sortable sortable-opposite no-safe-areas">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-red">
+                                                    <i class="icon material-icons color-white">medical_services</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Healthcare</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-green">
+                                                    <i class="icon material-icons color-white">shopping_basket</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Groceries</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-blue">
+                                                    <i class="icon material-icons color-white">home</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Mortgage</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-pink">
+                                                    <i class="icon material-icons color-white">directions_car</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Transportation</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <span class="shape-container shape-auto size-40 bg-gradient-orange">
+                                                    <i class="icon material-icons color-white">wifi</i>
+                                                </span>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">Utilities</div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">Sortable handler is rendered on opposite side.</div>
+                    </div>
+
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header">
+                            <span>Disable</span>
+                            <a href="#" class="link icon-only" @click="${toggleSortableDisable}">
+                                <i class="icon material-icons">sort</i>
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <div id="sortable-list-disable" class="list sortable no-safe-areas">
+                                <ul>
+                                    <li class="no-sorting">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Monday</div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Tuesday</div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Wednesday</div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Thursday</div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Friday</div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Saturday</div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                    <li class="no-sorting">
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Sunday</div>
+                                                <div class="item-after"></div>
+                                            </div>
+                                        </div>
+                                        <div class="sortable-handler"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">Sorting can be disabled on specific list items.</div>
+                    </div>
+
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header">Tap & Hold (Long Press)</div>
+                        <div class="card-content">
+                            <div class="list sortable sortable-tap-hold no-safe-areas">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Monday</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Tuesday</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Wednesday</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Thursday</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Friday</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Saturday</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">Sunday</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">List items can be sorted by tap & hold.</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let toggleSortableDefault = function() {
+            $f7.sortable.toggle($el.value.find('#sortable-list-default'));
+        }
+
+        let toggleSortableOpposite = function() {
+            $f7.sortable.toggle($el.value.find('#sortable-list-opposite'));
+        }
+
+        let toggleSortableDisable = function() {
+            $f7.sortable.toggle($el.value.find('#sortable-list-disable'));
+        }
+
+        return $render;
+    }
+</script>

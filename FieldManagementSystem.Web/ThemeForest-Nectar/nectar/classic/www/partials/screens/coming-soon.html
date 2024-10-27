@@ -1,0 +1,132 @@
+<template>
+    <div class="page no-navbar no-sidebar no-tabbar bg-cover" data-name="coming-soon" style="background-image: url('https://source.unsplash.com/random/1920x1080?abstract');">
+
+        <div class="page-content">
+
+            <div class="row align-items-stretch justify-content-center height-full">
+                <div class="col-100 medium-75 large-60 xlarge-45 padding-vertical">
+
+                    <div class="block block-strong inset display-flex flex-direction-column align-items-stretch justify-content-center height-100 no-margin-vertical text-align-center bg-translucent">
+
+                        <div>
+                            <img class="shape-circle elevation-24 color-gray if-not-dark" src="${$f7.config.app.logos.logomarkLight}" height="96" alt="" />
+                            <img class="shape-circle elevation-24 color-gray if-dark" src="${$f7.config.app.logos.logomarkDark}" height="96" alt="" />
+                            <div class="margin-top">${$f7.config.app.description}</div>
+                        </div>
+
+                        <div class="timer-countdown countdown-init margin-top" data-countdown-datetime="${launchDateTime}">
+
+                            <div class="countdown-result">
+
+                                <div class="font-size-48 font-weight-900 letter-spacing-1 line-height-1 margin-vertical">
+                                    <span>WE HAVE</span>
+                                    ${`\u0020`}
+                                    <span class="text-color-primary">LAUNCHED</span>
+                                </div>
+
+                                <div class="margin-vertical padding-top">
+                                    <a href="#" class="back button button-fill button-large button-round margin-horizontal-auto color-mono text-color-mono-invert" data-reload-current="true" style="max-width: 256px;">Explore Nectar</a>
+                                </div>
+
+                            </div>
+
+                            <div class="countdown-inner">
+
+                                <div class="font-size-48 font-weight-900 letter-spacing-1 line-height-1 margin-vertical">
+                                    <span class="text-color-primary">COMING</span>
+                                    ${`\u0020`}
+                                    <span>SOON</span>
+                                </div>
+
+                                <div class="display-flex flex-wrap-wrap justify-content-center margin-vertical text-color-white">
+                                    <div class="shape-container shape-rounded-square size-80 elevation-12 margin-half bg-color-primary">
+                                        <div class="countdown-days font-size-24 font-weight-bold">00</div>
+                                        <div class="font-size-12 letter-spacing-1 text-uppercase">Days</div>
+                                    </div>
+                                    <div class="shape-container shape-rounded-square size-80 elevation-12 margin-half bg-color-primary">
+                                        <div class="countdown-hours font-size-24 font-weight-bold">00</div>
+                                        <div class="font-size-12 letter-spacing-1 text-uppercase">Hours</div>
+                                    </div>
+                                    <div class="shape-container shape-rounded-square size-80 elevation-12 margin-half bg-color-primary">
+                                        <div class="countdown-minutes font-size-24 font-weight-bold">00</div>
+                                        <div class="font-size-12 letter-spacing-1 text-uppercase">Minutes</div>
+                                    </div>
+                                    <div class="shape-container shape-rounded-square size-80 elevation-12 margin-half bg-color-primary">
+                                        <div class="countdown-seconds font-size-24 font-weight-bold">00</div>
+                                        <div class="font-size-12 letter-spacing-1 text-uppercase">Seconds</div>
+                                    </div>
+                                </div>
+
+                                <form name="subscribe" action="#" method="POST" enctype="multipart/form-data">
+                                    <div class="list margin-vertical no-hairlines no-hairlines-between">
+                                        <ul class="bg-transparent">
+                                            <li>
+                                                <div class="item-content item-input item-input-outline item-input-fill item-input-round">
+                                                    <div class="item-inner">
+                                                        <div class="item-input-wrap">
+                                                            <input class="font-size-16 font-weight-600 text-align-center" type="email" name="email" inputmode="email" placeholder="Your Email Address" required />
+                                                            <span class="input-clear-button"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="block margin-top no-margin-bottom">
+                                        <button type="submit" class="button button-fill button-large button-round color-mono text-color-mono-invert">Notify Me</button>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let launchDateTime = new Date(new Date().getTime() + 60 * 1000).toISOString();
+
+        let formValidator = null;
+
+        let initializeFormValidator = function() {
+            formValidator = jQuery($el.value.find('form[name=subscribe]')).validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    email: {
+                        required: 'Please enter email address.',
+                        email: 'Please enter a valid email address.'
+                    }
+                },
+                submitHandler: function(form) {
+                    $f7.toast.show({
+                        text: 'Thank you for subscribing us. We will notify you once we have launched.',
+                        cssClass: 'color-green'
+                    });
+                    form.reset();
+                    $f7router.back();
+                }
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeFormValidator();
+        });
+
+        return $render;
+    }
+</script>

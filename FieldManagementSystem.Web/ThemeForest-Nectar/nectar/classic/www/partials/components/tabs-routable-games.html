@@ -1,0 +1,50 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">
+                    <div>Games</div>
+                    <div class="subtitle">Routable Tab</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="block-title block-title-medium justify-content-flex-start no-margin-vertical">
+                            <span class="shape-container shape-circle bg-gradient-amber">
+                                <i class="icon f7-icons color-white">gamecontroller_fill</i>
+                            </span>
+                            <span class="margin-horizontal-half text-gradient-amber">Games</span>
+                        </div>
+                        <p>${faker.lorem.sentences(15)}</p>
+                        <p>${faker.lorem.sentences(20)}</p>
+                        <p>${faker.lorem.sentences(5)}</p>
+                        <p>${faker.lorem.sentences(10)}</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>
