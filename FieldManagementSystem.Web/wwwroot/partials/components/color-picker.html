@@ -1,0 +1,438 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Color Picker</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block-title margin-vertical">Color Wheel</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="color-wheel-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="color-wheel" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Saturation-Brightness Spectrum</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="sb-spectrum-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="sb-spectrum" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Hue-Saturation Spectrum</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="hs-spectrum-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="hs-spectrum" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">RGB Sliders</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="rgb-sliders-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="rgb-sliders" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">RGBA Sliders</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="rgba-sliders-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="rgba-sliders" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">HSB Sliders</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="hsb-sliders-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="hsb-sliders" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">RGB Bars</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="rgb-bars-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="rgb-bars" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">RGB Sliders + Colors</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="rgb-sliders-colors-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="rgb-sliders-colors" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Palette</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="palette-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="palette" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Pro Mode</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input item-input-outline">
+                                    <div class="item-media align-self-center">
+                                        <i id="pro-mode-color" class="shape-container shape-circle size-24"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="pro-mode" placeholder="Color" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Inline Color Picker</div>
+                    <div class="block block-strong inset margin-vertical no-padding">
+                        <div id="color-picker-inline"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let colorPickerWheel;
+        let colorPickerSbSpectrum;
+        let colorPickerHsSpectrum;
+        let colorPickerRgbSliders;
+        let colorPickerRgbaSliders;
+        let colorPickerHsbSliders;
+        let colorPickerRgbBars;
+        let colorPickerRgbSlidersColors;
+        let colorPickerPalette;
+        let colorPickerProMode;
+        let colorPickerInline;
+
+        let initializeColorPickerWheel = function() {
+            colorPickerWheel = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=color-wheel]'),
+                targetEl: $el.value.find('#color-wheel-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['wheel'],
+                openIn: 'popover',
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-red').trim()
+                }
+            });
+        }
+
+        let initializeColorPickerSbSpectrum = function() {
+            colorPickerSbSpectrum = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=sb-spectrum]'),
+                targetEl: $el.value.find('#sb-spectrum-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['sb-spectrum', 'hue-slider'],
+                openIn: 'popover',
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-purple').trim()
+                }
+            });
+        }
+
+        let initializeColorPickerHsSpectrum = function() {
+            colorPickerHsSpectrum = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=hs-spectrum]'),
+                targetEl: $el.value.find('#hs-spectrum-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['hs-spectrum', 'brightness-slider'],
+                openIn: 'popover',
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-indigo').trim()
+                }
+            });
+        }
+
+        let initializeColorPickerRgbSliders = function() {
+            colorPickerRgbSliders = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=rgb-sliders]'),
+                targetEl: $el.value.find('#rgb-sliders-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['rgb-sliders'],
+                openIn: 'popover',
+                sliderLabel: true,
+                sliderValue: true,
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-lightblue').trim()
+                }
+            });
+        }
+
+        let initializeColorPickerRgbaSliders = function() {
+            colorPickerRgbaSliders = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=rgba-sliders]'),
+                targetEl: $el.value.find('#rgba-sliders-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['rgb-sliders', 'alpha-slider'],
+                openIn: 'popover',
+                sliderLabel: true,
+                sliderValue: true,
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-teal').trim()
+                },
+                formatValue: function(value) {
+                    return 'rgba(' + value.rgba.join(', ') + ')';
+                }
+            });
+        }
+
+        let initializeColorPickerHsbSliders = function() {
+            colorPickerHsbSliders = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=hsb-sliders]'),
+                targetEl: $el.value.find('#hsb-sliders-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['hsb-sliders'],
+                openIn: 'popover',
+                sliderLabel: true,
+                sliderValue: true,
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-lightgreen').trim()
+                },
+                formatValue: function(value) {
+                    return 'hsb(' + value.hsb[0] + (', ' + value.hsb[1] * 1000 / 10 + '%') + (', ' + value.hsb[2] * 1000 / 10 + '%') + ')';
+                }
+            });
+        }
+
+        let initializeColorPickerRgbBars = function() {
+            colorPickerRgbBars = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=rgb-bars]'),
+                targetEl: $el.value.find('#rgb-bars-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['rgb-bars'],
+                openIn: 'popover',
+                sliderLabel: true,
+                sliderValue: true,
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-yellow').trim()
+                },
+                formatValue: function(value) {
+                    return 'rgb(' + value.rgb.join(', ') + ')';
+                }
+            });
+        }
+
+        let initializeColorPickerRgbSlidersColors = function() {
+            colorPickerRgbSlidersColors = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=rgb-sliders-colors]'),
+                targetEl: $el.value.find('#rgb-sliders-colors-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['rgb-sliders', 'initial-current-colors'],
+                openIn: 'popover',
+                sliderLabel: true,
+                sliderValue: true,
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-orange').trim()
+                },
+                formatValue: function(value) {
+                    return 'rgb(' + value.rgb.join(', ') + ')';
+                }
+            });
+        }
+
+        let initializeColorPickerPalette = function() {
+            colorPickerPalette = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=palette]'),
+                targetEl: $el.value.find('#palette-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['palette'],
+                openIn: 'auto',
+                openInPhone: 'sheet',
+                palette: [
+                    ['#FFEBEE', '#FFCDD2', '#EF9A9A', '#E57373', '#EF5350', '#F44336', '#E53935', '#D32F2F', '#C62828', '#B71C1C'],
+                    ['#F3E5F5', '#E1BEE7', '#CE93D8', '#BA68C8', '#AB47BC', '#9C27B0', '#8E24AA', '#7B1FA2', '#6A1B9A', '#4A148C'],
+                    ['#E8EAF6', '#C5CAE9', '#9FA8DA', '#7986CB', '#5C6BC0', '#3F51B5', '#3949AB', '#303F9F', '#283593', '#1A237E'],
+                    ['#E1F5FE', '#B3E5FC', '#81D4FA', '#4FC3F7', '#29B6F6', '#03A9F4', '#039BE5', '#0288D1', '#0277BD', '#01579B'],
+                    ['#E0F2F1', '#B2DFDB', '#80CBC4', '#4DB6AC', '#26A69A', '#009688', '#00897B', '#00796B', '#00695C', '#004D40'],
+                    ['#F1F8E9', '#DCEDC8', '#C5E1A5', '#AED581', '#9CCC65', '#8BC34A', '#7CB342', '#689F38', '#558B2F', '#33691E'],
+                    ['#FFFDE7', '#FFF9C4', '#FFF59D', '#FFF176', '#FFEE58', '#FFEB3B', '#FDD835', '#FBC02D', '#F9A825', '#F57F17'],
+                    ['#FFF3E0', '#FFE0B2', '#FFCC80', '#FFB74D', '#FFA726', '#FF9800', '#FB8C00', '#F57C00', '#EF6C00', '#E65100']
+                ],
+                value: {
+                    hex: '#03A9F4'
+                }
+            });
+        }
+
+        let initializeColorPickerProMode = function() {
+            colorPickerProMode = $f7.colorPicker.create({
+                inputEl: $el.value.find('input[name=pro-mode]'),
+                targetEl: $el.value.find('#pro-mode-color'),
+                targetElSetBackgroundColor: true,
+                modules: ['initial-current-colors', 'sb-spectrum', 'hsb-sliders', 'rgb-sliders', 'alpha-slider', 'hex', 'palette'],
+                openIn: 'popup',
+                sliderLabel: true,
+                sliderValue: true,
+                sliderValueEditable: true,
+                hexLabel: true,
+                hexValueEditable: true,
+                groupedModules: true,
+                palette: [
+                    ['#FFEBEE', '#FFCDD2', '#EF9A9A', '#E57373', '#EF5350', '#F44336', '#E53935', '#D32F2F', '#C62828', '#B71C1C'],
+                    ['#F3E5F5', '#E1BEE7', '#CE93D8', '#BA68C8', '#AB47BC', '#9C27B0', '#8E24AA', '#7B1FA2', '#6A1B9A', '#4A148C'],
+                    ['#E8EAF6', '#C5CAE9', '#9FA8DA', '#7986CB', '#5C6BC0', '#3F51B5', '#3949AB', '#303F9F', '#283593', '#1A237E'],
+                    ['#E1F5FE', '#B3E5FC', '#81D4FA', '#4FC3F7', '#29B6F6', '#03A9F4', '#039BE5', '#0288D1', '#0277BD', '#01579B'],
+                    ['#E0F2F1', '#B2DFDB', '#80CBC4', '#4DB6AC', '#26A69A', '#009688', '#00897B', '#00796B', '#00695C', '#004D40'],
+                    ['#F1F8E9', '#DCEDC8', '#C5E1A5', '#AED581', '#9CCC65', '#8BC34A', '#7CB342', '#689F38', '#558B2F', '#33691E'],
+                    ['#FFFDE7', '#FFF9C4', '#FFF59D', '#FFF176', '#FFEE58', '#FFEB3B', '#FDD835', '#FBC02D', '#F9A825', '#F57F17'],
+                    ['#FFF3E0', '#FFE0B2', '#FFCC80', '#FFB74D', '#FFA726', '#FF9800', '#FB8C00', '#F57C00', '#EF6C00', '#E65100']
+                ],
+                value: {
+                    hex: '#5C6BC0'
+                },
+                formatValue: function (value) {
+                    return 'rgba(' + value.rgba.join(', ') + ')';
+                }
+            });
+        }
+
+        let initializeColorPickerInline = function() {
+            colorPickerInline = $f7.colorPicker.create({
+                containerEl: '#color-picker-inline',
+                modules: ['sb-spectrum', 'hsb-sliders', 'alpha-slider'],
+                value: {
+                    hex: $f7.stylesheet.getPropertyValue('--f7-color-brown').trim()
+                }
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeColorPickerWheel();
+            initializeColorPickerSbSpectrum();
+            initializeColorPickerHsSpectrum();
+            initializeColorPickerRgbSliders();
+            initializeColorPickerRgbaSliders();
+            initializeColorPickerHsbSliders();
+            initializeColorPickerRgbBars();
+            initializeColorPickerRgbSlidersColors();
+            initializeColorPickerPalette();
+            initializeColorPickerProMode();
+            initializeColorPickerInline();
+        });
+
+        return $render;
+    }
+</script>

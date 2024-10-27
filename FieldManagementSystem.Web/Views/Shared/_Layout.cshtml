@@ -2,49 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ClancyCore</title>
+
+    @* Nectar Theme Meta Tags *@
+    <base href="/">
+    <link rel="manifest" href="manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="ClancyCore" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1C1C1C" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="lib/custom/favicon/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="any" href="lib/custom/favicon/favicon.png" />
+    <link rel="icon" type="image/x-icon" sizes="any" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="lib/custom/favicon/apple-touch-icon.png" />
+
+    @* Include Stylesheets *@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FieldManagementSystem.Web.styles.css" asp-append-version="true" />
+
+    @* Framework7 and other library CSS *@
+    <link class="f7" rel="stylesheet" href="lib/vendor/framework7/framework7-bundle.min.css" />
+    <link rel="stylesheet" href="lib/vendor/material-icons/material-icons.css" />
+    <link rel="stylesheet" href="lib/vendor/framework7-icons/css/framework7-icons.css" />
+    <link rel="stylesheet" href="lib/vendor/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="lib/vendor/framework7-keypad/framework7-keypad.min.css" />
+    <link rel="stylesheet" href="lib/vendor/rateyo/jquery.rateyo.min.css" />
+    <link rel="stylesheet" href="lib/vendor/nectar/nectar.css" />
+    <link rel="stylesheet" href="lib/vendor/nectar/colors.css" />
+    <link rel="stylesheet" href="lib/vendor/nectar/wordpress.css" />
 </head>
 <body>
+    @* Main application container used by Framework7 *@
+    <div id="app"></div> @* This div is where the main application UI will be rendered by Framework7 *@
+
+    @* Header containing navigation *@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FieldManagementSystem.Web</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FieldManagementSystem.Web</a> @* Brand logo linking to the home page *@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span> @* Button for toggling navigation menu on smaller screens *@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a> @* Link to Home page *@
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> @* Link to Privacy page *@
                         </li>
                     </ul>
-                    <partial name="_LoginPartial" />
+                    <partial name="_LoginPartial" /> @* Partial view for login/logout functionality *@
                 </div>
             </div>
         </nav>
     </header>
+
+    @* Main content container *@
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            @RenderBody() @* Render the main body content of the page here *@
         </main>
     </div>
 
+    @* Include JavaScript libraries *@
+    <script defer src="lib/vendor/framework7/framework7-bundle.min.js"></script> @* Load Framework7 first to avoid dependency issues *@
+    <script defer src="lib/vendor/jquery/jquery.min.js"></script> @* Include jQuery library *@
+    <script defer src="lib/vendor/lazyload/LazyLoad.min.js"></script> @* Lazy loading library for images and other resources *@
+    <script defer src="lib/vendor/i18next/i18next.min.js"></script> @* Library for internationalization support *@
+    <script defer src="lib/vendor/i18next/i18nextXHRBackend.min.js"></script> @* Backend plugin for loading i18n resources *@
+    <script defer src="lib/vendor/i18next/loc-i18next.min.js"></script> @* Localization plugin for i18next *@
+    <script defer src="lib/vendor/moment/moment.min.js"></script> @* Moment.js for date and time manipulation *@
+    <script defer src="lib/vendor/jquery-validation/jquery.validate.min.js"></script> @* jQuery validation plugin for form validation *@
+    <script defer src="lib/vendor/jquery-validation/additional-methods.min.js"></script> @* Additional validation methods for jQuery validation *@
+    <script defer src="lib/vendor/framework7-keypad/framework7-keypad.min.js"></script> @* Framework7 Keypad plugin *@
+    <script defer src="lib/vendor/rateyo/jquery.rateyo.min.js"></script> @* jQuery rating plugin *@
+    <script defer src="lib/vendor/easytimer/easytimer.min.js"></script> @* Timer library for countdowns and similar features *@
+    <script defer src="lib/vendor/anime/anime.min.js"></script> @* Anime.js library for animations *@
+    <script defer src="lib/vendor/lottie-player/lottie-player.js"></script> @* Lottie player for playing Lottie animations *@
+    <script defer src="~/lib/custom/js/faker-init.js" type="module"></script> @* Custom script for initializing Faker.js *@
+
+    @* Module script for sorting functionality *@
+    <script defer type="module">
+        import { sort, inPlaceSort } from 'https://cdn.jsdelivr.net/npm/fast-sort@3.2.1/dist/sort.es.js';
+        window.fastSort = {}; @* Create a global fastSort object *@
+            window.fastSort.sort = sort; @* Attach sort function to fastSort *@
+                window.fastSort.inPlaceSort = inPlaceSort; @* Attach inPlaceSort function to fastSort *@
+    </script>
+
+    @* Custom application JavaScript files *@
+    <script defer src="lib/custom/js/config.js"></script> @* Custom configuration script *@
+    <script defer src="lib/custom/js/routes.js"></script> @* Custom routes script *@
+    <script defer src="lib/custom/js/store.js"></script> @* Custom store script for managing state *@
+    <script defer src="lib/custom/js/init.js"></script> @* Custom initialization script *@
+    <script defer src="~/lib/custom/js/app-init.js"></script> @* Custom application initialization script *@
+
+    @* Footer containing copyright information *@
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - FieldManagementSystem.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - FieldManagementSystem.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> @* Footer with copyright notice and privacy link *@
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    @* Additional library scripts *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script> @* Include jQuery library again for any non-deferred usage *@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> @* Bootstrap JavaScript for UI components *@
+    <script src="~/js/site.js" asp-append-version="true"></script> @* Custom site script *@
+    @await RenderSectionAsync("Scripts", required: false) @* Render additional scripts defined in other views *@
 </body>
 </html>

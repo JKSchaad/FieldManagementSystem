@@ -1,0 +1,349 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Range Slider</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Range Slider allows to select a range of values by moving the slider thumb.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Single</div>
+                    <div class="list simple-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-cell flex-shrink-0 width-auto">
+                                    <i class="icon material-icons">volume_mute</i>
+                                </div>
+                                <div class="item-cell flex-shrink-1">
+                                    <div id="range-slider-horizontal-single" class="range-slider"></div>
+                                </div>
+                                <div class="item-cell flex-shrink-0 width-auto">
+                                    <i class="icon material-icons">volume_up</i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Dual</div>
+                    <div class="list simple-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-cell">
+                                    <div class="font-weight-600">Price Range</div>
+                                </div>
+                                <div class="item-cell flex-shrink-0 width-auto">
+                                    <div class="font-weight-600 text-color-gray">${`\u0024`}${priceRange.lower} ${`\u2013`} ${`\u0024`}${priceRange.upper}</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-cell flex-shrink-0 width-auto">
+                                    <i class="icon material-icons">attach_money</i>
+                                </div>
+                                <div class="item-cell flex-shrink-1">
+                                    <div id="range-slider-horizontal-dual" class="range-slider"></div>
+                                </div>
+                                <div class="item-cell flex-shrink-0 width-auto">
+                                    <i class="icon material-icons">paid</i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Scale</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="range-slider-horizontal-scale" class="range-slider"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Scale Dual</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="range-slider-horizontal-scale-dual" class="range-slider"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Vertical</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="row">
+                            <div class="col-25 display-flex justify-content-center">
+                                <div id="range-slider-vertical-single" class="range-slider color-red" style="height: 384px;"></div>
+                            </div>
+                            <div class="col-25 display-flex justify-content-center">
+                                <div id="range-slider-vertical-dual" class="range-slider color-green" style="height: 384px;"></div>
+                            </div>
+                            <div class="col-25 display-flex justify-content-center">
+                                <div id="range-slider-vertical-scale" class="range-slider color-blue" style="height: 384px;"></div>
+                            </div>
+                            <div class="col-25 display-flex justify-content-center">
+                                <div id="range-slider-vertical-scale-dual" class="range-slider color-amber" style="height: 384px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Vertical (Reversed)</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="row">
+                            <div class="col-25 display-flex justify-content-center">
+                                <div id="range-slider-vertical-reversed-single" class="range-slider color-blue" style="height: 384px;"></div>
+                            </div>
+                            <div class="col-25 display-flex justify-content-center">
+                                <div id="range-slider-vertical-reversed-dual" class="range-slider color-amber" style="height: 384px;"></div>
+                            </div>
+                            <div class="col-25 display-flex justify-content-center">
+                                <div id="range-slider-vertical-reversed-scale" class="range-slider color-pink" style="height: 384px;"></div>
+                            </div>
+                            <div class="col-25 display-flex justify-content-center">
+                                <div id="range-slider-vertical-reversed-scale-dual" class="range-slider color-green" style="height: 384px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let priceRange = {
+            lower: 235,
+            upper: 595
+        }
+
+        let rangeSliderHorizontalSingle = null;
+        let rangeSliderHorizontalDual = null;
+        let rangeSliderHorizontalScale = null;
+        let rangeSliderHorizontalScaleDual = null;
+        let rangeSliderVerticalSingle = null;
+        let rangeSliderVerticalDual = null;
+        let rangeSliderVerticalScale = null;
+        let rangeSliderVerticalScaleDual = null;
+        let rangeSliderVerticalReversedSingle = null;
+        let rangeSliderVerticalReversedDual = null;
+        let rangeSliderVerticalReversedScale = null;
+        let rangeSliderVerticalReversedScaleDual = null;
+
+        let initializeRangeSliderHorizontalSingle = function() {
+            rangeSliderHorizontalSingle = $f7.range.create({
+                el: $el.value.find('#range-slider-horizontal-single'),
+                min: 0,
+                max: 100,
+                step: 1,
+                value: 25,
+                label: true,
+                on: {
+                    changed: function(range) {
+                        if (range.value == range.min) {
+                            $f7.toast.show({
+                                text: 'Volume Muted'
+                            });
+                        }
+                        if (range.value == range.max) {
+                            $f7.toast.show({
+                                text: 'Volume Full'
+                            });
+                        }
+                    }
+                }
+            });
+        }
+
+        let initializeRangeSliderHorizontalDual = function() {
+            rangeSliderHorizontalDual = $f7.range.create({
+                el: $el.value.find('#range-slider-horizontal-dual'),
+                min: 5,
+                max: 1000,
+                step: 5,
+                value: [priceRange.lower, priceRange.upper],
+                label: true,
+                dual: true,
+                on: {
+                    change: function(range) {
+                        priceRange.lower = range.value[0];
+                        priceRange.upper = range.value[1];
+                        $update();
+                    }
+                }
+            });
+        }
+
+        let initializeRangeSliderHorizontalScale = function() {
+            rangeSliderHorizontalScale = $f7.range.create({
+                el: $el.value.find('#range-slider-horizontal-scale'),
+                min: 0,
+                max: 100,
+                step: 2,
+                value: 30,
+                label: true,
+                scale: true,
+                scaleSteps: 10,
+                scaleSubSteps: 5
+            });
+        }
+
+        let initializeRangeSliderHorizontalScaleDual = function() {
+            rangeSliderHorizontalScaleDual = $f7.range.create({
+                el: $el.value.find('#range-slider-horizontal-scale-dual'),
+                min: 0,
+                max: 100,
+                step: 2,
+                value: [20, 50],
+                label: true,
+                dual: true,
+                scale: true,
+                scaleSteps: 10,
+                scaleSubSteps: 5
+            });
+        }
+
+        let initializeRangeSliderVerticalSingle = function() {
+            rangeSliderVerticalSingle = $f7.range.create({
+                el: $el.value.find('#range-slider-vertical-single'),
+                min: 1,
+                max: 100,
+                step: 1,
+                value: 25,
+                label: true,
+                vertical: true
+            });
+        }
+
+        let initializeRangeSliderVerticalDual = function() {
+            rangeSliderVerticalDual = $f7.range.create({
+                el: $el.value.find('#range-slider-vertical-dual'),
+                min: 1,
+                max: 100,
+                step: 1,
+                value: [35, 75],
+                label: true,
+                dual: true,
+                vertical: true
+            });
+        }
+
+        let initializeRangeSliderVerticalScale = function() {
+            rangeSliderVerticalScale = $f7.range.create({
+                el: $el.value.find('#range-slider-vertical-scale'),
+                min: 0,
+                max: 100,
+                step: 2,
+                value: 30,
+                label: true,
+                scale: true,
+                scaleSteps: 10,
+                scaleSubSteps: 5,
+                vertical: true
+            });
+        }
+
+        let initializeRangeSliderVerticalScaleDual = function() {
+            rangeSliderVerticalScaleDual = $f7.range.create({
+                el: $el.value.find('#range-slider-vertical-scale-dual'),
+                min: 0,
+                max: 100,
+                step: 2,
+                value: [20, 50],
+                label: true,
+                dual: true,
+                scale: true,
+                scaleSteps: 10,
+                scaleSubSteps: 5,
+                vertical: true
+            });
+        }
+
+        let initializeRangeSliderVerticalReversedSingle = function() {
+            rangeSliderVerticalReversedSingle = $f7.range.create({
+                el: $el.value.find('#range-slider-vertical-reversed-single'),
+                min: 1,
+                max: 100,
+                step: 1,
+                value: 25,
+                label: true,
+                vertical: true,
+                verticalReversed: true
+            });
+        }
+
+        let initializeRangeSliderVerticalReversedDual = function() {
+            rangeSliderVerticalReversedDual = $f7.range.create({
+                el: $el.value.find('#range-slider-vertical-reversed-dual'),
+                min: 1,
+                max: 100,
+                step: 1,
+                value: [35, 75],
+                label: true,
+                dual: true,
+                vertical: true,
+                verticalReversed: true
+            });
+        }
+
+        let initializeRangeSliderVerticalReversedScale = function() {
+            rangeSliderVerticalReversedScale = $f7.range.create({
+                el: $el.value.find('#range-slider-vertical-reversed-scale'),
+                min: 0,
+                max: 100,
+                step: 2,
+                value: 30,
+                label: true,
+                scale: true,
+                scaleSteps: 10,
+                scaleSubSteps: 5,
+                vertical: true,
+                verticalReversed: true
+            });
+        }
+
+        let initializeRangeSliderVerticalReversedScaleDual = function() {
+            rangeSliderVerticalReversedScaleDual = $f7.range.create({
+                el: $el.value.find('#range-slider-vertical-reversed-scale-dual'),
+                min: 0,
+                max: 100,
+                step: 2,
+                value: [20, 50],
+                label: true,
+                dual: true,
+                scale: true,
+                scaleSteps: 10,
+                scaleSubSteps: 5,
+                vertical: true,
+                verticalReversed: true
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeRangeSliderHorizontalSingle();
+            initializeRangeSliderHorizontalDual();
+            initializeRangeSliderHorizontalScale();
+            initializeRangeSliderHorizontalScaleDual();
+            initializeRangeSliderVerticalSingle();
+            initializeRangeSliderVerticalDual();
+            initializeRangeSliderVerticalScale();
+            initializeRangeSliderVerticalScaleDual();
+            initializeRangeSliderVerticalReversedSingle();
+            initializeRangeSliderVerticalReversedDual();
+            initializeRangeSliderVerticalReversedScale();
+            initializeRangeSliderVerticalReversedScaleDual();
+        });
+
+        return $render;
+    }
+</script>

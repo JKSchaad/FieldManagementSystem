@@ -1,0 +1,160 @@
+<template>
+    <div class="page no-navbar no-sidebar no-tabbar" data-name="login">
+
+        <div class="page-content">
+
+            <div class="row align-items-stretch justify-content-center height-full">
+                <div class="col-100 medium-65 large-50 xlarge-35 padding-vertical">
+
+                    <div class="block block-strong small-inset display-flex flex-direction-column align-items-stretch justify-content-flex-start height-100 no-hairlines no-margin-vertical">
+
+                        <div class="margin-bottom text-align-center">
+                            <img class="if-not-dark" src="${$f7.config.app.logos.logomarkLight}" height="96" alt="" />
+                            <img class="if-dark" src="${$f7.config.app.logos.logomarkDark}" height="96" alt="" />
+                        </div>
+
+                        <form name="login" action="#" method="POST" enctype="multipart/form-data">
+
+                            <div class="list no-hairlines no-margin-vertical no-safe-areas" style="--f7-list-item-padding-horizontal: 0px;">
+                                <ul>
+                                    <li>
+                                        <div class="item-content item-input item-input-outline item-input-fill">
+                                            <div class="item-inner">
+                                                <div class="item-input-wrap">
+                                                    <div class="item-media">
+                                                        <i class="icon material-icons">person</i>
+                                                    </div>
+                                                    <input type="text" name="username" placeholder="Username" value="kminchelle" required />
+                                                    <span class="input-clear-button"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content item-input item-input-outline item-input-fill">
+                                            <div class="item-inner">
+                                                <div class="item-input-wrap">
+                                                    <div class="item-media">
+                                                        <i class="icon material-icons">lock</i>
+                                                    </div>
+                                                    <input type="password" name="password" placeholder="Password" value="0lelplR" required />
+                                                    <a href="#" class="state-toggle link icon-only color-gray" @stateChange="${togglePasswordVisibility}">
+                                                        <i class="state-active icon material-icons tooltip-init" data-tooltip="Hide Password">visibility_off</i>
+                                                        <i class="state-inactive icon material-icons tooltip-init" data-tooltip="Show Password">visibility</i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="display-flex justify-content-flex-end">
+                                <a href="/forgot-password/">Forgot Password?</a>
+                            </div>
+
+                            <div class="margin-vertical">
+                                <button type="submit" class="button button-fill button-large">Log In</button>
+                            </div>
+
+                        </form>
+
+                        <div class="line-divider">
+                            <span class="font-size-12">OR</span>
+                        </div>
+
+                        <div class="margin-vertical">
+                            <button class="button button-large button-fill button-social" style="--f7-button-bg-color: rgb(var(--f7-color-mono-rgb)); --f7-button-hover-bg-color: rgba(var(--f7-color-mono-rgb), 0.75); --f7-button-pressed-bg-color: rgba(var(--f7-color-mono-rgb), 0.875); --f7-button-text-color: rgb(var(--f7-color-mono-invert-rgb));">
+                                <i class="icon fa-brands fa-apple"></i>
+                                <span>Continue with Apple</span>
+                            </button>
+                            <button class="button button-large button-fill button-social margin-top" style="--f7-button-bg-color: rgb(var(--brand-color-google)); --f7-button-hover-bg-color: rgba(var(--brand-color-google), 0.75); --f7-button-pressed-bg-color: rgba(var(--brand-color-google), 0.875);">
+                                <i class="icon fa-brands fa-google"></i>
+                                <span>Continue with Google</span>
+                            </button>
+                            ${$f7.config.navigation.authentication.required && $f7.config.navigation.authentication.guestAccess && $h`
+                            <a href="/home/" class="button button-large button-fill button-social color-green margin-top" data-reload-current="true">
+                                <i class="icon fa-solid fa-user"></i>
+                                <span>Continue as Guest</span>
+                            </a>
+                            `}
+                        </div>
+
+                        <div class="margin-top-auto text-align-center">
+                            <div>Don't have an account? <a href="/signup/">Sign Up</a></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<style>
+    @media (max-width: 567.98px) {
+        .page[data-name=login] {
+            background-color: var(--f7-block-strong-bg-color);
+        }
+    }
+</style>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let formValidator = null;
+
+        let initializeFormValidator = function() {
+            formValidator = jQuery($el.value.find('form[name=login]')).validate({
+                rules: {
+                    username: {
+                        required: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                messages: {
+                    username: {
+                        required: 'Please enter username.'
+                    },
+                    password: {
+                        required: 'Please enter password.'
+                    }
+                },
+                submitHandler: function(form) {
+                    let credentials = $f7.form.convertToData(form);
+                    $store.dispatch('loginUser', credentials)
+                        .then(function(user) {
+                            $f7router.navigate($f7route.query.redirect || '/home/', {
+                                reloadCurrent: true
+                            });
+                        })
+                        .catch(function(error) {
+
+                        });
+                }
+            });
+        }
+
+        let togglePasswordVisibility = function(event) {
+            let state = event.detail;
+            let inputEl = $(event.target).closest('.item-input-wrap').find('input[name=password');
+            if (state) {
+                inputEl.attr('type', 'text');
+            }
+            else {
+                inputEl.attr('type', 'password');
+            }
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeFormValidator();
+        });
+
+        return $render;
+    }
+</script>

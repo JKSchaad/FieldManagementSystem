@@ -1,0 +1,266 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Date-Time Picker</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Date-Time Picker can be used to select date and time.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="calendar-default" placeholder="Your Birthdate" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Date Format</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="calendar-custom-date-format" placeholder="Select Date" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Date & Time</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="calendar-date-time" placeholder="Select Date & Time" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Multiple Dates</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="calendar-multiple-dates" placeholder="Select Multiple Dates" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Date Range</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="calendar-date-range" placeholder="Select Date Range" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Disabled Dates</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="calendar-disabled-dates" placeholder="Select Date" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Open In Modal</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="calendar-modal" placeholder="Select Date" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Inline Calendar</div>
+                    <div class="block block-strong inset margin-vertical no-padding">
+                        <div id="calendar-inline"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let calendarDefault = null;
+        let calendarCustomDateFormat = null;
+        let calendarDateTime = null;
+        let calendarMultipleDates = null;
+        let calendarDateRange = null;
+        let calendarDisabledDates = null;
+        let calendarModal = null;
+        let calendarInline = null;
+
+        let initializeCalendarDefault = function() {
+            calendarDefault = $f7.calendar.create({
+                inputEl: $el.value.find('input[name=calendar-default]')
+            });
+        }
+
+        let initializeCalendarCustomDateFormat = function() {
+            calendarCustomDateFormat = $f7.calendar.create({
+                inputEl: $el.value.find('input[name=calendar-custom-date-format]'),
+                dateFormat: 'DD, MM dd, yyyy'
+            });
+        }
+
+        let initializeCalendarDateTime = function() {
+            calendarDateTime = $f7.calendar.create({
+                inputEl: $el.value.find('input[name=calendar-date-time]'),
+                dateFormat: 'DD, dd MM yyyy, hh::mm A',
+                timePicker: true
+            });
+        }
+
+        let initializecalendarMultipleDates = function() {
+            calendarMultipleDates = $f7.calendar.create({
+                inputEl: $el.value.find('input[name=calendar-multiple-dates]'),
+                dateFormat: 'M dd',
+                multiple: true
+            });
+        }
+
+        let initializeCalendarDateRange = function() {
+            calendarDateRange = $f7.calendar.create({
+                inputEl: $el.value.find('input[name=calendar-date-range]'),
+                rangePicker: true
+            });
+        }
+
+        let initializeCalendarDisabledDates = function() {
+            let today = new Date();
+            let weekLater = new Date().setDate(today.getDate() + 7);
+            calendarDisabledDates = $f7.calendar.create({
+                inputEl: $el.value.find('input[name=calendar-disabled-dates]'),
+                disabled: {
+                    from: today,
+                    to: weekLater
+                }
+            });
+        }
+
+        let initializeCalendarModal = function() {
+            calendarModal = $f7.calendar.create({
+                inputEl: $el.value.find('input[name=calendar-modal]'),
+                openIn: 'customModal',
+                footer: true
+            });
+        }
+
+        let initializeCalendarInline = function() {
+            let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' , 'September' , 'October', 'November', 'December'];
+            calendarInline = $f7.calendar.create({
+                containerEl: $el.value.find('#calendar-inline'),
+                value: [new Date()],
+                renderToolbar: function () {
+                    return `
+                        <div class="toolbar toolbar-calendar" style="border-radius: var(--f7-block-inset-border-radius) var(--f7-block-inset-border-radius) 0 0;">
+                            <div class="toolbar-inner">
+                                <div class="left">
+                                    <a href="#" class="link icon-only">
+                                        <i class="icon icon-back"></i>
+                                    </a>
+                                </div>
+                                <div class="center"></div>
+                                <div class="right">
+                                    <a href="#" class="link icon-only">
+                                        <i class="icon icon-forward"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                on: {
+                    init: function(calendar) {
+                        calendar.$el.find('.toolbar-calendar .center').text(months[calendar.currentMonth] + ', ' + calendar.currentYear);
+                        calendar.$el.find('.toolbar-calendar .left .link').on('click', function() {
+                            calendar.prevMonth();
+                        });
+                        calendar.$el.find('.toolbar-calendar .right .link').on('click', function() {
+                            calendar.nextMonth();
+                        });
+                    },
+                    monthYearChangeStart: function(calendar) {
+                        calendar.$el.find('.toolbar-calendar .center').text(months[calendar.currentMonth] +', ' + calendar.currentYear);
+                    }
+                }
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeCalendarDefault();
+            initializeCalendarCustomDateFormat();
+            initializeCalendarDateTime();
+            initializecalendarMultipleDates();
+            initializeCalendarDateRange();
+            initializeCalendarDisabledDates();
+            initializeCalendarModal();
+            initializeCalendarInline();
+        });
+
+        return $render;
+    }
+</script>

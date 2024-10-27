@@ -1,0 +1,117 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title"> Syntax Highlighter</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block-title margin-vertical">Inline</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>The <pre class="inline"><code>${`<!DOCTYPE html>`}</code></pre> tag is required for HTML5 and should always be the very first thing in your HTML document.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Block</div>
+                    <pre class="block block-strong inset margin-vertical">
+                        <code>${`<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+    </head>
+    <body>
+    </body>
+</html>`}
+                        </code>
+                        <div class="menu menu-overlay margin-half">
+                            <div class="menu-inner">
+                                <a href="#" class="menu-item icon-only tooltip-init" data-tooltip="Copy Code" @click="${(event) => copyCode(event)}">
+                                    <div class="menu-item-content">
+                                        <i class="icon material-icons font-size-20">content_copy</i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </pre>
+                    <pre class="block block-strong inset margin-vertical">
+                        <code>${`<style>
+    body {
+        background-color: #FFFFFF;
+        font-size: 16px;
+    }
+</style>`}
+                        </code>
+                        <div class="menu menu-overlay margin-half">
+                            <div class="menu-inner">
+                                <a href="#" class="menu-item icon-only tooltip-init" data-tooltip="Copy Code" @click="${(event) => copyCode(event)}">
+                                    <div class="menu-item-content">
+                                        <i class="icon material-icons font-size-20">content_copy</i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </pre>
+
+                    <pre class="block block-strong inset margin-vertical">
+                        <code>${`<script>
+    window.onload = function() {
+        let targetEl = document.querySelector('body');
+        targetEl.style.backgroundColor = '#000000';
+        targetEl.style.backgroundColor = '20px';
+    }
+</script>`}
+                        </code>
+                        <div class="menu menu-overlay margin-half">
+                            <div class="menu-inner">
+                                <a href="#" class="menu-item icon-only tooltip-init" data-tooltip="Copy Code" @click="${(event) => copyCode(event)}">
+                                    <div class="menu-item-content">
+                                        <i class="icon material-icons font-size-20">content_copy</i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </pre>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let copyCode = function(event) {
+            let code = $(event.target).closest('.menu').siblings('code').text();
+            navigator.clipboard.writeText(code)
+                .then(function() {
+                    $f7.toast.show({
+                        text: 'Copied!'
+                    });
+                })
+                .catch(function() {
+                    $f7.toast.show({
+                        text: 'Error!',
+                        cssClass: 'color-red'
+                    });
+                });
+        }
+
+        return $render;
+    }
+</script>

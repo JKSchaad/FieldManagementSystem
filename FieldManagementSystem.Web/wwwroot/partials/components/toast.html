@@ -1,0 +1,212 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Toast</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Toast provides a simple feedback about an operation in a small popup.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Position</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${() => showToastPosition('top', 'left')}">Top Left</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastPosition('top', 'right')}">Top Right</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastPosition('center', 'center')}">Center</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastPosition('bottom', 'left')}">Bottom Left</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastPosition('bottom', 'right')}">Bottom Right</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Shape</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showToastRound}">Round</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Colored</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-red')}">Red</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-pink')}">Pink</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-purple')}">Purple</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-deeppurple')}">Deep Purple</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-indigo')}">Indigo</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-blue')}">Blue</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-lightblue')}">Light Blue</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-cyan')}">Cyan</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-teal')}">Teal</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-green')}">Green</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-lightgreen')}">Light Green</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-lime')}">Lime</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-yellow text-color-black')}">Yellow</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-amber text-color-black')}">Amber</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-orange')}">Orange</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-deeporange')}">Deep Orange</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-brown')}">Brown</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-gray')}">Gray</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${() => showToastColored('color-bluegray')}">Bluegray</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Text</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showToastTextLongMessage}">Long Message</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Icon</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showToastIconStartPosition}">Start Position</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showToastIconTopPosition}">Top Position</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let showToastPosition = function(vertical, horizontal) {
+            $f7.toast.show({
+                text: faker.lorem.sentence(5),
+                position: vertical,
+                horizontalPosition: horizontal
+            });
+        }
+
+        let showToastRound = function() {
+            $f7.toast.show({
+                text: faker.lorem.sentence(5),
+                position: ['top', 'center', 'bottom'].random(),
+                horizontalPosition: ['left', 'center', 'right'].random(),
+                cssClass: 'toast-round'
+            });
+        }
+
+        let showToastColored = function(colorClass) {
+            $f7.toast.show({
+                text: faker.lorem.sentence(5),
+                position: ['top', 'center', 'bottom'].random(),
+                horizontalPosition: ['left', 'center', 'right'].random(),
+                cssClass: colorClass
+            });
+        }
+
+        let showToastTextLongMessage = function() {
+            $f7.toast.show({
+                text: $f7.config.app.description,
+                position: ['top', 'bottom'].random(),
+                horizontalPosition: ['left', 'right'].random(),
+                closeTimeout: 0,
+                closeButton: true,
+                closeButtonText: ['OK', 'Close'].random(),
+                closeButtonColor: 'black',
+                cssClass: 'color-amber text-color-black'
+            });
+        }
+
+        let showToastIconStartPosition = function() {
+            $f7.toast.show({
+                text: 'Successful',
+                icon: '<i class="icon f7-icons">checkmark_alt_circle_fill</i>',
+                position: ['top', 'bottom'].random(),
+                horizontalPosition: ['left', 'right'].random(),
+                cssClass: 'icon-position-start color-green'
+            });
+        }
+
+        let showToastIconTopPosition = function() {
+            $f7.toast.show({
+                text: 'Bookmarked',
+                icon: '<i class="icon material-icons">favorite</i>',
+                position: 'center',
+                horizontalPosition: 'center',
+                cssClass: 'color-red'
+            });
+        }
+
+        return $render;
+    }
+</script>

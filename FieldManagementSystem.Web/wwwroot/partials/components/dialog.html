@@ -1,0 +1,860 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Dialog</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Dialog is a modal that can be used to provide information, ask for a decision or get input from the user.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Alert Dialog</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showDialogAlertBasic}">Basic</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogAlertSuccess}">Success</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogAlertInfo}">Info</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogAlertWarning}">Warning</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogAlertDanger}">Danger</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Confirm Dialog</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showDialogConfirmBasic}">Basic</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogConfirmDelete}">Delete</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogConfirmPermission}">Permission</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Prompt Dialog</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showDialogPromptBasic}">Basic</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogPromptLogin}">Login</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogPromptPassword}">Password</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogPromptOtp}">OTP</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogPromptRating}">Rating</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Preloader Dialog</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showDialogPreloaderBasic}">Basic</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogPreloaderCustomTitle}">Custom Title</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Progress Dialog</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showDialogProgressDeterminate}">Determinate</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogProgressInfinite}">Infinite</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Choice Dialog</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${showDialogChoiceRadio}">Radio</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogChoiceCheckbox}">Checkbox</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${showDialogChoiceChip}">Chip</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="dialog-prompt-otp" class="dialog">
+            <div class="dialog-inner text-align-center">
+                <div class="dialog-title margin-bottom">Verify OTP</div>
+                <span class="shape-container shape-circle bg-color-mono">
+                    <i class="icon material-icons font-size-40 text-color-mono-invert">sms</i>
+                </span>
+                <div class="dialog-text margin-top">Enter the OTP we have sent on your mobile number.</div>
+                <form name="dialog-prompt-otp" action="#" method="POST" enctype="multipart/form-data" @submit="${(event) => event.preventDefault()}">
+                    <div class="dialog-input-field input">
+                        <input type="text" name="otp" class="dialog-input font-size-18 font-weight-bold text-align-center" inputmode="tel" maxlength="6" />
+                    </div>
+                </form>
+            </div>
+            <div class="dialog-buttons">
+                <span class="dialog-button color-gray" @click="${closeDialogPromptOtp}">Cancel</span>
+                <span class="dialog-button" @click="${submitFormDialogPromptOtp}">Verify</span>
+            </div>
+        </div>
+
+        <div id="dialog-prompt-rating" class="dialog dialog-buttons-vertical">
+            <div class="dialog-inner text-align-center">
+                <div class="dialog-title">How would you rate Nectar?</div>
+                <form name="dialog-prompt-rating" action="#" method="POST" enctype="multipart/form-data" @submit="${(event) => event.preventDefault()}">
+                    <input type="hidden" name="rating" />
+                    <lottie-player src="${$f7.config.lottie.assetUrl + 'rating.json'}" background="transparent" speed="1" style="height: 96px; width: auto;"></lottie-player>
+                    <div class="rating margin-horizontal-auto"></div>
+                </form>
+            </div>
+            <div class="dialog-buttons">
+                <span class="dialog-button" @click="${submitFormDialogPromptRating}">Rate</span>
+                <span class="dialog-button color-gray" @click="${closeDialogPromptRating}">Later</span>
+            </div>
+        </div>
+
+        <div id="dialog-choice-radio" class="dialog">
+            <div class="dialog-inner no-padding-horizontal">
+                <div class="dialog-title padding-horizontal">What is the day today?</div>
+                <form name="dialog-choice-radio" action="#" method="POST" enctype="multipart/form-data" @submit="${(event) => event.preventDefault()}">
+                    <div class="list margin-top no-hairlines no-hairlines-between no-margin-bottom">
+                        <ul>
+                            <li>
+                                <label class="item-content item-radio">
+                                    <input type="radio" name="today" value="Sunday" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Sunday</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio">
+                                    <input type="radio" name="today" value="Monday" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Monday</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio">
+                                    <input type="radio" name="today" value="Tuesday" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Tuesday</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio">
+                                    <input type="radio" name="today" value="Wednesday" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Wednesday</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio">
+                                    <input type="radio" name="today" value="Thursday" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Thursday</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio">
+                                    <input type="radio" name="today" value="Friday" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Friday</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-radio">
+                                    <input type="radio" name="today" value="Saturday" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Saturday</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="dialog-buttons">
+                <span class="dialog-button color-gray" @click="${closeDialogChoiceRadio}">Cancel</span>
+                <span class="dialog-button" @click="${submitFormDialogChoiceRadio}">OK</span>
+            </div>
+        </div>
+
+        <div id="dialog-choice-checkbox" class="dialog">
+            <div class="dialog-inner no-padding-horizontal">
+                <div class="dialog-title padding-horizontal">What are your favourite colors?</div>
+                <form name="dialog-choice-checkbox" action="#" method="POST" enctype="multipart/form-data" @submit="${(event) => event.preventDefault()}">
+                    <div class="list margin-top no-hairlines no-hairlines-between no-margin-bottom">
+                        <ul>
+                            <li>
+                                <label class="item-content item-checkbox">
+                                    <input type="checkbox" name="colors" value="Violet" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Violet</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-checkbox">
+                                    <input type="checkbox" name="colors" value="Indigo" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Indigo</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-checkbox">
+                                    <input type="checkbox" name="colors" value="Blue" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Blue</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-checkbox">
+                                    <input type="checkbox" name="colors" value="Green" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Green</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-checkbox">
+                                    <input type="checkbox" name="colors" value="Yellow" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Yellow</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-checkbox">
+                                    <input type="checkbox" name="colors" value="Orange" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Orange</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-content item-checkbox">
+                                    <input type="checkbox" name="colors" value="Red" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Red</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="dialog-buttons">
+                <span class="dialog-button color-gray" @click="${closeDialogChoiceCheckbox}">Cancel</span>
+                <span class="dialog-button" @click="${submitFormDialogChoiceCheckbox}">OK</span>
+            </div>
+        </div>
+
+        <div id="dialog-choice-chip" class="dialog">
+            <div class="dialog-inner">
+                <div class="dialog-title">Choose Your Interests</div>
+                <form name="dialog-choice-chip" action="#" method="POST" enctype="multipart/form-data" @submit="${(event) => event.preventDefault()}">
+                    <div class="block margin-top no-margin-bottom no-padding-horizontal">
+                        <label class="chip-selectable">
+                            <input type="checkbox" name="interests" value="Coding" />
+                            <div class="chip color-pink">
+                                <div class="chip-label">Coding</div>
+                            </div>
+                        </label>
+                        <label class="chip-selectable">
+                            <input type="checkbox" name="interests" value="Gaming" />
+                            <div class="chip color-purple">
+                                <div class="chip-label">Gaming</div>
+                            </div>
+                        </label>
+                        <label class="chip-selectable">
+                            <input type="checkbox" name="interests" value="Dancing" />
+                            <div class="chip color-cyan">
+                                <div class="chip-label">Dancing</div>
+                            </div>
+                        </label>
+                        <label class="chip-selectable">
+                            <input type="checkbox" name="interests" value="Photography" />
+                            <div class="chip color-lightgreen">
+                                <div class="chip-label">Photography</div>
+                            </div>
+                        </label>
+                        <label class="chip-selectable">
+                            <input type="checkbox" name="interests" value="Reading" />
+                            <div class="chip color-amber">
+                                <div class="chip-label">Reading</div>
+                            </div>
+                        </label>
+                        <label class="chip-selectable">
+                            <input type="checkbox" name="interests" value="Singing" />
+                            <div class="chip color-brown">
+                                <div class="chip-label">Singing</div>
+                            </div>
+                        </label>
+                        <label class="chip-selectable">
+                            <input type="checkbox" name="interests" value="Travelling" />
+                            <div class="chip color-indigo">
+                                <div class="chip-label">Travelling</div>
+                            </div>
+                        </label>
+                        <label class="chip-selectable">
+                            <input type="checkbox" name="interests" value="Writing" />
+                            <div class="chip color-teal">
+                                <div class="chip-label">Writing</div>
+                            </div>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="dialog-buttons">
+                <span class="dialog-button color-gray" @click="${closeDialogChoiceChip}">Cancel</span>
+                <span class="dialog-button" @click="${submitFormDialogChoiceChip}">OK</span>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let dialogPromptOtp = null;
+        let dialogPromptRating = null;
+        let dialogChoiceRadio = null;
+        let dialogChoiceCheckbox = null;
+        let dialogChoiceChip = null;
+
+        let showDialogAlertBasic = function() {
+            $f7.dialog.alert($f7.config.app.description, 'Welcome to Nectar');
+        }
+
+        let showDialogAlertSuccess = function() {
+            let dialog = $f7.dialog.create({
+                content: `
+                    <div class="block no-margin no-padding text-align-center">
+                        <span class="shape-container shape-circle bg-color-green">
+                            <i class="icon material-icons font-size-40 color-white">check</i>
+                        </span>
+                        <p>${faker.lorem.sentence(10)}</p>
+                    </div>
+                `,
+                buttons: [
+                    {
+                        text: 'Awesome',
+                        color: 'green'
+                    }
+                ]
+            });
+            dialog.open();
+        }
+
+        let showDialogAlertInfo = function() {
+            let dialog = $f7.dialog.create({
+                content: `
+                    <div class="block no-margin no-padding text-align-center">
+                        <i class="icon material-icons font-size-64 color-blue">info</i>
+                        <p>${faker.lorem.sentence(10)}</p>
+                    </div>
+                `,
+                buttons: [
+                    {
+                        text: 'Got It',
+                        color: 'blue'
+                    }
+                ]
+            });
+            dialog.open();
+        }
+
+        let showDialogAlertWarning = function() {
+            let dialog = $f7.dialog.create({
+                content: `
+                    <div class="block no-margin no-padding text-align-center">
+                        <i class="icon material-icons font-size-64 color-amber">warning</i>
+                        <p>${faker.lorem.sentence(10)}</p>
+                    </div>
+                `,
+                buttons: [
+                    {
+                        text: 'Okay',
+                        color: 'amber'
+                    }
+                ]
+            });
+            dialog.open();
+        }
+
+        let showDialogAlertDanger = function() {
+            let dialog = $f7.dialog.create({
+                content: `
+                    <div class="block no-margin no-padding text-align-center">
+                        <i class="icon material-icons font-size-64 color-red">gpp_maybe</i>
+                        <div class="font-size-18 font-weight-600 margin-top">Security Alert</div>
+                        <p>${faker.lorem.sentence(10)}</p>
+                    </div>
+                `,
+                buttons: [
+                    {
+                        text: 'Retry',
+                        color: 'red'
+                    }
+                ]
+            });
+            dialog.open();
+        }
+
+        let showDialogConfirmBasic = function() {
+            $f7.dialog.confirm(
+                'Neque porro quisquam est?',
+                'Confirm',
+                function() {
+                    $f7.toast.show({
+                        text: 'Yaay!',
+                        cssClass: 'color-green'
+                    });
+                },
+                function() {
+                    $f7.toast.show({
+                        text: 'Oops!',
+                        cssClass: 'color-red'
+                    });
+                }
+            );
+        }
+
+        let showDialogConfirmDelete = function() {
+            let dialog = $f7.dialog.create({
+                content: `
+                    <div class="block no-margin no-padding text-align-center">
+                        <span class="shape-container shape-circle bg-color-red">
+                            <i class="icon material-icons font-size-40 color-white">clear</i>
+                        </span>
+                        <p>Do you want to delete this item?</p>
+                    </div>
+                `,
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        color: 'gray'
+                    },
+                    {
+                        text: 'Delete',
+                        color: 'red',
+                        onClick: function() {
+                            $f7.toast.show({
+                                text: 'Deleted!',
+                                icon: $theme.md ? '<i class="icon material-icons">delete</i>' : '<i class="icon f7-icons">trash</i>',
+                                position: 'center',
+                                cssClass: 'color-red'
+                            });
+                        }
+                    }
+                ]
+            });
+            dialog.open();
+        }
+
+        let showDialogConfirmPermission = function() {
+            let dialog = $f7.dialog.create({
+                content: `
+                    <div class="block no-margin no-padding text-align-center">
+                        <div class="font-size-18 font-weight-600 margin-bottom">Find Nearby Friends</div>
+                        <span class="shape-container shape-circle bg-color-pink">
+                            <i class="icon material-icons font-size-40 color-white">place</i>
+                        </span>
+                        <p>To find nearby friends, please allow the app to access your location.</p>
+                    </div>
+                `,
+                buttons: [
+                    {
+                        text: 'Deny',
+                        color: 'red',
+                        onClick: function() {
+                            $f7.toast.show({
+                                text: 'Access Denied!',
+                                cssClass: 'color-red'
+                            });
+                        }
+                    },
+                    {
+                        text: 'Allow',
+                        color: 'green',
+                        onClick: function() {
+                            $f7.toast.show({
+                                text: 'Access Granted!',
+                                cssClass: 'color-green'
+                            });
+                        }
+                    }
+                ]
+            });
+            dialog.open();
+        }
+
+        let showDialogPromptBasic = function() {
+            $f7.dialog.prompt(
+                'What is your name?',
+                'Welcome',
+                function(value) {
+                    if (value.trim() != '') {
+                        $f7.toast.show({
+                            text: 'Welcome ' + value + '!'
+                        });
+                    }
+                    else {
+                        $f7.toast.show({
+                            text: 'Welcome!'
+                        });
+                    }
+                },
+                function(value) {
+                    if (value.trim() != '') {
+                        $f7.toast.show({
+                            text: 'Goodbye ' + value + '!'
+                        });
+                    }
+                    else {
+                        $f7.toast.show({
+                          text: 'Goodbye!'
+                        });
+                    }
+                }
+            );
+        }
+
+        let showDialogPromptLogin = function() {
+            $f7.dialog.login(
+                'Enter your credentials',
+                'Log In',
+                function(username, password) {
+                    if (username.trim() != '' && password.trim() != '') {
+                        $f7.toast.show({
+                            text: 'Welcome!',
+                            cssClass: 'color-green'
+                        });
+                    }
+                    else {
+                        $f7.toast.show({
+                            text: 'Invalid Credentials!',
+                            cssClass: 'color-red'
+                        });
+                    }
+                }
+            );
+        }
+
+        let showDialogPromptPassword = function() {
+            $f7.dialog.password(
+                'Enter password to access this feature',
+                function(password) {
+                    if (password.trim() != '') {
+                        $f7.toast.show({
+                            text: 'Feature Unlocked!',
+                            cssClass: 'color-green'
+                        });
+                    }
+                    else {
+                        $f7.toast.show({
+                            text: 'Invalid Password!',
+                            cssClass: 'color-red'
+                        });
+                    }
+                }
+            );
+        }
+
+        let initializeDialogPromptOtp = function() {
+            dialogPromptOtp = $f7.dialog.create({
+                el: $el.value.find('#dialog-prompt-otp'),
+                on: {
+                    open: function(dialog) {
+                        dialog.$el.find('input').focus();
+                    },
+                    close: function(dialog) {
+                        dialog.$el.find('form')[0].reset();
+                    }
+                }
+            });
+        }
+
+        let showDialogPromptOtp = function() {
+            dialogPromptOtp.open();
+        }
+
+        let closeDialogPromptOtp = function() {
+            dialogPromptOtp.close();
+        }
+
+        let submitFormDialogPromptOtp = function() {
+            let form = dialogPromptOtp.$el.find('form');
+            let formData = $f7.form.convertToData(form);
+            form[0].reset();
+            if (parseInt(formData.otp) > 100000 && parseInt(formData.otp) < 999999) {
+                $f7.toast.show({
+                    text: 'Welcome!',
+                    cssClass: 'color-green'
+                });
+                dialogPromptOtp.close();
+            }
+            else {
+                $f7.toast.show({
+                    text: 'OTP must be 6-digits numeric value.',
+                    cssClass: 'color-red'
+                });
+            }
+        }
+
+        let initializeDialogPromptRating = function() {
+            dialogPromptRating = $f7.dialog.create({
+                el: $el.value.find('#dialog-prompt-rating'),
+                on: {
+                    open: function(dialog) {
+                        let animation = dialog.$el.find('lottie-player')[0];
+                        animation.seek('0%');
+                        animation.play();
+
+                        jQuery(dialog.$el.find('.rating')).rateYo({
+                            halfStar: true,
+                            normalFill: $f7.stylesheet.getPropertyValue('--color-bluegray-100').trim(),
+                            ratedFill: $f7.stylesheet.getPropertyValue('--color-amber-500').trim(),
+                            rating: 0,
+                            spacing: '4px',
+                            starWidth: '24px',
+                            onSet: function(rating, rateYoInstance) {
+                                dialog.$el.find('input[name=rating]').value(rating);
+                            }
+                        });
+                    },
+                    close: function(dialog) {
+                        jQuery(dialog.$el.find('.rating')).rateYo('rating', 0);
+                    }
+                }
+            });
+        }
+
+        let showDialogPromptRating = function() {
+            dialogPromptRating.open();
+        }
+
+        let closeDialogPromptRating = function() {
+            dialogPromptRating.close();
+        }
+
+        let submitFormDialogPromptRating = function() {
+            let form = dialogPromptRating.$el.find('form');
+            let formData = $f7.form.convertToData(form);
+            if (Number(formData.rating)) {
+                $f7.toast.show({
+                    text: 'Thank you for rating us.',
+                    cssClass: 'color-green'
+                });
+            }
+            dialogPromptRating.close();
+        }
+
+        let showDialogPreloaderBasic = function() {
+            $f7.dialog.preloader();
+            setTimeout(function() {
+                $f7.dialog.close();
+            }, 3000);
+        }
+
+        let showDialogPreloaderCustomTitle = function() {
+            $f7.dialog.preloader('Please wait...', 'multi');
+            setTimeout(function() {
+                $f7.dialog.close();
+            }, 3000);
+        }
+
+        let showDialogProgressDeterminate = function() {
+            let progress = 0;
+            let dialog = $f7.dialog.progress('Loading...', progress);
+            dialog.setText('Image 1 of 10');
+            let interval = setInterval(function() {
+                progress += 10;
+                dialog.setProgress(progress);
+                dialog.setText('Image ' + ((progress)/10) + ' of 10');
+                if (progress == 100) {
+                    clearInterval(interval);
+                    dialog.close();
+                }
+            }, 250);
+        }
+
+        let showDialogProgressInfinite = function() {
+            $f7.dialog.progress();
+            setTimeout(function() {
+                $f7.dialog.close();
+            }, 3000);
+        }
+
+        let initializeDialogChoiceRadio = function() {
+            dialogChoiceRadio = $f7.dialog.create({
+                el: $el.value.find('#dialog-choice-radio'),
+                on: {
+                    close: function(dialog) {
+                        dialog.$el.find('form')[0].reset();
+                    }
+                }
+            });
+        }
+
+        let showDialogChoiceRadio = function() {
+            dialogChoiceRadio.open();
+        }
+
+        let closeDialogChoiceRadio = function() {
+            dialogChoiceRadio.close();
+        }
+
+        let submitFormDialogChoiceRadio = function() {
+            let form = dialogChoiceRadio.$el.find('form');
+            let formData = $f7.form.convertToData(form);
+            form[0].reset();
+            if (Object.keys(formData).length) {
+                $f7.toast.show({
+                    text: 'Today is ' + formData.today
+                });
+            }
+            dialogChoiceRadio.close();
+        }
+
+        let initializeDialogChoiceCheckbox = function() {
+            dialogChoiceCheckbox = $f7.dialog.create({
+                el: $el.value.find('#dialog-choice-checkbox'),
+                on: {
+                    close: function(dialog) {
+                        dialog.$el.find('form')[0].reset();
+                    }
+                }
+            });
+        }
+
+        let showDialogChoiceCheckbox = function() {
+            dialogChoiceCheckbox.open();
+        }
+
+        let closeDialogChoiceCheckbox = function() {
+            dialogChoiceCheckbox.close();
+        }
+
+        let submitFormDialogChoiceCheckbox = function() {
+            let form = dialogChoiceCheckbox.$el.find('form');
+            let formData = $f7.form.convertToData(form);
+            form[0].reset();
+            if (formData.colors.length) {
+                $f7.toast.show({
+                    text: 'Your favorite color(s): ' + formData.colors.join(', ')
+                });
+            }
+            dialogChoiceCheckbox.close();
+        }
+
+        let initializeDialogChoiceChip = function() {
+            dialogChoiceChip = $f7.dialog.create({
+                el: $el.value.find('#dialog-choice-chip'),
+                on: {
+                    close: function(dialog) {
+                        dialog.$el.find('form')[0].reset();
+                    }
+                }
+            });
+        }
+
+        let showDialogChoiceChip = function() {
+            dialogChoiceChip.open();
+        }
+
+        let closeDialogChoiceChip = function() {
+            dialogChoiceChip.close();
+        }
+
+        let submitFormDialogChoiceChip = function() {
+            let form = dialogChoiceChip.$el.find('form');
+            let formData = $f7.form.convertToData(form);
+            form[0].reset();
+            if (formData.interests.length) {
+                $f7.toast.show({
+                    text: 'Your interest(s): ' + formData.interests.join(', ')
+                });
+            }
+            dialogChoiceChip.close();
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeDialogPromptOtp();
+            initializeDialogPromptRating();
+            initializeDialogChoiceRadio();
+            initializeDialogChoiceCheckbox();
+            initializeDialogChoiceChip();
+        });
+
+        return $render;
+    }
+</script>

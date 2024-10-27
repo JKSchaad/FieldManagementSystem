@@ -1,0 +1,195 @@
+<template>
+    <div class="page no-navbar no-sidebar no-tabbar" data-name="walkthrough">
+
+        <div class="page-content">
+
+            <div class="row align-items-stretch justify-content-center height-full">
+                <div class="col-100 medium-75 large-60 xlarge-50 medium-padding-vertical no-padding">
+
+                    <div class="swiper height-100">
+                        <div class="swiper-wrapper height-100">
+
+                            <div class="swiper-slide height-100 color-theme-mono">
+                                <div class="block block-strong medium-inset display-flex flex-direction-column justify-content-flex-start height-100 no-hairlines no-margin-vertical no-padding-vertical text-align-center">
+
+                                    <div class="margin-top">
+                                        <img class="if-not-dark" src="${$f7.config.app.logos.logomarkLight}" height="112" alt="" />
+                                        <img class="if-dark" src="${$f7.config.app.logos.logomarkDark}" height="112" alt="" />
+                                    </div>
+
+                                    <div class="margin-vertical">
+                                        <div class="font-size-24 font-weight-bold text-color-primary">Welcome to Nectar</div>
+                                        <div class="font-size-16 margin-top">${$f7.config.app.description}</div>
+                                    </div>
+
+                                    <div class="margin-top-auto margin-bottom">
+                                        <button type="button" class="button button-fill button-large button-round text-color-mono-invert" @click="${() => swiper.slideNext()}">Next</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide height-100 color-theme-indigo">
+                                <div class="block block-strong medium-inset display-flex flex-direction-column justify-content-flex-start height-100 no-hairlines no-margin-vertical no-padding-vertical text-align-center">
+
+                                    <div class="margin-top">
+                                        <span class="shape-container shape-circle size-112" style="background-color: var(--color-indigo-50);">
+                                            <i class="icon material-icons font-size-64 text-gradient-indigo">interests</i>
+                                        </span>
+                                    </div>
+
+                                    <div class="margin-vertical">
+                                        <div class="font-size-24 font-weight-bold text-gradient-indigo">Key Elements</div>
+                                        <div class="row margin-top no-gap text-align-center">
+                                            <div class="col-50 small-33 margin-vertical">
+                                                <span class="shape-container shape-circle size-64 elevation-24 bg-color-green color-green">
+                                                    <i class="icon f7-icons color-white">square_grid_2x2_fill</i>
+                                                </span>
+                                                <div class="font-size-14 font-weight-600 margin-top-half text-color-green">Components</div>
+                                            </div>
+                                            <div class="col-50 small-33 margin-vertical">
+                                                <span class="shape-container shape-circle size-64 elevation-24 bg-color-blue color-blue">
+                                                    <i class="icon f7-icons color-white">layers_alt_fill</i>
+                                                </span>
+                                                <div class="font-size-14 font-weight-600 margin-top-half text-color-blue">Screens</div>
+                                            </div>
+                                            <div class="col-50 small-33 margin-vertical">
+                                                <span class="shape-container shape-circle size-64 elevation-24 bg-color-orange color-orange">
+                                                    <i class="icon f7-icons color-white">chevron_left_slash_chevron_right</i>
+                                                </span>
+                                                <div class="font-size-14 font-weight-600 margin-top-half text-color-orange">Web APIs</div>
+                                            </div>
+                                            <div class="col-50 small-33 margin-vertical">
+                                                <span class="shape-container shape-circle size-64 elevation-24 bg-color-deeppurple color-deeppurple">
+                                                    <i class="icon f7-icons color-white">device_phone_portrait</i>
+                                                </span>
+                                                <div class="font-size-14 font-weight-600 margin-top-half text-color-deeppurple">Cordova Plugins</div>
+                                            </div>
+                                            <div class="col-50 small-33 margin-vertical">
+                                                <span class="shape-container shape-circle size-64 elevation-24 bg-color-pink color-pink">
+                                                    <i class="icon f7-icons color-white">flame_fill</i>
+                                                </span>
+                                                <div class="font-size-14 font-weight-600 margin-top-half text-color-pink">Integrations</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="margin-top-auto margin-bottom">
+                                        <button type="button" class="button button-fill button-large button-round" @click="${() => swiper.slideNext()}">Next</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide height-100 color-theme-pink">
+                                <div class="block block-strong medium-inset display-flex flex-direction-column justify-content-flex-start height-100 no-hairlines no-margin-vertical no-padding-vertical text-align-center">
+
+                                    <div class="margin-top">
+                                        <span class="shape-container shape-circle size-112" style="background-color: var(--color-pink-50);">
+                                            <i class="icon material-icons font-size-64 text-gradient-pink">auto_awesome</i>
+                                        </span>
+                                    </div>
+
+                                    <div class="margin-vertical">
+                                        <div class="font-size-24 font-weight-bold text-gradient-pink">Key Features</div>
+                                        <div class="margin-top text-align-center">
+                                            <div class="chip chip-fade margin-half color-red">Based on Framework7</div>
+                                            <div class="chip chip-fade margin-half color-blue">Google's Material Design</div>
+                                            <div class="chip chip-fade margin-half color-bluegray">Apple's Cupertino Design</div>
+                                            <div class="chip chip-fade margin-half color-red">Framework7's Aurora Design</div>
+                                            <div class="chip chip-fade margin-half color-bluegray">Multiple Devices & Screen Resolutions</div>
+                                            <div class="chip chip-fade margin-half color-bluegray">Multiple Navigation Patterns</div>
+                                            <div class="chip chip-fade margin-half color-bluegray">Unlimited Colors & Dark Mode</div>
+                                            <div class="chip chip-fade margin-half color-blue">Internationalization & RTL Support</div>
+                                            <div class="chip chip-fade margin-half color-indigo">Progressive Web App Ready</div>
+                                            <div class="chip chip-fade margin-half color-bluegray">Hybrid App Ready</div>
+                                            <div class="chip chip-fade margin-half color-teal">Desktop App Ready</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="margin-top-auto margin-bottom">
+                                        <button type="button" class="button button-fill button-large button-round" @click="${() => swiper.slideNext()}">Next</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide height-100 color-theme-deeporange">
+                                <div class="block block-strong medium-inset display-flex flex-direction-column justify-content-flex-start height-100 no-hairlines no-margin-vertical no-padding-vertical text-align-center">
+
+                                    <div class="margin-top">
+                                        <span class="shape-container shape-circle size-112" style="background-color: var(--color-deeporange-50);">
+                                            <i class="icon f7-icons font-size-64 text-gradient-deeporange">rocket_fill</i>
+                                        </span>
+                                    </div>
+
+                                    <div class="margin-vertical">
+                                        <div class="font-size-24 font-weight-bold text-gradient-deeporange">Explore Nectar</div>
+                                        <div class="font-size-16 margin-top">Test-drive all the amazing features of Nectar and let's build something cool.</div>
+                                    </div>
+
+                                    <div class="margin-top-auto margin-bottom">
+                                        <button type="button" class="button button-fill button-large button-round" @click="${loadNextScreen}">Get Started</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="swiper-pagination swiper-pagination-pills color-mono" style="bottom: 88px;"></div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<style>
+    @media (max-width: 767.98px) {
+        .page[data-name=walkthrough] {
+            background-color: var(--f7-block-strong-bg-color);
+        }
+    }
+</style>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let swiper = null;
+
+        let initializeSwiper = function() {
+            swiper = $f7.swiper.create($el.value.find('.swiper'), {
+                pagination: {
+                    el: $el.value.find('.swiper-pagination'),
+                    type: 'bullets',
+                    clickable: true
+                }
+            });
+        }
+
+        let loadNextScreen = function() {
+            localStorage.setItem('Nectar_Walkthrough_Shown', true);
+            let url = null;
+            if ($f7.config.navigation.authentication.required && !$f7.config.navigation.authentication.guestAccess) {
+                url = '/login/';
+            }
+            else {
+                url = '/home/';
+            }
+            $f7router.navigate(url, {
+                reloadCurrent: true
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeSwiper();
+        });
+
+        return $render;
+    }
+</script>

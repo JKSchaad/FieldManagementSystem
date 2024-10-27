@@ -1,0 +1,188 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Rating</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Rating can be used to collect user feedback.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="rating-default"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Full Star</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="rating-full-star"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Half Star</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="rating-half-star"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Stars Length</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="rating-stars-length"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Multicolor</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="rating-multicolor"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Custom Shape</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="rating-custom-shape"></div>
+                    </div>
+
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <img class="if-not-dark" src="${$f7.config.app.logos.logomarkLight}" height="64" width="64" alt="" />
+                        <img class="if-dark" src="${$f7.config.app.logos.logomarkDark}" height="64" width="64" alt="" />
+                        <div class="block-title justify-content-center margin-vertical">How would you rate Nectar?</div>
+                        <div id="rating-app" class="margin-horizontal-auto"></div>
+                        <div class="font-size-24 font-weight-bold margin-top">${appRating > 0 ? appRating : 'Rate App'}</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let appRating = null;
+
+        let ratingDefault = null;
+        let ratingFullStar = null;
+        let ratingHalfStar = null;
+        let ratingStarsLength = null;
+        let ratingMulticolor = null;
+        let ratingCustomShape = null;
+        let ratingApp = null;
+
+        let initializeRatingDefault = function() {
+            ratingDefault = jQuery($el.value.find('#rating-default')).rateYo({
+                normalFill: $f7.stylesheet.getPropertyValue('--color-amber-50').trim(),
+                ratedFill: $f7.stylesheet.getPropertyValue('--color-amber-500').trim(),
+                rating: 3,
+                spacing: '4px',
+                starWidth: '24px'
+            });
+        }
+
+        let initializeRatingFullStar = function() {
+            ratingFullStar = jQuery($el.value.find('#rating-full-star')).rateYo({
+                fullStar: true,
+                normalFill: $f7.stylesheet.getPropertyValue('--color-purple-50').trim(),
+                ratedFill: $f7.stylesheet.getPropertyValue('--color-purple-500').trim(),
+                rating: 2,
+                spacing: '4px',
+                starWidth: '24px'
+            });
+        }
+
+        let initializeRatingHalfStar = function() {
+            ratingHalfStar = jQuery($el.value.find('#rating-half-star')).rateYo({
+                halfStar: true,
+                normalFill: $f7.stylesheet.getPropertyValue('--color-cyan-50').trim(),
+                ratedFill: $f7.stylesheet.getPropertyValue('--color-cyan-500').trim(),
+                rating: 2.5,
+                spacing: '4px',
+                starWidth: '24px'
+            });
+        }
+
+        let initializeRatingStarsLength = function() {
+            ratingStarsLength = jQuery($el.value.find('#rating-stars-length')).rateYo({
+                fullStar: true,
+                maxValue: 7,
+                numStars: 7,
+                normalFill: $f7.stylesheet.getPropertyValue('--color-lightgreen-50').trim(),
+                ratedFill: $f7.stylesheet.getPropertyValue('--color-lightgreen-500').trim(),
+                rating: 4,
+                spacing: '4px',
+                starWidth: '24px'
+            });
+        }
+
+        let initializeRatingMulticolor = function() {
+            ratingMulticolor = jQuery($el.value.find('#rating-multicolor')).rateYo({
+                halfStar: true,
+                normalFill: $f7.stylesheet.getPropertyValue('--color-bluegray-50').trim(),
+                multiColor: {
+                    startColor: $f7.stylesheet.getPropertyValue('--color-red-500').trim(),
+                    endColor: $f7.stylesheet.getPropertyValue('--color-lime-500').trim()
+                },
+                rating: 2.5,
+                spacing: '4px',
+                starWidth: '24px'
+            });
+        }
+
+        let initializeRatingCustomShape = function() {
+            ratingCustomShape = jQuery($el.value.find('#rating-custom-shape')).rateYo({
+                halfStar: true,
+                normalFill: $f7.stylesheet.getPropertyValue('--color-pink-50').trim(),
+                ratedFill: $f7.stylesheet.getPropertyValue('--color-pink-500').trim(),
+                rating: 3,
+                spacing: '4px',
+                starWidth: '24px',
+                starSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" /></svg>'
+            });
+        }
+
+        let initializeRatingApp = function() {
+            ratingApp = jQuery($el.value.find('#rating-app')).rateYo({
+                halfStar: true,
+                normalFill: $f7.stylesheet.getPropertyValue('--color-orange-50').trim(),
+                ratedFill: $f7.stylesheet.getPropertyValue('--color-orange-500').trim(),
+                rating: 0,
+                spacing: '4px',
+                starWidth: '32px',
+                starSvg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z" /><path d="M11.988 0C5.364 0 0 5.376 0 12s5.364 12 11.988 12C18.624 24 24 18.624 24 12S18.624 0 11.988 0Zm5.088 19.2L12 16.14 6.924 19.2l1.344-5.772-4.476-3.876 5.904-.504L12 3.6l2.304 5.436 5.904.504-4.476 3.876z" /></svg>',
+                onChange: function(rating, rateYoInstance) {
+                    appRating = Number(rating).toFixed(1);
+                    $update();
+                },
+                onSet: function(rating, rateYoInstance) {
+                    appRating = Number(rating).toFixed(1);
+                    $update();
+                }
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeRatingDefault();
+            initializeRatingFullStar();
+            initializeRatingHalfStar();
+            initializeRatingStarsLength();
+            initializeRatingMulticolor();
+            initializeRatingCustomShape();
+            initializeRatingApp();
+        });
+
+        return $render;
+    }
+</script>

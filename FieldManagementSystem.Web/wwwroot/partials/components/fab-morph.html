@@ -1,0 +1,137 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">
+                    <div>Morph</div>
+                    <div class="subtitle">Floating Action Button</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>${faker.lorem.sentences(1)}</p>
+                        <p>${faker.lorem.sentences(3)}</p>
+                        <p>${faker.lorem.sentences(5)}</p>
+                        <p>${faker.lorem.sentences(7)}</p>
+                        <p>${faker.lorem.sentences(9)}</p>
+                        <p>${faker.lorem.sentences(7)}</p>
+                        <p>${faker.lorem.sentences(5)}</p>
+                        <p>${faker.lorem.sentences(3)}</p>
+                        <p>${faker.lorem.sentences(1)}</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="fab-morph-target-menu" class="list inset margin-vertical no-chevron no-hairlines-between position-absolute ${$f7.rtl ? 'position-left-bottom' : 'position-right-bottom'} width-auto fab-morph-target" style="bottom: var(--f7-toolbar-height);">
+            <ul class="elevation-16">
+                <li>
+                    <a href="/components/" class="item-link fab-close">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-circle size-40 bg-color-green">
+                                    <i class="icon f7-icons font-size-20 color-white">square_grid_2x2_fill</i>
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">Components</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/screens/" class="item-link fab-close">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-circle size-40 bg-color-blue">
+                                    <i class="icon f7-icons font-size-20 color-white">layers_alt_fill</i>
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">Screens</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/web-apis/" class="item-link fab-close">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-circle size-40 bg-color-orange">
+                                    <i class="icon f7-icons font-size-20 color-white">chevron_left_slash_chevron_right</i>
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">Web APIs</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/cordova-plugins/" class="item-link fab-close">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-circle size-40 bg-color-deeppurple">
+                                    <i class="icon f7-icons font-size-20 color-white">device_phone_portrait</i>
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">Cordova Plugins</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/integrations/" class="item-link fab-close">
+                        <div class="item-content">
+                            <div class="item-media">
+                                <span class="shape-container shape-circle size-40 bg-color-pink">
+                                    <i class="icon f7-icons font-size-20 color-white">flame_fill</i>
+                                </span>
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title">Integrations</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="block margin-vertical-half text-align-center">
+                <a href="#" class="fab-close">
+                    <span class="shape-container shape-circle elevation-8 color-gray" style="background-color: var(--f7-list-bg-color);">
+                        <i class="icon material-icons color-mono font-size-24">close</i>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <div class="fab fab-morph ${$f7.rtl ? 'fab-left-bottom' : 'fab-right-bottom'}" data-morph-to="#fab-morph-target-menu">
+            <a href="#">
+                <i class="icon f7-icons">circle_grid_3x3_fill</i>
+            </a>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

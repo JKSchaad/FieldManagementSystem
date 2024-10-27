@@ -1,0 +1,187 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Popup</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Popup is a window with any HTML content that pops up over the app's main content.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => popupDefault.open()}">Open Popup</button>
+                    </div>
+
+                    <div class="block-title margin-vertical">Swipe To Close</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => popupSwipeToClose.open()}">Open Popup</button>
+                    </div>
+
+                    <div class="block-title margin-top">Push View</div>
+                    <div class="block-header">Push View works only when 'safe-area-inset-top' CSS property value is more than zero. Therefore, it works only in iOS Homescreen App or iOS Cordova App.</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => popupPushView.open()}">Open Popup</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="popup-default" class="popup">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner">
+                        <div class="title">
+                            <div>Default</div>
+                            <div class="subtitle">Popup</div>
+                        </div>
+                        <div class="right">
+                            <a class="link icon-only popup-close">
+                                <i class="icon material-icons">cancel</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="block-title margin-vertical">What is Lorem Ipsum?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Lorem Ipsum is simply a dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    <div class="block-title margin-vertical">Where does it come from?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Lorem Ipsum has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.</p>
+                    </div>
+                    <div class="block-title margin-vertical">Why do we use it?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="popup-swipe-to-close" class="popup">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner">
+                        <div class="title">
+                            <div>Swipe To Close</div>
+                            <div class="subtitle">Popup</div>
+                        </div>
+                        <div class="right">
+                            <a class="link icon-only popup-close">
+                                <i class="icon material-icons">cancel</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="block-title margin-vertical">What is Lorem Ipsum?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Lorem Ipsum is simply a dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    <div class="block-title margin-vertical">Where does it come from?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Lorem Ipsum has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.</p>
+                    </div>
+                    <div class="block-title margin-vertical">Why do we use it?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="popup-push-view" class="popup">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner">
+                        <div class="title">
+                            <div>Push View</div>
+                            <div class="subtitle">Popup</div>
+                        </div>
+                        <div class="right">
+                            <a class="link icon-only popup-close">
+                                <i class="icon material-icons">cancel</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="block-title margin-vertical">What is Lorem Ipsum?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Lorem Ipsum is simply a dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    <div class="block-title margin-vertical">Where does it come from?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Lorem Ipsum has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.</p>
+                    </div>
+                    <div class="block-title margin-vertical">Why do we use it?</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let popupDefault = null;
+        let popupSwipeToClose = null;
+        let popupPushView = null;
+
+        let initializePopupDefault = function() {
+            popupDefault = $f7.popup.create({
+                el: $el.value.find('#popup-default'),
+                push: false
+            });
+        }
+
+        let initializePopupSwipeToClose = function() {
+            popupSwipeToClose = $f7.popup.create({
+                el: $el.value.find('#popup-swipe-to-close'),
+                push: false,
+                swipeToClose: true
+            });
+        }
+
+        let initializePopupPushView = function() {
+            popupPushView = $f7.popup.create({
+                el: $el.value.find('#popup-push-view'),
+                push: true,
+                swipeToClose: true
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializePopupDefault();
+            initializePopupSwipeToClose();
+            initializePopupPushView();
+        });
+
+        return $render;
+    }
+</script>

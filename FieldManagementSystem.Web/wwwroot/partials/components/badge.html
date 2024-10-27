@@ -1,0 +1,478 @@
+<template>
+    <div class="page no-tabbar">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Badge</div>
+                <div class="right">
+                    <a class="link icon-only">
+                        <i class="icon material-icons color-orange">account_circle
+                            <span class="badge badge-dot color-blue"></span>
+                        </i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolbar toolbar-bottom tabbar tabbar-labels">
+            <div class="toolbar-inner">
+                <a href="#tab-link" class="tab-link">
+                    <i class="icon material-icons">person
+                        <span class="badge badge-round color-pink">12</span>
+                    </i>
+                    <span class="tabbar-label">Contacts</span>
+                </a>
+                <a href="#tab-link" class="tab-link">
+                    <i class="icon material-icons">email
+                        <span class="badge badge-round color-yellow text-color-black">99+</span>
+                    </i>
+                    <span class="tabbar-label">Inbox</span>
+                </a>
+                <a href="#tab-link" class="tab-link">
+                    <i class="icon material-icons">today
+                        <span class="badge badge-round color-blue">3</span>
+                    </i>
+                    <span class="tabbar-label">Calendar</span>
+                </a>
+                <a href="#tab-link" class="tab-link">
+                    <i class="icon material-icons">settings
+                        <span class="badge badge-dot color-red"></span>
+                    </i>
+                    <span class="tabbar-label">Settings</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Badge is a small status descriptor for elements.</p>
+                        <p>It consists of a small label containing a number or a short set of characters that appears in proximity to another element.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge">Hello World</span>
+                        <span class="badge badge-fade">Hello World</span>
+                        <span class="badge badge-outline">Hello World</span>
+                        <span class="badge badge-fade badge-outline">Hello World</span>
+                        <span class="badge badge-round">Hello World</span>
+                        <span class="badge badge-round badge-fade">Hello World</span>
+                        <span class="badge badge-round badge-outline">Hello World</span>
+                        <span class="badge badge-round badge-fade badge-outline">Hello World</span>
+                    </div>
+
+                    <div class="block-title margin-vertical">Colored</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-red">Red</span>
+                        <span class="badge badge-fade color-red">Red</span>
+                        <span class="badge badge-outline color-red">Red</span>
+                        <span class="badge badge-fade badge-outline color-red">Red</span>
+                        <span class="badge badge-round color-red">Red</span>
+                        <span class="badge badge-round badge-fade color-red">Red</span>
+                        <span class="badge badge-round badge-outline color-red">Red</span>
+                        <span class="badge badge-round badge-fade badge-outline color-red">Red</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-pink">Pink</span>
+                        <span class="badge badge-fade color-pink">Pink</span>
+                        <span class="badge badge-outline color-pink">Pink</span>
+                        <span class="badge badge-fade badge-outline color-pink">Pink</span>
+                        <span class="badge badge-round color-pink">Pink</span>
+                        <span class="badge badge-round badge-fade color-pink">Pink</span>
+                        <span class="badge badge-round badge-outline color-pink">Pink</span>
+                        <span class="badge badge-round badge-fade badge-outline color-pink">Pink</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-purple">Purple</span>
+                        <span class="badge badge-fade color-purple">Purple</span>
+                        <span class="badge badge-outline color-purple">Purple</span>
+                        <span class="badge badge-fade badge-outline color-purple">Purple</span>
+                        <span class="badge badge-round color-purple">Purple</span>
+                        <span class="badge badge-round badge-fade color-purple">Purple</span>
+                        <span class="badge badge-round badge-outline color-purple">Purple</span>
+                        <span class="badge badge-round badge-fade badge-outline color-purple">Purple</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-deeppurple">Deep Purple</span>
+                        <span class="badge badge-fade color-deeppurple">Deep Purple</span>
+                        <span class="badge badge-outline color-deeppurple">Deep Purple</span>
+                        <span class="badge badge-fade badge-outline color-deeppurple">Deep Purple</span>
+                        <span class="badge badge-round color-deeppurple">Deep Purple</span>
+                        <span class="badge badge-round badge-fade color-deeppurple">Deep Purple</span>
+                        <span class="badge badge-round badge-outline color-deeppurple">Deep Purple</span>
+                        <span class="badge badge-round badge-fade badge-outline color-deeppurple">Deep Purple</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-indigo">Indigo</span>
+                        <span class="badge badge-fade color-indigo">Indigo</span>
+                        <span class="badge badge-outline color-indigo">Indigo</span>
+                        <span class="badge badge-fade badge-outline color-indigo">Indigo</span>
+                        <span class="badge badge-round color-indigo">Indigo</span>
+                        <span class="badge badge-round badge-fade color-indigo">Indigo</span>
+                        <span class="badge badge-round badge-outline color-indigo">Indigo</span>
+                        <span class="badge badge-round badge-fade badge-outline color-indigo">Indigo</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-blue">Blue</span>
+                        <span class="badge badge-fade color-blue">Blue</span>
+                        <span class="badge badge-outline color-blue">Blue</span>
+                        <span class="badge badge-fade badge-outline color-blue">Blue</span>
+                        <span class="badge badge-round color-blue">Blue</span>
+                        <span class="badge badge-round badge-fade color-blue">Blue</span>
+                        <span class="badge badge-round badge-outline color-blue">Blue</span>
+                        <span class="badge badge-round badge-fade badge-outline color-blue">Blue</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-lightblue">Light Blue</span>
+                        <span class="badge badge-fade color-lightblue">Light Blue</span>
+                        <span class="badge badge-outline color-lightblue">Light Blue</span>
+                        <span class="badge badge-fade badge-outline color-lightblue">Light Blue</span>
+                        <span class="badge badge-round color-lightblue">Light Blue</span>
+                        <span class="badge badge-round badge-fade color-lightblue">Light Blue</span>
+                        <span class="badge badge-round badge-outline color-lightblue">Light Blue</span>
+                        <span class="badge badge-round badge-fade badge-outline color-lightblue">Light Blue</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-cyan">Cyan</span>
+                        <span class="badge badge-fade color-cyan">Cyan</span>
+                        <span class="badge badge-outline color-cyan">Cyan</span>
+                        <span class="badge badge-fade badge-outline color-cyan">Cyan</span>
+                        <span class="badge badge-round color-cyan">Cyan</span>
+                        <span class="badge badge-round badge-fade color-cyan">Cyan</span>
+                        <span class="badge badge-round badge-outline color-cyan">Cyan</span>
+                        <span class="badge badge-round badge-fade badge-outline color-cyan">Cyan</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-teal">Teal</span>
+                        <span class="badge badge-fade color-teal">Teal</span>
+                        <span class="badge badge-outline color-teal">Teal</span>
+                        <span class="badge badge-fade badge-outline color-teal">Teal</span>
+                        <span class="badge badge-round color-teal">Teal</span>
+                        <span class="badge badge-round badge-fade color-teal">Teal</span>
+                        <span class="badge badge-round badge-outline color-teal">Teal</span>
+                        <span class="badge badge-round badge-fade badge-outline color-teal">Teal</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-green">Green</span>
+                        <span class="badge badge-fade color-green">Green</span>
+                        <span class="badge badge-outline color-green">Green</span>
+                        <span class="badge badge-fade badge-outline color-green">Green</span>
+                        <span class="badge badge-round color-green">Green</span>
+                        <span class="badge badge-round badge-fade color-green">Green</span>
+                        <span class="badge badge-round badge-outline color-green">Green</span>
+                        <span class="badge badge-round badge-fade badge-outline color-green">Green</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-lightgreen">Light Green</span>
+                        <span class="badge badge-fade color-lightgreen">Light Green</span>
+                        <span class="badge badge-outline color-lightgreen">Light Green</span>
+                        <span class="badge badge-fade badge-outline color-lightgreen">Light Green</span>
+                        <span class="badge badge-round color-lightgreen">Light Green</span>
+                        <span class="badge badge-round badge-fade color-lightgreen">Light Green</span>
+                        <span class="badge badge-round badge-outline color-lightgreen">Light Green</span>
+                        <span class="badge badge-round badge-fade badge-outline color-lightgreen">Light Green</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-lime">Lime</span>
+                        <span class="badge badge-fade color-lime">Lime</span>
+                        <span class="badge badge-outline color-lime">Lime</span>
+                        <span class="badge badge-fade badge-outline color-lime">Lime</span>
+                        <span class="badge badge-round color-lime">Lime</span>
+                        <span class="badge badge-round badge-fade color-lime">Lime</span>
+                        <span class="badge badge-round badge-outline color-lime">Lime</span>
+                        <span class="badge badge-round badge-fade badge-outline color-lime">Lime</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-yellow">Yellow</span>
+                        <span class="badge badge-fade color-yellow">Yellow</span>
+                        <span class="badge badge-outline color-yellow">Yellow</span>
+                        <span class="badge badge-fade badge-outline color-yellow">Yellow</span>
+                        <span class="badge badge-round color-yellow">Yellow</span>
+                        <span class="badge badge-round badge-fade color-yellow">Yellow</span>
+                        <span class="badge badge-round badge-outline color-yellow">Yellow</span>
+                        <span class="badge badge-round badge-fade badge-outline color-yellow">Yellow</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-amber">Amber</span>
+                        <span class="badge badge-fade color-amber">Amber</span>
+                        <span class="badge badge-outline color-amber">Amber</span>
+                        <span class="badge badge-fade badge-outline color-amber">Amber</span>
+                        <span class="badge badge-round color-amber">Amber</span>
+                        <span class="badge badge-round badge-fade color-amber">Amber</span>
+                        <span class="badge badge-round badge-outline color-amber">Amber</span>
+                        <span class="badge badge-round badge-fade badge-outline color-amber">Amber</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-orange">Orange</span>
+                        <span class="badge badge-fade color-orange">Orange</span>
+                        <span class="badge badge-outline color-orange">Orange</span>
+                        <span class="badge badge-fade badge-outline color-orange">Orange</span>
+                        <span class="badge badge-round color-orange">Orange</span>
+                        <span class="badge badge-round badge-fade color-orange">Orange</span>
+                        <span class="badge badge-round badge-outline color-orange">Orange</span>
+                        <span class="badge badge-round badge-fade badge-outline color-orange">Orange</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-deeporange">Deep Orange</span>
+                        <span class="badge badge-fade color-deeporange">Deep Orange</span>
+                        <span class="badge badge-outline color-deeporange">Deep Orange</span>
+                        <span class="badge badge-fade badge-outline color-deeporange">Deep Orange</span>
+                        <span class="badge badge-round color-deeporange">Deep Orange</span>
+                        <span class="badge badge-round badge-fade color-deeporange">Deep Orange</span>
+                        <span class="badge badge-round badge-outline color-deeporange">Deep Orange</span>
+                        <span class="badge badge-round badge-fade badge-outline color-deeporange">Deep Orange</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-brown">Brown</span>
+                        <span class="badge badge-fade color-brown">Brown</span>
+                        <span class="badge badge-outline color-brown">Brown</span>
+                        <span class="badge badge-fade badge-outline color-brown">Brown</span>
+                        <span class="badge badge-round color-brown">Brown</span>
+                        <span class="badge badge-round badge-fade color-brown">Brown</span>
+                        <span class="badge badge-round badge-outline color-brown">Brown</span>
+                        <span class="badge badge-round badge-fade badge-outline color-brown">Brown</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-gray">Gray</span>
+                        <span class="badge badge-fade color-gray">Gray</span>
+                        <span class="badge badge-outline color-gray">Gray</span>
+                        <span class="badge badge-fade badge-outline color-gray">Gray</span>
+                        <span class="badge badge-round color-gray">Gray</span>
+                        <span class="badge badge-round badge-fade color-gray">Gray</span>
+                        <span class="badge badge-round badge-outline color-gray">Gray</span>
+                        <span class="badge badge-round badge-fade badge-outline color-gray">Gray</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-bluegray">Blue Gray</span>
+                        <span class="badge badge-fade color-bluegray">Blue Gray</span>
+                        <span class="badge badge-outline color-bluegray">Blue Gray</span>
+                        <span class="badge badge-fade badge-outline color-bluegray">Blue Gray</span>
+                        <span class="badge badge-round color-bluegray">Blue Gray</span>
+                        <span class="badge badge-round badge-fade color-bluegray">Blue Gray</span>
+                        <span class="badge badge-round badge-outline color-bluegray">Blue Gray</span>
+                        <span class="badge badge-round badge-fade badge-outline color-bluegray">Blue Gray</span>
+                    </div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge color-mono text-color-mono-invert">Monochrome</span>
+                        <span class="badge badge-fade color-mono">Monochrome</span>
+                        <span class="badge badge-outline color-mono">Monochrome</span>
+                        <span class="badge badge-fade badge-outline color-mono">Monochrome</span>
+                        <span class="badge badge-round color-mono text-color-mono-invert">Monochrome</span>
+                        <span class="badge badge-round badge-fade color-mono">Monochrome</span>
+                        <span class="badge badge-round badge-outline color-mono">Monochrome</span>
+                        <span class="badge badge-round badge-fade badge-outline color-mono">Monochrome</span>
+                    </div>
+
+                    <div class="block-title margin-vertical">Icon</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <span class="badge badge-round color-pink">
+                            <i class="icon material-icons">whatshot</i>
+                            <span>Trending</span>
+                        </span>
+                        <span class="badge badge-round color-blue">
+                            <i class="icon material-icons">verified</i>
+                            <span>Verified</span>
+                        </span>
+                        <span class="badge badge-round color-amber text-color-black">
+                            <i class="icon material-icons">lock</i>
+                            <span>Protected</span>
+                        </span>
+                    </div>
+
+                    <div class="block-title margin-vertical">Avatar</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-rounded-square" src="https://source.unsplash.com/ZHvM3XIOHoE/128x128" height="40" width="40" alt="" />
+                                            <span class="badge badge-dot color-green"></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Arthur Wallace</div>
+                                        <div class="item-after">
+                                            <span class="badge color-green">Online</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-circle" src="https://source.unsplash.com/iEEBWgY_6lA/128x128" height="40" width="40" alt="" />
+                                            <span class="badge badge-dot color-amber"></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Justin Adams</div>
+                                        <div class="item-after">
+                                            <span class="badge color-amber">Idle</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-rounded-square" src="https://source.unsplash.com/53ouhY5koKY/128x128" height="40" width="40" alt="" />
+                                            <span class="badge badge-dot color-red"></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Leah Kennedy</div>
+                                        <div class="item-after">
+                                            <span class="badge color-red">Offline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-rounded-square" src="https://source.unsplash.com/ZHvM3XIOHoE/128x128" height="40" width="40" alt="" />
+                                            <span class="badge badge-dot badge-bottom color-green"></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Arthur Wallace</div>
+                                        <div class="item-after">
+                                            <span class="badge color-green">Online</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-circle" src="https://source.unsplash.com/iEEBWgY_6lA/128x128" height="40" width="40" alt="" />
+                                            <span class="badge badge-dot badge-bottom color-amber"></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Justin Adams</div>
+                                        <div class="item-after">
+                                            <span class="badge color-amber">Idle</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-rounded-square" src="https://source.unsplash.com/53ouhY5koKY/128x128" height="40" width="40" alt="" />
+                                            <span class="badge badge-dot badge-bottom color-red"></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Leah Kennedy</div>
+                                        <div class="item-after">
+                                            <span class="badge color-red">Offline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-rounded-square" src="https://source.unsplash.com/ZHvM3XIOHoE/128x128" height="40" width="40" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Arthur Wallace</div>
+                                        <div class="item-after">
+                                            <span class="badge badge-dot color-green"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-circle" src="https://source.unsplash.com/iEEBWgY_6lA/128x128" height="40" width="40" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Justin Adams</div>
+                                        <div class="item-after">
+                                            <span class="badge badge-dot color-amber"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="badge-wrapper">
+                                            <img class="shape-rounded-square" src="https://source.unsplash.com/53ouhY5koKY/128x128" height="40" width="40" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Leah Kennedy</div>
+                                        <div class="item-after">
+                                            <span class="badge badge-dot color-red"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Button</div>
+                    <div class="block block-strong inset margin-vertical no-padding-top">
+                        <div class="row">
+                            <div class="col-100 xsmall-50 margin-top">
+                                <button type="button" class="button button-fill color-blue">
+                                    <span>View Cart</span>
+                                    <span class="badge">5</span>
+                                </button>
+                            </div>
+                            <div class="col-100 xsmall-50 margin-top">
+                                <button type="button" class="button button-fill color-pink">
+                                    <span>View Orders</span>
+                                    <span class="badge">3</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

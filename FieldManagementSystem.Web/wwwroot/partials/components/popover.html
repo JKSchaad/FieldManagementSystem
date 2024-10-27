@@ -1,0 +1,248 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Popover</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Popover is an overlay container that hovers around the triggered element. It is used to display contextual information to the user.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${openPopoverDefault}">Open Popover</button>
+                    </div>
+
+                    <div class="block-title margin-vertical">Text</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>The rain and wind <a href="#" class="text-underline-dotted" @mouseover="${openPopoverText}">abruptly</a> stopped, but the sky still had the gray <a href="#" class="text-underline-dotted" @mouseover="${openPopoverText}">swirls</a> of storms in the distance. Dave knew this feeling all too well. The <a href="#" class="text-underline-dotted" @mouseover="${openPopoverText}">calm</a> before the storm. He only had a limited amount of time before all hell broke loose, but he stopped to <a href="#" class="text-underline-dotted" @mouseover="${openPopoverText}">admire</a> the calmness. Maybe it would be different this time, he thought, with the knowledge deep within that it wouldn't.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Links</div>
+                    <div class="list media-list inset margin-vertical">
+                        <ul>
+                            ${users && users.length && users.map((item, index) => $h`
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <img class="shape-auto" src="${item.avatar}" loading="lazy" height="40" width="40" alt="" />
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title">${item.name}</div>
+                                            <div class="item-after">
+                                                <a href="#" class="link icon-only color-gray" @click="${openPopoverLinks}">
+                                                    <i class="icon material-icons font-size-18">more_vert</i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="item-text">${item.country}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            `)}
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Media</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${openPopoverMedia}">Open Popover</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="popover-default" class="popover">
+            <div class="popover-inner">
+                <div class="block-title block-title-medium margin-vertical">${$f7.renderUnicode('1F44B')} Hello!</div>
+                <div class="block margin-vertical">
+                    <img src="https://picsum.photos/640/480" alt="" />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="popover-text" class="popover">
+            <div class="popover-inner">
+                ${wordMeaning ? $h`
+                <div class="block-title block-title-medium align-items-center margin-top">
+                    <span>${wordMeaning.word}</span>
+                    <span class="font-size-16 font-weight-normal text-color-gray">${wordMeaning.meanings[0].partOfSpeech}</span>
+                </div>
+                <div class="block margin-bottom">
+                    <p>${wordMeaning.meanings[0].definitions[0].definition}</p>
+                </div>
+                ` : $h`
+                <div class="block text-align-center">
+                    <span key="preloader" class="preloader"></span>
+                </div>
+                `}
+            </div>
+        </div>
+
+        <div id="popover-links" class="popover">
+            <div class="popover-inner">
+                <div class="list no-chevron no-hairlines-between">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link popover-close">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="icon material-icons text-gradient-blue">person</i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">View Profile</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-link popover-close">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="icon material-icons text-gradient-amber">message</i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title">Send Message</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="popover-media" class="popover">
+            <div class="popover-inner">
+                <div class="block margin-vertical">
+                    <video class="shape-rounded-square" controls playsinline preload="metadata">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let popoverDefault = null;
+        let popoverText = null;
+        let popoverLinks = null;
+        let popoverMedia = null;
+
+        let wordMeaning = null;
+        let users = null;
+
+        let loadData = function() {
+            let usersData = [];
+            for (i=0; i<3; i++) {
+                usersData.push({
+                    name: faker.name.firstName() + ' ' + faker.name.lastName(),
+                    avatar: faker.internet.avatar(),
+                    country: faker.address.country()
+                });
+            }
+            users = usersData;
+            $update();
+        }
+
+        let initializePopoverDefault = function() {
+            popoverDefault = $f7.popover.create({
+                el: $el.value.find('#popover-default')
+            });
+        }
+
+        let initializePopoverText = function() {
+            popoverText = $f7.popover.create({
+                el: $el.value.find('#popover-text'),
+                on: {
+                    closed: function() {
+                        wordMeaning = null;
+                        $update();
+                    }
+                }
+            });
+        }
+
+        let initializePopoverLinks = function() {
+            popoverLinks = $f7.popover.create({
+                el: $el.value.find('#popover-links')
+            });
+        }
+
+        let initializePopoverMedia = function() {
+            popoverMedia = $f7.popover.create({
+                el: $el.value.find('#popover-media'),
+                on: {
+                    close: function(popover) {
+                        let videoEl = popover.$el.find('video');
+                        videoEl[0].pause();
+                    }
+                }
+            });
+        }
+
+        let openPopoverDefault = function(event) {
+            popoverDefault.open(event.target);
+        }
+
+        let openPopoverText = function(event) {
+            popoverText.open(event.target);
+            $f7.request({
+                url: 'https://api.dictionaryapi.dev/api/v2/entries/en/' + event.target.text,
+                method: 'GET',
+                data: null,
+                dataType: 'json'
+            })
+            .then(function(response) {
+                popoverText.close();
+                wordMeaning = response.data[0];
+                $update(function() {
+                    popoverText.open(event.target);
+                });
+            })
+            .catch(function(response) {
+                popoverText.close();
+            });
+        }
+
+        let openPopoverLinks = function(event) {
+            popoverLinks.open(event.target);
+        }
+
+        let openPopoverMedia = function(event) {
+            popoverMedia.open(event.target);
+        }
+
+        $on('pageBeforeIn', function() {
+            loadData();
+            initializePopoverDefault();
+            initializePopoverText();
+            initializePopoverLinks();
+            initializePopoverMedia();
+        });
+
+        return $render;
+    }
+</script>

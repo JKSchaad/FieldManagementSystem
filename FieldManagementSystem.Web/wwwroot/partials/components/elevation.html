@@ -1,0 +1,159 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Elevation</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Elevation is the relative distance between two surfaces along the z-axis.</p>
+                        <p>A surface's elevation determines the appearance of its shadow which provides important visual cues about the depth and directional movement.</p>
+                    </div>
+
+                    <div class="block margin-vertical">
+                        <div class="row no-gap">
+                            ${Array(24).fill().map((item, index) => $h`
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-${index + 1}" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered">
+                                        <div>Elevation</div>
+                                        <div>${index + 1}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="block margin-vertical">
+                        <div class="row no-gap">
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-red color-red" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Red</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-pink color-pink" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Pink</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-purple color-purple" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Purple</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-deeppurple color-deeppurple" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Deep Purple</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-indigo color-indigo" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Indigo</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-blue color-blue" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Blue</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-lightblue color-lightblue" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Light Blue</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-cyan color-cyan" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Cyan</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-teal color-teal" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Teal</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-green color-green" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Green</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-lightgreen color-lightgreen" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Light Green</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-lime color-lime" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Lime</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-yellow color-yellow" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Yellow</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-amber color-amber" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Amber</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-orange color-orange" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Orange</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-deeporange color-deeporange" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Deep Orange</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-brown color-brown" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Brown</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-gray color-gray" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Gray</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-bluegray color-bluegray" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-white">Blue Gray</div>
+                                </div>
+                            </div>
+                            <div class="col-50 medium-33 large-25">
+                                <div class="card margin-half no-safe-areas elevation-24 bg-color-mono color-mono" style="height: 96px;">
+                                    <div class="card-content card-content-padding flexbox-centered text-color-mono-invert">Monochrome</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

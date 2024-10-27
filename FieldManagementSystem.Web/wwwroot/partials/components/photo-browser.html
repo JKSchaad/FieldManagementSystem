@@ -1,0 +1,112 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Photo Browser</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Photo Browser is a component to display collection of photos, videos, or other media in a slide view.</p>
+                    </div>
+
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => photoBrowser.open()}">Open Photo Browser</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let collection = [
+            {
+                url: 'https://source.unsplash.com/9hz5xn0S2qg/1920x1080',
+                caption: 'Bald Eagle',
+                type: 'image'
+            },
+            {
+                url: 'https://source.unsplash.com/5E5N49RWtbA/1920x1080',
+                caption: 'Yacare Caiman',
+                type: 'image'
+            },
+            {
+                url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                caption: 'Big Buck Bunny',
+                type: 'video',
+                mime: 'video/mp4',
+                poster: 'https://source.unsplash.com/_r2MWJrhzSQ/1920x1080'
+            },
+            {
+                url: 'https://source.unsplash.com/rKZRUrK2IjY/1920x1080',
+                caption: 'Pygmy Killer Whale',
+                type: 'image'
+            },
+            {
+                url: 'https://source.unsplash.com/MJabBHEtdSc/1920x1080',
+                caption: 'Baldfaced Hornet',
+                type: 'image'
+            },
+            {
+                url: 'https://source.unsplash.com/unt3066GV-E/1920x1080',
+                caption: 'Philippine Porcupine',
+                type: 'image'
+            }
+        ]
+
+        let portfolioBrowser = null;
+
+        let initializePhotoBrowser = function() {
+            let photos = collection.map(function(item, index) {
+                let photo = {};
+                if (item.type == 'image') {
+                    photo = {
+                        url: item.url,
+                        caption: item.caption
+                    }
+                }
+                else if (item.type == 'video') {
+                    photo = {
+                        html: `
+                            <video controls playsinline preload="metadata" poster="${item.poster}">
+                                <source src="${item.url}" type="${item.mime}" />
+                            </video>
+                        `,
+                        caption: item.caption
+                    }
+                }
+                return photo;
+            });
+            photoBrowser = $f7.photoBrowser.create({
+                photos: photos,
+                exposition: true,
+                theme: $f7.theming.currentMode() == 'dark' ? 'dark' : 'light'
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializePhotoBrowser();
+        });
+
+        return $render;
+    }
+</script>

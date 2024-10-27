@@ -1,0 +1,325 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Notification</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Notification can be used to show messages to the user which look like push or local system notifications.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Text</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${openNotificationTextDefault}">Default</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${openNotificationTextAutoClose}">Auto Close</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Media</div>
+                    <div class="list links-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <a href="#" @click="${openNotificationMediaImage}">Image</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${openNotificationMediaAudio}">Audio</a>
+                            </li>
+                            <li>
+                                <a href="#" @click="${openNotificationMediaVideo}">Video</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Actions</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${openNotificationActions}">Open Notification</button>
+                    </div>
+
+                    <div class="block-title margin-vertical">Input</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${openNotificationInput}">Open Notification</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="notification-media-image" class="notification">
+            <div class="notification-header">
+                <div class="notification-icon">
+                    <i class="icon material-icons text-gradient-blue">image</i>
+                </div>
+                <div class="notification-title">Nectar</div>
+                <div class="notification-title-right-text">Now</div>
+                <span class="notification-close-button"></span>
+            </div>
+            <div class="notification-content">
+                <div class="notification-subtitle">Welcome to Nectar</div>
+                <div class="notification-text">Bring your product to life with the help of Nectar.</div>
+            </div>
+            <div class="notification-media">
+                <img src="https://source.unsplash.com/random" alt="" />
+            </div>
+        </div>
+
+        <div id="notification-media-audio" class="notification">
+            <div class="notification-header">
+                <div class="notification-icon">
+                    <i class="icon material-icons text-gradient-amber">music_note</i>
+                </div>
+                <div class="notification-title">Nectar</div>
+                <div class="notification-title-right-text">Now</div>
+                <span class="notification-close-button"></span>
+            </div>
+            <div class="notification-content">
+                <div class="notification-subtitle">Welcome to Nectar</div>
+                <div class="notification-text">Bring your product to life with the help of Nectar.</div>
+            </div>
+            <div class="notification-media">
+                <audio controls preload="metadata">
+                    <source src="https://archive.org/download/10InvincibleHurry/1%20-%20Running%20About.mp3" type="audio/mp3" />
+                </audio>
+            </div>
+        </div>
+
+        <div id="notification-media-video" class="notification">
+            <div class="notification-header">
+                <div class="notification-icon">
+                    <i class="icon material-icons text-gradient-bluegray">movie</i>
+                </div>
+                <div class="notification-title">Nectar</div>
+                <div class="notification-title-right-text">Now</div>
+                <span class="notification-close-button"></span>
+            </div>
+            <div class="notification-content">
+                <div class="notification-subtitle">Welcome to Nectar</div>
+                <div class="notification-text">Bring your product to life with the help of Nectar.</div>
+            </div>
+            <div class="notification-media">
+                <div class="responsive-container">
+                    <video class="responsive-content" controls playsinline preload="metadata">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div id="notification-actions" class="notification">
+            <div class="notification-header">
+                <div class="notification-icon">
+                    <img class="shape-auto if-not-dark" src="${$f7.config.app.logos.logomarkSquareLight}" alt="" />
+                    <img class="shape-auto if-dark" src="${$f7.config.app.logos.logomarkSquareDark}" alt="" />
+                </div>
+                <div class="notification-title">Nectar</div>
+                <div class="notification-title-right-text">Now</div>
+                <span class="notification-close-button"></span>
+            </div>
+            <div class="notification-content">
+                <div class="notification-subtitle">Welcome to Nectar</div>
+                <div class="notification-text">Bring your product to life with the help of Nectar.</div>
+            </div>
+            <div class="notification-actions">
+                <a href="${$f7.config.app.themeforestUrl}" target="${$f7.getExternalUrlTarget()}" class="notification-action external button" @click="${closeNotificationActions}">Buy Now</a>
+                <a href="${$f7.config.app.gitbookUrl}" target="${$f7.getExternalUrlTarget()}" class="notification-action external button color-bluegray" @click="${closeNotificationActions}">View Docs</a>
+            </div>
+        </div>
+
+        <div id="notification-input" class="notification">
+            <div class="notification-header">
+                <div class="notification-icon">
+                   <i class="icon material-icons text-gradient-deeppurple">message</i>
+                </div>
+                <div class="notification-title">New Message</div>
+                <div class="notification-title-right-text">Now</div>
+                <span class="notification-close-button"></span>
+            </div>
+            <div class="notification-content">
+                <div class="notification-subtitle">${faker.name.firstName() + ' ' + faker.name.lastName()}</div>
+                <div class="notification-text">${$f7.renderUnicode('1F44B')} Hello! ${faker.lorem.sentence(10)}</div>
+            </div>
+            <div class="notification-input">
+                <form name="notification-reply" action="#" method="POST" enctype="multipart/form-data" @submit="${sendReply}">
+                    <div class="list no-hairlines">
+                        <ul>
+                            <li>
+                                <div class="item-content item-input">
+                                    <div class="item-inner">
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="message" placeholder="Reply Here" required validate />
+                                            <button type="submit" class="button button-icon">
+                                                <i class="icon material-icons">send</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let notificationTextDefault = null;
+        let notificationTextAutoClose = null;
+        let notificationMediaImage = null;
+        let notificationMediaAudio = null;
+        let notificationMediaVideo = null;
+        let notificationActions = null;
+        let notificationInput = null;
+
+        let initializeNotificationTextDefault = function() {
+            notificationTextDefault = $f7.notification.create({
+                titleRightText: 'Now',
+                subtitle: 'Welcome to Nectar',
+                text: 'Bring your product to life with the help of Nectar.'
+            });
+        }
+
+        let openNotificationTextDefault = function() {
+            notificationTextDefault.open();
+        }
+
+        let initializeNotificationTextAutoClose = function() {
+            notificationTextAutoClose = $f7.notification.create({
+                icon: '<span>' + $f7.renderUnicode('1F44B') + '</span>',
+                title: 'Welcome',
+                titleRightText: 'Now',
+                subtitle: 'Nectar - Mobile Web App Kit',
+                text: 'Build Beautiful & Performant Progressive Web Apps, Hybrid Apps & Desktop Apps.',
+                closeButton: false,
+                closeTimeout: 5000,
+                swipeToClose: false
+            });
+        }
+
+        let openNotificationTextAutoClose = function() {
+            notificationTextAutoClose.open();
+        }
+
+        let initializeNotificationMediaImage = function() {
+            notificationMediaImage = $f7.notification.create({
+                el: $el.value.find('#notification-media-image')
+            });
+        }
+
+        let openNotificationMediaImage = function() {
+            notificationMediaImage.open();
+        }
+
+        let initializeNotificationMediaAudio = function() {
+            notificationMediaAudio = $f7.notification.create({
+                el: $el.value.find('#notification-media-audio'),
+                on: {
+                    close: function(notification) {
+                        let audioEl = notification.$el.find('audio');
+                        audioEl[0].pause();
+                    }
+                }
+            });
+        }
+
+        let openNotificationMediaAudio = function() {
+            notificationMediaAudio.open();
+        }
+
+        let initializeNotificationMediaVideo = function() {
+            notificationMediaVideo = $f7.notification.create({
+                el: $el.value.find('#notification-media-video'),
+                on: {
+                    close: function(notification) {
+                        let videoEl = notification.$el.find('video');
+                        videoEl[0].pause();
+                    }
+                }
+            });
+        }
+
+        let openNotificationMediaVideo = function() {
+            notificationMediaVideo.open();
+        }
+
+        let initializeNotificationActions = function() {
+            notificationActions = $f7.notification.create({
+                el: $el.value.find('#notification-actions')
+            });
+        }
+
+        let openNotificationActions = function() {
+            notificationActions.open();
+        }
+
+        let closeNotificationActions = function() {
+            notificationActions.close();
+        }
+
+        let initializeNotificationInput = function() {
+            notificationInput = $f7.notification.create({
+                el: $el.value.find('#notification-input'),
+                on: {
+                    open: function(notification) {
+                        notification.$el.find('input').focus();
+                    },
+                    close: function(notification) {
+                        notification.$el.find('form')[0].reset();
+                    }
+                }
+            });
+        }
+
+        let openNotificationInput = function() {
+            notificationInput.open();
+        }
+
+        let sendReply = function(event) {
+            event.preventDefault();
+            let form = event.target;
+            form.reset();
+            notificationInput.close();
+            $f7.toast.show({
+                text: 'Reply Sent!',
+                icon: '<i class="icon material-icons">check</i>',
+                position: 'center',
+                cssClass: 'color-green'
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeNotificationTextDefault();
+            initializeNotificationTextAutoClose();
+            initializeNotificationMediaImage();
+            initializeNotificationMediaAudio();
+            initializeNotificationMediaVideo();
+            initializeNotificationActions();
+            initializeNotificationInput();
+        });
+
+        return $render;
+    }
+</script>

@@ -1,0 +1,180 @@
+<template>
+    <div class="page no-tabbar">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Scrollable Tabs</div>
+                <div class="right">
+                    <a href="#" class="link icon-only" @click="${toggleToolbarPosition}">
+                        <i class="icon material-icons">swap_vert</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolbar toolbar-${toolbarPosition} tabbar tabbar-scrollable">
+            <div class="toolbar-inner">
+                <a href="#tab-1" class="tab-link tab-link-active" data-route-tab-id="tab-1">One</a>
+                <a href="#tab-2" class="tab-link" data-route-tab-id="tab-2">Two</a>
+                <a href="#tab-3" class="tab-link" data-route-tab-id="tab-3">Three</a>
+                <a href="#tab-4" class="tab-link" data-route-tab-id="tab-4">Four</a>
+                <a href="#tab-5" class="tab-link" data-route-tab-id="tab-5">Five</a>
+                <a href="#tab-6" class="tab-link" data-route-tab-id="tab-6">Six</a>
+                <a href="#tab-7" class="tab-link" data-route-tab-id="tab-7">Seven</a>
+                <a href="#tab-8" class="tab-link" data-route-tab-id="tab-8">Eight</a>
+                <a href="#tab-9" class="tab-link" data-route-tab-id="tab-9">Nine</a>
+                <a href="#tab-10" class="tab-link" data-route-tab-id="tab-10">Ten</a>
+                <a href="#tab-11" class="tab-link" data-route-tab-id="tab-11">Eleven</a>
+                <a href="#tab-12" class="tab-link" data-route-tab-id="tab-12">Twelve</a>
+            </div>
+        </div>
+
+        <div class="tabs-swipeable-wrap">
+            <div class="tabs">
+
+                <div id="tab-1" class="page-content tab tab-active">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-2" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-3" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-4" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-5" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-6" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-7" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-8" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-9" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-10" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-11" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-12" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            <div class="block block-strong inset margin-vertical">
+                                <p>${faker.lorem.sentences(25)}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let toolbarPosition = 'bottom';
+
+        let toggleToolbarPosition = function() {
+            toolbarPosition = toolbarPosition == 'bottom' ? 'top' : 'bottom';
+            $update();
+        }
+
+        return $render;
+    }
+</script>

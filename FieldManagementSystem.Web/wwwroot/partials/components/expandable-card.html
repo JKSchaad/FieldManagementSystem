@@ -1,0 +1,459 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Expandable Card</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-85 large-75 xlarge-65">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Expandable Cards are similar to iOS App Store cards which expand on click to fullscreen size on mobile and a large overlay on tablet and desktop.</p>
+                    </div>
+
+                    <div class="block margin-vertical">
+                        <div class="row no-gap">
+
+                            <div class="col-100 small-50">
+                                <div class="card card-expandable elevation-24 margin-half no-safe-areas">
+                                    <a href="#" class="link card-close card-close-link card-opened-fade-in card-expandable-transform color-gray">
+                                        <i class="icon f7-icons">xmark_circle_fill</i>
+                                    </a>
+                                    <div class="card-content">
+                                        <div class="card-expandable-inner text-color-white" style="background-color: var(--color-gray-900);">
+                                            <div class="overlay-container" style="height: 304px;">
+                                                <div class="overlay-content align-items-flex-start justify-content-flex-end text-align-start">
+                                                    <img src="${$f7.config.app.logos.logotypeDark}" height="32" alt="" />
+                                                    <div class="font-size-18 margin-vertical">Build Beautiful & Performant<br/>Progressive Web Apps,<br/>Hybrid Apps & Desktop Apps.</div>
+                                                    <a href="${$f7.config.app.themeforestUrl}" target="${$f7.getExternalUrlTarget()}" class="external button button-fill button-large card-prevent-open color-amber text-color-black" style="width: 128px;">
+                                                        <i class="icon material-icons">shopping_cart</i>
+                                                        <span>Buy Now</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-opened-fade-in">
+                                            <div class="list media-list inset no-hairlines-between no-margin">
+                                                <ul>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-red-50);">
+                                                                    <img src="https://cdn.svgporn.com/logos/framework7-icon.svg" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Based on Framework7</div>
+                                                                </div>
+                                                                <div class="item-text">Nectar is built on the top of Framework7 ${`\u2013`} a fully-featured, free and open-source framework for developing web, mobile, and desktop apps with native look and feel.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-blue-50);">
+                                                                    <img src="https://cdn.svgporn.com/logos/google-icon.svg" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Google's Material Design</div>
+                                                                </div>
+                                                                <div class="item-text">Provide your users the best experience on Android with native look and feel using Google's Material Design.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-bluegray-50);">
+                                                                    <img src="https://cdn.svgporn.com/logos/apple.svg" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Apple's Cupertino Design</div>
+                                                                </div>
+                                                                <div class="item-text">Provide your users the best experience on iOS with native look and feel using Apple's Cupertino Design.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-red-50);">
+                                                                    <img src="https://cdn.svgporn.com/logos/framework7-icon.svg" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Framework7's Aurora Design</div>
+                                                                </div>
+                                                                <div class="item-text">Provide your users the best experience on Desktop using Framework7's Aurora Design.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-bluegray-50);">
+                                                                    <img src="https://cdn-icons-png.flaticon.com/128/402/402057.png" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Multiple Devices & Screen Resolutions</div>
+                                                                </div>
+                                                                <div class="item-text">Design responsive layout for your app supporting devices with different sizes and screen resolutions ${`\u2013`} mobiles, tablets or desktops.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-bluegray-50);">
+                                                                    <img src="https://cdn-icons-png.flaticon.com/128/2489/2489014.png" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Multiple Navigation Patterns</div>
+                                                                </div>
+                                                                <div class="item-text">Navigate your users within the app using two different navigation patterns ${`\u2013`} Sidebar and Tabbar.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-bluegray-50);">
+                                                                    <img src="https://cdn-icons-png.flaticon.com/128/1203/1203887.png" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Unlimited Colors & Dark Mode</div>
+                                                                </div>
+                                                                <div class="item-text">Style your app by choosing from 19 pre-built theme colors or apply any custom color matching your brand, with support for both Light & Dark modes.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-blue-50);">
+                                                                    <img src="https://cdn-icons-png.flaticon.com/128/484/484531.png" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Internationalization & RTL Support</div>
+                                                                </div>
+                                                                <div class="item-text">Build your app for users around the world by localizing your user interface in various languages.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-indigo-50);">
+                                                                    <img src="https://cdn.svgporn.com/logos/pwa.svg" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Progressive Web App Ready</div>
+                                                                </div>
+                                                                <div class="item-text">Add functionalities such as offline working, push notifications to your web app with the help of service workers and provide your users the best of both worlds ${`\u2013`} the web and the app.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-bluegray-50);">
+                                                                    <img src="https://cdn.svgporn.com/logos/cordova.svg" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Hybrid App Ready</div>
+                                                                </div>
+                                                                <div class="item-text">Convert your mobile web app into native mobile app for Android or iOS using Apache Cordova.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="item-content">
+                                                            <div class="item-media">
+                                                                <span class="shape-container shape-auto size-56" style="background-color: var(--color-teal-50);">
+                                                                    <img src="https://cdn.svgporn.com/logos/electron.svg" alt="" />
+                                                                </span>
+                                                            </div>
+                                                            <div class="item-inner">
+                                                                <div class="item-title-row">
+                                                                    <div class="item-title">Desktop App Ready</div>
+                                                                </div>
+                                                                <div class="item-text">Convert your web app into native desktop app for Windows, Linux, or macOS using Electron.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-100 small-50">
+                                <div class="card card-expandable elevation-24 margin-half no-safe-areas">
+                                    <a href="#" class="link card-close card-close-link card-opened-fade-in card-expandable-transform color-gray">
+                                        <i class="icon material-icons">cancel</i>
+                                    </a>
+                                    <div class="card-content">
+                                        <div class="card-expandable-inner text-color-white" style="background-color: var(--color-gray-900);">
+                                            <div class="overlay-container" style="height: 304px;">
+                                                <video autoplay loop muted playsinline>
+                                                    <source src="https://player.vimeo.com/external/521707474.hd.mp4?s=98c57d8ee2f46544e481fb54aa2b1ee767fbd97d&profile_id=174" type="video/mp4" />
+                                                </video>
+                                                <div class="overlay-content align-items-flex-start justify-content-flex-end">
+                                                    <div class="font-size-72">${$f7.renderUnicode('1F308')}</div>
+                                                    <div class="font-size-32 font-weight-bold line-height-1">Elements</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-opened-fade-in">
+                                            <div class="list media-list inset no-chevron no-hairlines-between no-margin">
+                                                <ul>
+                                                    <li>
+                                                        <a href="/components/" class="item-link card-close">
+                                                            <div class="item-content">
+                                                                <div class="item-media">
+                                                                    <span class="shape-container shape-auto size-56" style="background-color: var(--color-green-50);">
+                                                                        <i class="icon f7-icons font-size-40 text-gradient-green">square_grid_2x2_fill</i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <div class="item-title">Components</div>
+                                                                    </div>
+                                                                    <div class="item-text">Basic building blocks for creating beautiful and intuitive UI/UX.</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/screens/" class="item-link card-close">
+                                                            <div class="item-content">
+                                                                <div class="item-media">
+                                                                    <span class="shape-container shape-auto size-56" style="background-color: var(--color-blue-50);">
+                                                                        <i class="icon f7-icons font-size-40 text-gradient-blue">layers_alt_fill</i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <div class="item-title">Screens</div>
+                                                                    </div>
+                                                                    <div class="item-text">Ready-to-use screens built using various components.</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/web-apis/" class="item-link card-close">
+                                                            <div class="item-content">
+                                                                <div class="item-media">
+                                                                    <span class="shape-container shape-auto size-56" style="background-color: var(--color-orange-50);">
+                                                                        <i class="icon f7-icons font-size-40 text-gradient-orange">chevron_left_slash_chevron_right</i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <div class="item-title">Web APIs</div>
+                                                                    </div>
+                                                                    <div class="item-text">Access to native device and platform functionalities via JavaScript.</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/cordova-plugins/" class="item-link card-close">
+                                                            <div class="item-content">
+                                                                <div class="item-media">
+                                                                    <span class="shape-container shape-auto size-56" style="background-color: var(--color-deeppurple-50);">
+                                                                        <i class="icon f7-icons font-size-40 text-gradient-deeppurple">device_phone_portrait</i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <div class="item-title">Cordova Plugins</div>
+                                                                    </div>
+                                                                    <div class="item-text">Access to native device and platform functionalities via Cordova.</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/integrations/" class="item-link card-close">
+                                                            <div class="item-content">
+                                                                <div class="item-media">
+                                                                    <span class="shape-container shape-auto size-56" style="background-color: var(--color-pink-50);">
+                                                                        <i class="icon f7-icons font-size-40 text-gradient-pink">flame_fill</i>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="item-inner">
+                                                                    <div class="item-title-row">
+                                                                        <div class="item-title">Integrations</div>
+                                                                    </div>
+                                                                    <div class="item-text">Integrations for popular third-party services right out-of-the-box.</div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-100 small-50">
+                                <div class="card card-expandable elevation-24 margin-half no-safe-areas">
+                                    <a href="#" class="link card-close card-close-link card-opened-fade-in card-expandable-transform color-gray">
+                                        <i class="icon material-icons">cancel</i>
+                                    </a>
+                                    <div class="card-content">
+                                        <div class="card-expandable-inner text-color-white" style="background-color: var(--color-gray-900);">
+                                            <div class="overlay-container" style="height: 304px;">
+                                                <img src="https://source.unsplash.com/ZiTcejqBJC4" alt="" />
+                                                <div class="overlay-content align-items-flex-start justify-content-flex-end">
+                                                    <div class="font-size-22 font-weight-bold">Cappadocia</div>
+                                                    <div class="font-size-16">Turkey</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-opened-fade-in">
+                                            <div class="block margin-vertical">
+                                                <p>As if plucked from a whimsical fairytale and set down upon the stark Anatolian plains, Cappadocia is a geological oddity of honeycombed hills and towering boulders of otherworldly beauty.</p>
+                                                <p>Whether you're wooed here by the hiking potential, the history or the bragging rights of becoming a modern troglodyte for a night, it's the lunarscape panoramas that you'll remember. This region's accordion-ridged valleys, shaded in a palette of dusky orange and cream, are an epiphany of a landscape – the stuff of psychedelic daydreams.</p>
+                                            </div>
+                                            <div class="block margin-vertical">
+                                                <div class="block-title block-title-medium">Top Attractions</div>
+                                                <div class="block-header">These are our favorite local haunts, touristy spots, and hidden gems throughout Cappadocia.</div>
+                                            </div>
+                                            <div class="block margin-vertical">
+                                                <div class="segmented segmented-strong">
+                                                    <a href="#tab-sights" class="button button-small tab-link tab-link-active">Sights</a>
+                                                    <a href="#tab-restaurants" class="button button-small tab-link">Restaurants</a>
+                                                    <a href="#tab-shopping" class="button button-small tab-link">Shopping</a>
+                                                    <span class="segmented-highlight"></span>
+                                                </div>
+                                            </div>
+                                            <div class="tabs-swipeable-wrap">
+                                                <div class="tabs">
+                                                    <div id="tab-sights" class="tab tab-active">
+                                                        <div class="list media-list no-hairlines no-hairlines-between">
+                                                            <ul>
+                                                                ${Array(5).fill().map((item, index) => $h`
+                                                                <li>
+                                                                    <div class="item-content">
+                                                                        <div class="item-media">
+                                                                            <img class="shape-rounded-square" src="https://source.unsplash.com/random/128x128?places&r=${index}" loading="lazy" height="64" width="64" alt="" />
+                                                                        </div>
+                                                                        <div class="item-inner">
+                                                                            <div class="item-title-row">
+                                                                                <div class="item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                                                            </div>
+                                                                            <div class="item-text">${faker.lorem.sentences(2)}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                `)}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div id="tab-restaurants" class="tab">
+                                                        <div class="list media-list no-hairlines no-hairlines-between">
+                                                            <ul>
+                                                                ${Array(5).fill().map((item, index) => $h`
+                                                                <li>
+                                                                    <div class="item-content">
+                                                                        <div class="item-media">
+                                                                            <img class="shape-rounded-square" src="https://source.unsplash.com/random/128x128?food&r=${index}" loading="lazy" height="64" width="64" alt="" />
+                                                                        </div>
+                                                                        <div class="item-inner">
+                                                                            <div class="item-title-row">
+                                                                                <div class="item-title text-capitalize">${faker.lorem.words(3)}</div>
+                                                                            </div>
+                                                                            <div class="item-text">${faker.lorem.sentences(2)}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                `)}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div id="tab-shopping" class="tab">
+                                                        <div class="list media-list no-hairlines no-hairlines-between">
+                                                            <ul>
+                                                                ${Array(5).fill().map((item, index) => $h`
+                                                                <li>
+                                                                    <div class="item-content">
+                                                                        <div class="item-media">
+                                                                            <img class="shape-rounded-square" src="https://source.unsplash.com/random/128x128?product&r=${index}" loading="lazy" height="64" width="64" alt="" />
+                                                                        </div>
+                                                                        <div class="item-inner">
+                                                                            <div class="item-title-row">
+                                                                                <div class="item-title">${faker.commerce.productName()}</div>
+                                                                            </div>
+                                                                            <div class="item-text">${faker.lorem.sentences(2)}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                `)}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fab fab-extended ${$f7.rtl ? 'fab-left-bottom' : 'fab-right-bottom'} no-margin card-opened-fade-in card-expandable-transform">
+                                        <a href="https://www.lonelyplanet.com/turkey/cappadocia-kapadokya" target="${$f7.getExternalUrlTarget()}" class="external">
+                                            <i class="icon material-icons">explore</i>
+                                            <span class="fab-text">Explore</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

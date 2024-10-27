@@ -1,0 +1,161 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Breadcrumb</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Breadcrumb can be used to display the location of the current page within the site hierarchy, allowing visitors to navigate the hierarchy from their current location.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">Home</a>
+                            </div>
+                            <div class="breadcrumbs-separator"></div>
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">Catalog</a>
+                            </div>
+                            <div class="breadcrumbs-separator"></div>
+                            <div class="breadcrumbs-item breadcrumbs-item-active">Phones</div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Scrollable</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="breadcrumbs color-primary">
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">Home</a>
+                            </div>
+                            <div class="breadcrumbs-separator separator-dot"></div>
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">Catalog</a>
+                            </div>
+                            <div class="breadcrumbs-separator separator-dot"></div>
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">Phones</a>
+                            </div>
+                            <div class="breadcrumbs-separator separator-dot"></div>
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">Apple</a>
+                            </div>
+                            <div class="breadcrumbs-separator separator-dot"></div>
+                            <div class="breadcrumbs-item breadcrumbs-item-active">iPhone 12</div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Collapsed</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="breadcrumbs color-amber">
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">Home</a>
+                            </div>
+                            <div class="breadcrumbs-separator"></div>
+                            <div class="breadcrumbs-collapsed link popover-open" data-popover=".breadcrumbs-popover">
+                                <span></span>
+                                <div class="popover breadcrumbs-popover">
+                                    <div class="popover-inner">
+                                        <div class="list">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" class="item-link popover-close">
+                                                        <div class="item-content">
+                                                            <div class="item-inner">
+                                                                <div class="item-title">Catalog</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="item-link popover-close">
+                                                        <div class="item-content">
+                                                            <div class="item-inner">
+                                                                <div class="item-title">Phones</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="item-link popover-close">
+                                                        <div class="item-content">
+                                                            <div class="item-inner">
+                                                                <div class="item-title">Apple</div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="breadcrumbs-separator"></div>
+                            <div class="breadcrumbs-item breadcrumbs-item-active">iPhone 12</div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">With Icons</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="breadcrumbs color-pink">
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">
+                                    <i class="icon material-icons">home</i>
+                                    <span>Home</span>
+                                </a>
+                            </div>
+                            <div class="breadcrumbs-separator separator-slash"></div>
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">
+                                    <i class="icon material-icons">list_alt</i>
+                                    <span>Catalog</span>
+                                </a>
+                            </div>
+                            <div class="breadcrumbs-separator separator-slash"></div>
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">
+                                    <i class="icon material-icons">smartphone</i>
+                                    <span>Phones</span>
+                                </a>
+                            </div>
+                            <div class="breadcrumbs-separator separator-slash"></div>
+                            <div class="breadcrumbs-item">
+                                <a href="#" class="link">
+                                    <i class="icon f7-icons">logo_apple</i>
+                                    <span>Apple</span>
+                                </a>
+                            </div>
+                            <div class="breadcrumbs-separator separator-slash"></div>
+                            <div class="breadcrumbs-item breadcrumbs-item-active">iPhone 12</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

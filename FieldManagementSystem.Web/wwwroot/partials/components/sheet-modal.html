@@ -1,0 +1,210 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Sheet Modal</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Sheet Modal is a type of container which allows to create overlay with custom content.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Bottom Sheet</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => sheetModalBottom.open()}">Open Sheet</button>
+                    </div>
+
+                    <div class="block-title margin-vertical">Top Sheet</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => sheetModalTop.open()}">Open Sheet</button>
+                    </div>
+
+                    <div class="block-title margin-vertical">Swipe To Close</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => sheetModalSwipeToClose.open()}">Open Sheet</button>
+                    </div>
+
+                    <div class="block-title margin-vertical">Swipe To Step</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <button type="button" class="button button-fill" @click="${() => sheetModalSwipeToStep.open()}">Open Sheet</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="sheet-modal-bottom" class="sheet-modal">
+            <div class="sheet-modal-inner">
+                <div class="page-content">
+                    <div class="block margin-vertical text-align-center">
+                        <i class="icon material-icons font-size-96 text-gradient-brown">cookie</i>
+                        <p>We use cookies to ensure that you get the best experience on Nectar. <a href="#">Learn More</a></p>
+                    </div>
+                    <div class="block margin-vertical">
+                        <div class="row">
+                            <div class="col">
+                                <button type="button" class="button button-fill sheet-close">Allow Cookies</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="button button-outline sheet-close">Decline</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sheet-modal-top" class="sheet-modal sheet-modal-top">
+            <div class="toolbar toolbar-bottom">
+                <div class="toolbar-inner">
+                    <div class="left"></div>
+                    <div class="right">
+                        <a href="#" class="link sheet-close">Done</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sheet-modal-inner">
+                <div class="page-content">
+                    <div class="block margin-vertical">
+                        <p>Duis rutrum rutrum sem vel cursus. Donec risus magna, suscipit non elementum quis, aliquet et leo. Vestibulum interdum, quam ac iaculis feugiat, sapien nibh imperdiet tellus, et ultrices diam dui vitae nunc. Sed ut turpis augue. Integer id consequat tellus, quis pulvinar justo. Maecenas neque nibh, vulputate ut dolor vel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sheet-modal-swipe-to-close" class="sheet-modal">
+            <div class="swipe-handler"></div>
+            <div class="sheet-modal-inner">
+                <div class="page-content">
+                    <div class="block-title block-title-large margin-vertical">${$f7.renderUnicode('1F44B')} Hello!</div>
+                    <div class="block margin-vertical">
+                        <p>Eaque maiores ducimus, impedit unde culpa qui, explicabo accusamus, non vero corporis voluptatibus similique odit ab. Quaerat quasi consectetur quidem libero? Repudiandae adipisci vel voluptatum, autem libero minus dignissimos repellat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sheet-modal-swipe-to-step" class="sheet-modal">
+            <div class="swipe-handler"></div>
+            <div class="sheet-modal-inner">
+                <div class="page-content">
+                    <div class="sheet-modal-swipe-step">
+                        <div class="block display-flex align-items-center justify-content-space-between margin-vertical">
+                            <div class="font-size-24 font-weight-bold">Total</div>
+                            <div class="font-size-24 font-weight-bold">$500</div>
+                        </div>
+                        <div class="block margin-vertical">
+                            <button type="button" class="button button-fill">Make Payment</button>
+                            <div class="margin-top padding-bottom text-align-center">Swipe up for more details</div>
+                        </div>
+                    </div>
+                    <div class="block-title block-title-medium margin-vertical">Your Order</div>
+                    <div class="list margin-vertical no-hairlines no-hairlines-between">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Item 1</div>
+                                        <div class="item-after">$200</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Item 2</div>
+                                        <div class="item-after">$150</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Item 3</div>
+                                        <div class="item-after">$100</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">Delivery</div>
+                                        <div class="item-after">$50</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let sheetModalBottom = null;
+        let sheetModalTop = null;
+        let sheetModalSwipeToClose = null;
+        let sheetModalSwipeToStep = null;
+
+        let initializeSheetModalBottom = function() {
+            sheetModalBottom = $f7.sheet.create({
+                el: $el.value.find('#sheet-modal-bottom'),
+                closeByBackdropClick: false
+            });
+        }
+
+        let initializeSheetModalTop = function() {
+            sheetModalTop = $f7.sheet.create({
+                el: $el.value.find('#sheet-modal-top'),
+                closeByBackdropClick: false
+            });
+        }
+
+        let initializeSheetModalSwipeToClose = function() {
+            sheetModalSwipeToClose = $f7.sheet.create({
+                el: $el.value.find('#sheet-modal-swipe-to-close'),
+                push: true,
+                swipeToClose: true,
+                swipeHandler: '.swipe-handler'
+            });
+        }
+
+        let initializeSheetModalSwipeToStep = function() {
+            sheetModalSwipeToStep = $f7.sheet.create({
+                el: $el.value.find('#sheet-modal-swipe-to-step'),
+                push: true,
+                swipeToClose: true,
+                swipeToStep: true,
+                swipeHandler: '.swipe-handler'
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeSheetModalBottom();
+            initializeSheetModalTop();
+            initializeSheetModalSwipeToClose();
+            initializeSheetModalSwipeToStep();
+        });
+
+        return $render;
+    }
+</script>

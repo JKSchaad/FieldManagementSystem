@@ -1,0 +1,107 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Image Compare</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Image Compare can be used for before and after type image comparisons.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Horizontal</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="image-compare-horizontal" class="juxtapose"></div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Vertical</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div id="image-compare-vertical" class="juxtapose"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let imageCompareHorizontal = null;
+        let imageCompareVertical = null;
+
+        let initializeImageCompareHorizontal = function() {
+            imageCompareHorizontal = new juxtapose.JXSlider('#' + $el.value.find('#image-compare-horizontal')[0].id,
+                [
+                    {
+                        src: 'https://source.unsplash.com/ECprPNUdXaQ',
+                        label: '1922',
+                        credit: 'Unsplash'
+                    },
+                    {
+                        src: 'https://source.unsplash.com/iXqTqC-f6jI',
+                        label: '2022',
+                        credit: "Unsplash"
+                    }
+                ],
+                {
+                    mode: 'horizontal',
+                    animate: true,
+                    showLabels: true,
+                    showCredits: true,
+                    startingPosition: "50%",
+                    makeResponsive: true
+                }
+            );
+        }
+
+        let initializeImageCompareVertical = function() {
+            imageCompareVertical = new juxtapose.JXSlider('#' + $el.value.find('#image-compare-vertical')[0].id,
+                [
+                    {
+                        src: 'https://source.unsplash.com/ECprPNUdXaQ',
+                        label: '1922',
+                        credit: 'Unsplash'
+                    },
+                    {
+                        src: 'https://source.unsplash.com/iXqTqC-f6jI',
+                        label: '2022',
+                        credit: "Unsplash"
+                    }
+                ],
+                {
+                    mode: 'vertical',
+                    animate: true,
+                    showLabels: true,
+                    showCredits: true,
+                    startingPosition: "50%",
+                    makeResponsive: true
+                }
+            );
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeImageCompareHorizontal();
+            initializeImageCompareVertical();
+        });
+
+        return $render;
+    }
+</script>

@@ -1,0 +1,165 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Swipeout</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Swipeout allows to swipe over list elements to reveal hidden menu with available actions.</p>
+                    </div>
+
+                    <div class="block-title margin-top">Direction</div>
+                    <div class="block-header">Swipeout can be opened either in left or right direction or both.</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li class="swipeout">
+                                <div class="swipeout-content">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Swipe left over me</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-close color-lightgreen">Reply</a>
+                                    <a href="#" class="swipeout-close color-amber">Forward</a>
+                                </div>
+                            </li>
+                            <li class="swipeout">
+                                <div class="swipeout-content">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Swipe right over me</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-left">
+                                    <a href="#" class="swipeout-close color-bluegray">Archive</a>
+                                    <a href="#" class="swipeout-close color-lightblue">Mark as Read</a>
+                                </div>
+                            </li>
+                            <li class="swipeout">
+                                <div class="swipeout-content">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Swipe either left or right over me</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-left">
+                                    <a href="#" class="swipeout-close color-bluegray">
+                                        <i class="icon material-icons">archive</i>
+                                        <span>Archive</span>
+                                    </a>
+                                    <a href="#" class="swipeout-close color-lightblue">
+                                        <i class="icon material-icons">mark_email_read</i>
+                                        <span>Mark as Read</span>
+                                    </a>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-close color-lightgreen">
+                                        <i class="icon material-icons">reply</i>
+                                        <span>Reply</span>
+                                    </a>
+                                    <a href="#" class="swipeout-close color-amber">
+                                        <i class="icon material-icons">forward</i>
+                                        <span>Forward</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-top">Deletable</div>
+                    <div class="block-header">List item can be deleted using swipeout action.</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li class="swipeout" @swipeout:deleted="${() => $f7.toast.show({text: 'Deleted!'})}">
+                                <div class="swipeout-content">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Swipe left to delete</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-close swipeout-delete flex-direction-column">
+                                        <i class="icon material-icons">delete</i>
+                                        <span>Delete</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="swipeout" @swipeout:deleted="${() => $f7.toast.show({text: 'Deleted!'})}">
+                                <div class="swipeout-content">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Swipe right to delete</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-left">
+                                    <a href="#" class="swipeout-close swipeout-delete flex-direction-column" data-confirm="Do you want to delete this?" data-confirm-title="Confirm">
+                                        <i class="icon material-icons">delete</i>
+                                        <span>Delete</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-top">Overswipe</div>
+                    <div class="block-header">If the list item is overswiped, then the swipeout action is triggered automatically.</div>
+                    <div class="list inset margin-vertical">
+                        <ul>
+                            <li class="swipeout">
+                                <div class="swipeout-content">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Overswipe either left or right over me</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swipeout-actions-left">
+                                    <a href="#" class="swipeout-close swipeout-overswipe flex-direction-column color-purple" @click="${() => $f7.toast.show({text: 'Archived!'})}">
+                                        <i class="icon material-icons">archive</i>
+                                        <span>Archive</span>
+                                    </a>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-close swipeout-overswipe flex-direction-column color-lightblue" @click="${() => $f7.toast.show({text: 'Marked as Read!'})}">
+                                        <i class="icon material-icons">mark_email_read</i>
+                                        <span>Mark as Read</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

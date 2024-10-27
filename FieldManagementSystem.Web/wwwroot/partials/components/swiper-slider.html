@@ -1,0 +1,269 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Swiper Slider</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-90 large-80 xlarge-70">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Swiper Slider can be used to create carousels or slideshows.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Horizontal</div>
+                    <div class="block margin-vertical">
+                        <div id="swiper-horizontal" class="swiper" style="height: 320px;">
+                            <div class="swiper-wrapper">
+                                ${slides.map((item, index) => $h`
+                                <div class="swiper-slide" style="width: 240px;">
+                                    <div class="card height-100 no-margin no-shadow">
+                                        <div class="card-media bg-cover bg-overlay" style="background-image: url('${item.image}');">
+                                            <div class="card-media-content">
+                                                <div class="card-title">${item.title}</div>
+                                                <div class="card-subtitle">${item.subtitle}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `)}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Vertical</div>
+                    <div class="block margin-vertical">
+                        <div id="swiper-vertical" class="swiper" style="height: 320px;">
+                            <div class="swiper-wrapper">
+                                ${slides.map((item, index) => $h`
+                                <div class="swiper-slide">
+                                    <div class="card height-100 no-margin no-shadow">
+                                        <div class="card-media bg-cover bg-overlay" style="background-image: url('${item.image}');">
+                                            <div class="card-media-content">
+                                                <div class="card-title">${item.title}</div>
+                                                <div class="card-subtitle">${item.subtitle}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `)}
+                            </div>
+                            <button type="button" class="swiper-navigation-button-next button button-icon button-large button-round color-white">
+                                <i class="icon f7-icons font-size-32">arrow_down_circle_fill</i>
+                            </button>
+                            <button type="button" class="swiper-navigation-button-previous button button-icon button-large button-round color-white">
+                                <i class="icon f7-icons font-size-32">arrow_up_circle_fill</i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Thumbs Gallery</div>
+                    <div class="block margin-vertical">
+                        <div id="swiper-gallery-slides" class="swiper" style="height: 320px;">
+                            <div class="swiper-wrapper">
+                                ${slides.map((item, index) => $h`
+                                <div class="swiper-slide">
+                                    <div class="card height-100 no-margin no-shadow">
+                                        <div class="card-media bg-cover bg-overlay" style="background-image: url('${item.image}');">
+                                            <div class="card-media-content">
+                                                <div class="card-title">${item.title}</div>
+                                                <div class="card-subtitle">${item.subtitle}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `)}
+                            </div>
+                            <button type="button" class="swiper-navigation-button-next button button-icon button-large button-round color-white">
+                                <i class="icon f7-icons font-size-32">${$f7.rtl ? 'arrow_left_circle_fill' : 'arrow_right_circle_fill'}</i>
+                            </button>
+                            <button type="button" class="swiper-navigation-button-previous button button-icon button-large button-round color-white">
+                                <i class="icon f7-icons font-size-32">${$f7.rtl ? 'arrow_right_circle_fill' : 'arrow_left_circle_fill'}</i>
+                            </button>
+                        </div>
+                        <div id="swiper-gallery-thumbs" class="swiper margin-top">
+                            <div class="swiper-wrapper">
+                                ${slides.map((item, index) => $h`
+                                <div class="swiper-slide">
+                                    <div class="responsive-container">
+                                        <img class="responsive-content shape-rounded-square" src="${item.image}" alt="" />
+                                    </div>
+                                </div>
+                                `)}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Cards Effect</div>
+                    <div class="block margin-vertical">
+                        <div id="swiper-effect-cards" class="swiper" style="height: 320px; width: 240px;">
+                            <div class="swiper-wrapper">
+                                ${slides.map((item, index) => $h`
+                                <div class="swiper-slide card elevation-12 height-100 no-margin">
+                                    <div class="card-media bg-cover bg-overlay" style="background-image: url('${item.image}');">
+                                        <div class="card-media-content">
+                                            <div class="card-title">${item.title}</div>
+                                            <div class="card-subtitle">${item.subtitle}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `)}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let slides = [
+            {
+                id: 1,
+                image: 'https://source.unsplash.com/H-IRg0ld-2Y/640x480',
+                title: 'Amsterdam',
+                subtitle: 'Netherlands'
+            },
+            {
+                id: 2,
+                image: 'https://source.unsplash.com/guNIjIuUcgY/640x480',
+                title: 'Bora Bora',
+                subtitle: 'French Polynesia'
+            },
+            {
+                id: 3,
+                image: 'https://source.unsplash.com/rbdQHqcu-yo/640x480',
+                title: 'Burj Khalifa',
+                subtitle: 'Dubai, UAE'
+            },
+            {
+                id: 4,
+                image: 'https://source.unsplash.com/b5a_p1JWHX8/640x480',
+                title: 'Cappadocia',
+                subtitle: 'Turkey'
+            },
+            {
+                id: 5,
+                image: 'https://source.unsplash.com/8V-CgRo9zVQ/640x480',
+                title: 'Colosseum',
+                subtitle: 'Rome, Italy'
+            },
+            {
+                id: 6,
+                image: 'https://source.unsplash.com/Q0-fOL2nqZc/640x480',
+                title: 'Eiffel Tower',
+                subtitle: 'Paris, France'
+            },
+            {
+                id: 7,
+                image: 'https://source.unsplash.com/fo3FPyUvejk/640x480',
+                title: 'Mount Fuji',
+                subtitle: 'Japan'
+            },
+            {
+                id: 8,
+                image: 'https://source.unsplash.com/vF0l0bqLRKY',
+                title: 'Santorini',
+                subtitle: 'Greece'
+            },
+            {
+                id: 9,
+                image: 'https://source.unsplash.com/ZpN1lhola0s',
+                title: 'Taj Mahal',
+                subtitle: 'Agra, India'
+            },
+            {
+                id: 10,
+                image: 'https://source.unsplash.com/hFXZ5cNfkOk',
+                title: 'Venice',
+                subtitle: 'Italy'
+            }
+        ]
+
+        let swiperHorizontal = null;
+        let swiperVertical = null;
+        let swiperGallerySlides = null;
+        let swiperGalleryThumbs = null;
+        let swiperEffectCards = null;
+
+        let initializeSwiperHorizontal = function() {
+            swiperHorizontal = $f7.swiper.create('#swiper-horizontal', {
+                direction: 'horizontal',
+                grabCursor: true,
+                slidesPerView: 'auto',
+                spaceBetween: 16
+            });
+        }
+
+        let initializeSwiperVertical = function() {
+            swiperVertical = $f7.swiper.create('#swiper-vertical', {
+                direction: 'vertical',
+                grabCursor: true,
+                navigation: {
+                    nextEl: $el.value.find('#swiper-vertical .swiper-navigation-button-next'),
+                    prevEl: $el.value.find('#swiper-vertical .swiper-navigation-button-previous')
+                },
+                slidesPerView: 1,
+                spaceBetween: 16
+            });
+        }
+
+        let initializeSwiperThumbsGallery = function() {
+            swiperGalleryThumbs = $f7.swiper.create($el.value.find('#swiper-gallery-thumbs'), {
+                freeMode: true,
+                grabCursor: true,
+                loop: true,
+                slidesPerView: 3,
+                spaceBetween: 16,
+                watchSlidesProgress: true
+            });
+            swiperGallerySlides = $f7.swiper.create($el.value.find('#swiper-gallery-slides'), {
+                grabCursor: true,
+                loop: true,
+                navigation: {
+                    nextEl: $el.value.find('#swiper-gallery-slides .swiper-navigation-button-next'),
+                    prevEl: $el.value.find('#swiper-gallery-slides .swiper-navigation-button-previous')
+                },
+                spaceBetween: 16,
+                thumbs: {
+                    swiper: swiperGalleryThumbs
+                }
+            });
+        }
+
+        let initializeSwiperEffectCards = function() {
+            swiperEffectCards = $f7.swiper.create('#swiper-effect-cards', {
+                effect: 'cards',
+                grabCursor: true,
+                initialSlide: 4
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeSwiperHorizontal();
+            initializeSwiperVertical();
+            initializeSwiperThumbsGallery();
+            initializeSwiperEffectCards();
+        });
+
+        return $render;
+    }
+</script>

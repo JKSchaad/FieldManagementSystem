@@ -1,0 +1,124 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Flip Card</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Flip Card can be used to put content on both the front and the back side of a card and can be flipped upon user interaction.</p>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-color-mono text-color-mono-invert">
+                                <div class="flip-card-content">
+                                    <img class="if-not-dark" src="${$f7.config.app.logos.logotypeDark}" height="24" alt="" />
+                                    <img class="if-dark" src="${$f7.config.app.logos.logotypeLight}" height="24" alt="" />
+                                    <div class="card-subtitle margin-top">${$f7.config.app.description}</div>
+                                </div>
+                                ${$f7.rtl ? $h`
+                                <button type="button" class="card-toggle-flip button button-icon button-fill button-large button-round color-mono-invert margin position-absolute position-left-bottom">
+                                    <i class="icon material-icons color-mono">arrow_back</i>
+                                </button>
+                                ` : $h`
+                                <button type="button" class="card-toggle-flip button button-icon button-fill button-large button-round color-mono-invert margin position-absolute position-right-bottom">
+                                    <i class="icon material-icons color-mono">arrow_forward</i>
+                                </button>
+                                `}
+                            </div>
+                            <div class="flip-card-back bg-color-mono text-color-mono-invert">
+                                <div class="flip-card-content flexbox-centered flex-direction-row">
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="${$f7.config.app.themeforestUrl}" target="${$f7.getExternalUrlTarget()}" class="external card-prevent-flip button button-fill button-large color-amber text-color-black" style="min-width: 144px;">Buy Now</a>
+                                        </div>
+                                        <div class="col">
+                                            <a href="${$f7.config.app.gitbookUrl}" target="${$f7.getExternalUrlTarget()}" class="external card-prevent-flip button button-fill button-large color-mono-invert text-color-mono" style="min-width: 144px;">Read Docs</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-color-amber text-color-white">
+                                <div class="flip-card-content flexbox-centered">
+                                    <span class="shape-container shape-circle margin-bottom-half" style="background-color: var(--color-amber-700);">
+                                        <i class="icon f7-icons font-size-40 color-white">bitcoin</i>
+                                    </span>
+                                    <div class="card-title">Inventor of Bitcoin</div>
+                                </div>
+                                ${$f7.rtl ? $h`
+                                <button type="button" class="card-toggle-flip button button-icon button-fill button-large button-round color-white margin position-absolute position-left-bottom">
+                                    <i class="icon material-icons color-black">arrow_back</i>
+                                </button>
+                                ` : $h`
+                                <button type="button" class="card-toggle-flip button button-icon button-fill button-large button-round color-white margin position-absolute position-right-bottom">
+                                    <i class="icon material-icons color-black">arrow_forward</i>
+                                </button>
+                                `}
+                            </div>
+                            <div class="flip-card-back text-color-white" style="background-color: var(--color-gray-900);">
+                                <div class="flip-card-content flexbox-centered">
+                                    <div class="card-title">Satoshi Nakamoto</div>
+                                </div>
+                                ${$f7.rtl ? $h`
+                                <button type="button" class="card-toggle-flip button button-icon button-fill button-large button-round color-white margin position-absolute position-right-top">
+                                    <i class="icon material-icons color-black">arrow_forward</i>
+                                </button>
+                                ` : $h`
+                                <button type="button" class="card-toggle-flip button button-icon button-fill button-large button-round color-white margin position-absolute position-left-top">
+                                    <i class="icon material-icons color-black">arrow_back</i>
+                                </button>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front bg-cover bg-overlay text-color-white" style="background-image: url('https://source.unsplash.com/ZiTcejqBJC4');">
+                                <div class="flip-card-content flexbox-centered z-index-100">
+                                    <div class="card-title">Cappadocia, Turkey</div>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="flip-card-content">
+                                    <div class="card-title">Cappadocia, Turkey</div>
+                                    <div class="card-text">Whether you're wooed here by the hiking potential, the history or the bragging rights of becoming a modern troglodyte for a night, it's the lunarscape panoramas that you'll remember. This region's accordion-ridged valleys, shaded in a palette of dusky orange and cream, are an epiphany of a landscape – the stuff of psychedelic daydreams.</div>
+                                    <a href="https://lonelyplanet.com/turkey/cappadocia-kapadokya" target="${$f7.getExternalUrlTarget()}" class="external card-prevent-flip button button-fill button-round margin-top" style="width: 128px;">Explore</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function (props, { $, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update }) {
+        return $render;
+    }
+</script>

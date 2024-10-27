@@ -1,0 +1,382 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Card</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Card is a convenient means of displaying content composed of different elements in an organized way.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="card">
+                        <div class="card-content card-content-padding">
+                            <p>${faker.lorem.paragraph(5)}</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <span>Lorem Ipsum</span>
+                            <a href="#" class="link link-button font-size-14 font-weight-600">View All</a>
+                        </div>
+                        <div class="card-content card-content-padding">
+                            <p>${faker.lorem.paragraph(5)}</p>
+                            <button type="button" class="button button-fill">Explore</button>
+                        </div>
+                        <div class="card-footer">${faker.lorem.sentence(10)}</div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Outline</div>
+                    <div class="card card-outline">
+                        <div class="card-content card-content-padding">
+                            <p>${faker.lorem.paragraph(5)}</p>
+                        </div>
+                    </div>
+                    <div class="card card-outline">
+                        <div class="card-header">Lorem Ipsum</div>
+                        <div class="card-content card-content-padding">
+                            <p>${faker.lorem.paragraph(5)}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="link link-button">Like</a>
+                            <a href="#" class="link link-button">Comment</a>
+                            <a href="#" class="link link-button">Share</a>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">List</div>
+                    <div class="card">
+                        <div class="card-header">
+                            <img class="if-not-dark" src="${$f7.config.app.logos.logotypeLight}" height="18" alt="" />
+                            <img class="if-dark" src="${$f7.config.app.logos.logotypeDark}" height="18" alt="" />
+                            <button type="button" class="button button-fill button-small width-auto">
+                                <i class="icon material-icons font-size-20">explore</i>
+                                <span>Explore</span>
+                            </button>
+                        </div>
+                        <div class="card-content">
+                            <div class="list no-safe-areas">
+                                <ul>
+                                    <li>
+                                        <a href="/components/" class="item-link">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <span class="shape-container shape-circle size-32 bg-gradient-green">
+                                                        <i class="icon f7-icons font-size-16 color-white">square_grid_2x2_fill</i>
+                                                    </span>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Components</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/screens/" class="item-link">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <span class="shape-container shape-circle size-32 bg-gradient-blue">
+                                                        <i class="icon f7-icons font-size-16 color-white">layers_alt_fill</i>
+                                                    </span>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Screens</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/web-apis/" class="item-link">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <span class="shape-container shape-circle size-32 bg-gradient-orange">
+                                                        <i class="icon f7-icons font-size-16 color-white">chevron_left_slash_chevron_right</i>
+                                                    </span>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Web APIs</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/cordova-plugins/" class="item-link">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <span class="shape-container shape-circle size-32 bg-gradient-deeppurple">
+                                                        <i class="icon f7-icons font-size-16 color-white">device_phone_portrait</i>
+                                                    </span>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Cordova Plugins</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/integrations/" class="item-link">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <span class="shape-container shape-circle size-32 bg-gradient-pink">
+                                                        <i class="icon f7-icons font-size-16 color-white">flame_fill</i>
+                                                    </span>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">Integrations</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer justify-content-flex-start">
+                            <a href="${$f7.config.app.themeforestUrl}" target="${$f7.getExternalUrlTarget()}" class="external button button-fill button-small color-amber text-color-black">Buy Now</a>
+                            <a href="${$f7.config.app.gitbookUrl}" target="${$f7.getExternalUrlTarget()}" class="external button button-fill button-small color-mono text-color-mono-invert">Docs</a>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Colored</div>
+                    <div class="card elevation-12 padding-vertical bg-color-mono color-mono">
+                        <div class="ribbon ribbon-clip ribbon-round ribbon-vertical ${$f7.rtl ? 'ribbon-top-left' : 'ribbon-top-right'} color-amber">
+                            <i class="icon material-icons color-black">bolt</i>
+                        </div>
+                        <div class="card-content card-content-padding flexbox-centered text-color-mono-invert">
+                            <img class="if-not-dark margin-bottom-half" src="${$f7.config.app.logos.logomarkDark}" height="64" width="64" alt="" />
+                            <img class="if-dark margin-bottom-half" src="${$f7.config.app.logos.logomarkLight}" height="64" width="64" alt="" />
+                            <div class="card-title">${$f7.config.app.title}</div>
+                            <div class="card-subtitle">${$f7.config.app.description}</div>
+                            <a href="${$f7.config.app.themeforestUrl}" target="${$f7.getExternalUrlTarget()}" class="external button button-fill color-mono-invert text-color-mono margin-top">Buy Now</a>
+                        </div>
+                    </div>
+                    <div class="card elevation-12 padding-vertical bg-color-green color-green">
+                        <div class="card-content card-content-padding flexbox-centered text-color-white">
+                            <span class="shape-container shape-circle margin-bottom-half" style="background-color: var(--color-green-700);">
+                                <i class="icon f7-icons font-size-40 color-white">square_grid_2x2_fill</i>
+                            </span>
+                            <div class="card-title">Components</div>
+                            <div class="card-subtitle">Basic building blocks for creating beautiful and intuitive UI/UX.</div>
+                            <a href="/components/" class="button button-fill color-white text-color-green margin-top">Explore</a>
+                        </div>
+                    </div>
+                    <div class="card elevation-12 padding-vertical bg-color-blue color-blue">
+                        <div class="card-content card-content-padding flexbox-centered text-color-white">
+                            <span class="shape-container shape-circle margin-bottom-half" style="background-color: var(--color-blue-700);">
+                                <i class="icon f7-icons font-size-40 color-white">layers_alt_fill</i>
+                            </span>
+                            <div class="card-title">Screens</div>
+                            <div class="card-subtitle">Ready-to-use screens built using various components.</div>
+                            <a href="/screens/" class="button button-fill color-white text-color-blue margin-top">Explore</a>
+                        </div>
+                    </div>
+                    <div class="card elevation-12 padding-vertical bg-color-orange color-orange">
+                        <div class="card-content card-content-padding flexbox-centered text-color-white">
+                            <span class="shape-container shape-circle margin-bottom-half" style="background-color: var(--color-orange-700);">
+                                <i class="icon f7-icons font-size-40 color-white">chevron_left_slash_chevron_right</i>
+                            </span>
+                            <div class="card-title">Web APIs</div>
+                            <div class="card-subtitle">Access to native device and platform functionalities via JavaScript.</div>
+                            <a href="/web-apis/" class="button button-fill color-white text-color-orange margin-top">Explore</a>
+                        </div>
+                    </div>
+                    <div class="card elevation-12 padding-vertical bg-color-deeppurple color-deeppurple">
+                        <div class="card-content card-content-padding flexbox-centered text-color-white">
+                            <span class="shape-container shape-circle margin-bottom-half" style="background-color: var(--color-deeppurple-700);">
+                                <i class="icon f7-icons font-size-40 color-white">device_phone_portrait</i>
+                            </span>
+                            <div class="card-title">Cordova Plugins</div>
+                            <div class="card-subtitle">Access to native device and platform functionalities via Cordova.</div>
+                            <a href="/cordova-plugins/" class="button button-fill color-white text-color-deeppurple margin-top">Explore</a>
+                        </div>
+                    </div>
+                    <div class="card elevation-12 padding-vertical bg-color-pink color-pink">
+                        <div class="card-content card-content-padding flexbox-centered text-color-white">
+                            <span class="shape-container shape-circle margin-bottom-half" style="background-color: var(--color-pink-700);">
+                                <i class="icon f7-icons font-size-40 color-white">flame_fill</i>
+                            </span>
+                            <div class="card-title">Integrations</div>
+                            <div class="card-subtitle">Integrations for popular third-party services right out-of-the-box.</div>
+                            <a href="/integrations/" class="button button-fill color-white text-color-pink margin-top">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Media</div>
+                    <div class="card elevation-12">
+                        <div class="card-media bg-cover bg-overlay" style="background-image: url('https://source.unsplash.com/random/1024x768?r=1'); min-height: 256px;">
+                            <div class="card-media-content">
+                                <lottie-player src="${$f7.config.lottie.assetUrl + 'hand-wave.json'}" autoplay loop background="transparent" speed="1" style="height: 48px; width: 48px;"></lottie-player>
+                                <div class="card-title">Hello World!</div>
+                                <div class="card-subtitle">${faker.lorem.sentence(10)}</div>
+                                <button type="button" class="button button-fill color-white text-color-black margin-top" style="width: 192px;">Awesome</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-media bg-cover bg-overlay" style="background-image: url('https://source.unsplash.com/b7MUFydsU64'); min-height: 256px;">
+                            <div class="card-media-content">
+                                <div class="card-title">Harry Potter</div>
+                                <div class="card-subtitle">JK Rowling</div>
+                            </div>
+                        </div>
+                        <div class="card-content card-content-padding">
+                            <p class="card-text">Harry Potter is a series of seven fantasy novels written by British author JK Rowling. The novels chronicle the lives of a young wizard, Harry Potter, and his friends Hermione Granger and Ron Weasley, all of whom are students at Hogwarts School of Witchcraft and Wizardry.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-media">
+                            <div class="responsive-container">
+                                <img class="responsive-content" src="https://source.unsplash.com/_qErPvf-IV4" loading="lazy" alt="" />
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="list no-chevron no-safe-areas">
+                                <ul>
+                                    ${movies.map((item, index) => $h`
+                                    <li>
+                                        <a href="${item.url}" target="${$f7.getExternalUrlTarget()}" class="item-link external">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <div class="font-size-24 font-weight-bold" style="color: var(--color-gray-300);">${index + 1}</div>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title">${item.name}</div>
+                                                    <div class="item-after">
+                                                        <span class="badge badge-fade badge-round color-primary">${item.year}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    `)}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header no-hairline">Big Buck Bunny</div>
+                        <div class="card-media">
+                            <div class="responsive-container">
+                                <video class="responsive-content" controls playsinline preload="metadata">
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                                </video>
+                            </div>
+                        </div>
+                        <div class="card-content card-content-padding">
+                            <p class="card-text">Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit ain't no bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.</p>
+                        </div>
+                        <div class="card-footer justify-content-flex-start">
+                            <span class="shape-container shape-circle size-40" style="background-color: var(--color-orange-50);">
+                                <img src="https://cdn.svgporn.com/logos/blender.svg" loading="lazy" alt="" />
+                            </span>
+                            <a href="https://studio.blender.org" target="${$f7.getExternalUrlTarget()}" class="external font-weight-600 text-color-mono">Blender Studio</a>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Social</div>
+                    <div class="card">
+                        <div class="card-header align-items-flex-start justify-content-flex-start font-size-14 font-weight-normal padding-half">
+                            <img class="shape-circle" src="https://source.unsplash.com/0wRXAXqIp58/80x80" loading="lazy" height="40" width="40" alt="" />
+                            <div class="flex-grow-1 margin-horizontal-half">
+                                <div><a href="#" class="font-weight-600 text-color-body">Jennifer Waters</a> updated his profile picture.</div>
+                                <div class="font-size-12 text-color-gray">Yesterday at 3:00 PM</div>
+                            </div>
+                            <a href="#" class="link icon-only color-gray">
+                                <i class="icon f7-icons font-size-12 text-color-gray">ellipsis_vertical</i>
+                            </a>
+                        </div>
+                        <div class="card-content font-size-14">
+                            <img src="https://source.unsplash.com/vTL_qy03D1I" loading="lazy" alt="" />
+                            <div class="card-content-padding">
+                                <div class="display-flex justify-content-space-between">
+                                    <a href="#" class="text-color-gray">75 Likes</a>
+                                    <a href="#" class="text-color-gray">13 Comments</a>
+                                    <a href="#" class="text-color-gray">2 Shares</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="state-toggle button button-icon button-small color-red tooltip-init" data-tooltip="Like">
+                                <i class="state-inactive icon f7-icons font-size-20">heart</i>
+                                <i class="state-active icon f7-icons font-size-20">heart_fill</i>
+                            </button>
+                            <button type="button" class="button button-icon button-small color-blue tooltip-init" data-tooltip="Comment">
+                                <i class="icon f7-icons font-size-20">text_bubble</i>
+                            </button>
+                            <button type="button" class="button button-icon button-small color-green tooltip-init" data-tooltip="Share">
+                                <i class="icon f7-icons font-size-20">square_arrow_up</i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let movies = [
+            {
+                name: 'The Sorcerer\'s Stone',
+                year: 2001,
+                url: 'https://imdb.com/title/tt0241527'
+            },
+            {
+                name: 'The Chamber of Secrets',
+                year: 2002,
+                url: 'https://imdb.com/title/tt0295297'
+            },
+            {
+                name: 'The Prisoner of Azkaban',
+                year: 2004,
+                url: 'https://imdb.com/title/tt0304141'
+            },
+            {
+                name: 'The Goblet of Fire',
+                year: 2005,
+                url: 'https://imdb.com/title/tt0330373'
+            },
+            {
+                name: 'The Order of the Phoenix',
+                year: 2007,
+                url: 'https://imdb.com/title/tt0373889'
+            },
+            {
+                name: 'The Half-Blood Prince',
+                year: 2009,
+                url: 'https://imdb.com/title/tt0417741'
+            },
+            {
+                name: 'The Deathly Hallows - Part 1',
+                year: 2010,
+                url: 'https://imdb.com/title/tt0926084'
+            },
+            {
+                name: 'The Deathly Hallows - Part 2',
+                year: 2011,
+                url: 'https://imdb.com/title/tt1201607'
+            }
+        ]
+
+        return $render;
+    }
+</script>

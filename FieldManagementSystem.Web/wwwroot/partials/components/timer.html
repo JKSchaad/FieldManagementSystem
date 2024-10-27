@@ -1,0 +1,228 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Timer</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block-title margin-vertical">Timer</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="font-size-48 font-weight-bold line-height-1 text-align-center">${timerValue ? timerValue : `00:00:00`}</div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Chronometer</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="font-size-48 font-weight-bold line-height-1 text-align-center">${chronometerValue ? chronometerValue : `00:00:00:0`}</div>
+                        <div class="row margin-top">
+                            <div class="col">
+                                <button type="button" class="button button-fill color-green" @click="${chronometerStart}">Start</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="button button-fill color-blue" @click="${chronometerPause}">Pause</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="button button-fill color-red" @click="${chronometerStop}">Stop</button>
+                            </div>
+                            <div class="col">
+                                <button type="button" class="button button-fill color-amber" @click="${chronometerReset}">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Countdown</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="font-size-48 font-weight-bold line-height-1 text-align-center">${countdownValue ? countdownValue : `00:00:00`}</div>
+                    </div>
+                    <div class="block block-strong inset margin-vertical text-align-center">
+                        <lottie-player src="${$f7.config.lottie.assetUrl + 'christmas-wreath.json'}" autoplay loop background="transparent" speed="1" style="height: 144px; width: 100%;"></lottie-player>
+                        <div class="timer-countdown countdown-init margin-top" data-countdown-datetime="${new Date(new Date().getTime() + 60 * 1000).toISOString()}">
+                            <div class="countdown-result">
+                                <lottie-player src="${$f7.config.lottie.assetUrl + 'merry-christmas.json'}" autoplay loop background="transparent" speed="1" style="height: 144px; width: 100%;"></lottie-player>
+                            </div>
+                            <div class="countdown-inner">
+                                <div class="display-flex flex-wrap-wrap justify-content-center text-color-white">
+                                    <div class="shape-container shape-rounded-square size-72 margin-half bg-gradient-red">
+                                        <div class="countdown-days font-size-16 font-weight-bold">00</div>
+                                        <div class="font-size-12 letter-spacing-1 text-uppercase">Days</div>
+                                    </div>
+                                    <div class="shape-container shape-rounded-square size-72 margin-half bg-gradient-red">
+                                        <div class="countdown-hours font-size-16 font-weight-bold">00</div>
+                                        <div class="font-size-12 letter-spacing-1 text-uppercase">Hours</div>
+                                    </div>
+                                    <div class="shape-container shape-rounded-square size-72 margin-half bg-gradient-red">
+                                        <div class="countdown-minutes font-size-16 font-weight-bold">00</div>
+                                        <div class="font-size-12 letter-spacing-1 text-uppercase">Minutes</div>
+                                    </div>
+                                    <div class="shape-container shape-rounded-square size-72 margin-half bg-gradient-red">
+                                        <div class="countdown-seconds font-size-16 font-weight-bold">00</div>
+                                        <div class="font-size-12 letter-spacing-1 text-uppercase">Seconds</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card margin-vertical no-shadow">
+                        <div class="card-header">
+                            <div>Today's Deal</div>
+                            <div class="ribbon ribbon-clip ribbon-round ${$f7.rtl ? 'ribbon-left-top' : 'ribbon-right-top'} font-size-12 color-deeppurple">
+                                <div class="timer-countdown countdown-init" data-countdown-datetime="${new Date(new Date().getTime() + 60 * 1000).toISOString()}">
+                                    <span class="countdown-result">Deal Expired</span>
+                                    <span class="countdown-inner">
+                                        <i class="icon material-icons font-size-16">bolt</i>
+                                        <span>Ends in </span>
+                                        <span class="countdown-hours">00</span>:
+                                        <span class="countdown-minutes">00</span>:
+                                        <span class="countdown-seconds">00</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-content-padding">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let timer = null;
+        let timerValue = null;
+
+        let chronometer = null;
+        let chronometerValue = null;
+
+        let countdown = null;
+        let countdownValue = null;
+
+        let initializeTimer = function() {
+            timer = new easytimer.Timer();
+            timer.start({
+                precision: 'seconds'
+            });
+            addTimerEventListeners();
+        }
+
+        let addTimerEventListeners = function() {
+            timer.addEventListener('secondsUpdated', updateTimerValue);
+        }
+
+        let removeTimerEventListeners = function() {
+            timer.removeEventListener('secondsUpdated', updateTimerValue);
+        }
+
+        let updateTimerValue = function(event) {
+            timerValue = timer.getTimeValues().toString();
+            $update();
+        }
+
+        let initializeChronometer = function() {
+            chronometer = new easytimer.Timer();
+            addChronometerEventListeners();
+        }
+
+        let addChronometerEventListeners = function() {
+            chronometer.addEventListener('secondTenthsUpdated', updateChronometerValue);
+            chronometer.addEventListener('started', updateChronometerValue);
+            chronometer.addEventListener('reset', updateChronometerValue);
+        }
+
+        let removeChronometerEventListeners = function() {
+            chronometer.removeEventListener('secondTenthsUpdated', updateChronometerValue);
+            chronometer.removeEventListener('started', updateChronometerValue);
+            chronometer.removeEventListener('reset', updateChronometerValue);
+        }
+
+        let updateChronometerValue = function(event) {
+            chronometerValue = chronometer.getTimeValues().toString(['hours', 'minutes', 'seconds', 'secondTenths']);
+            $update();
+        }
+
+        let chronometerStart = function() {
+            chronometer.start({
+                precision: 'secondTenths'
+            });
+        }
+
+        let chronometerPause = function() {
+            chronometer.pause();
+        }
+
+        let chronometerStop = function() {
+            chronometer.stop();
+        }
+
+        let chronometerReset = function() {
+            chronometer.reset();
+        }
+
+        let initializeCountdown = function() {
+            countdown = new easytimer.Timer();
+            countdown.start({
+                countdown: true,
+                startValues: {
+                    seconds: 30
+                }
+            });
+            updateCountdownValue();
+            addCountdownEventListeners();
+        }
+
+        let addCountdownEventListeners = function() {
+            countdown.addEventListener('secondsUpdated', updateCountdownValue);
+            countdown.addEventListener('targetAchieved', onCountdownTargetAchieved);
+        }
+
+        let removeCountdownEventListeners = function() {
+            countdown.removeEventListener('secondsUpdated', updateCountdownValue);
+            countdown.removeEventListener('targetAchieved', onCountdownTargetAchieved);
+        }
+
+        let updateCountdownValue = function(event) {
+            countdownValue = countdown.getTimeValues().toString();
+            $update();
+        }
+
+        let onCountdownTargetAchieved = function(event) {
+            countdownValue = 'Kaboom!'
+            $update();
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeTimer();
+            initializeChronometer();
+            initializeCountdown();
+        });
+
+        $on('pageBeforeRemove', function() {
+            removeTimerEventListeners();
+            removeChronometerEventListeners();
+            removeCountdownEventListeners();
+        });
+
+        return $render;
+    }
+</script>

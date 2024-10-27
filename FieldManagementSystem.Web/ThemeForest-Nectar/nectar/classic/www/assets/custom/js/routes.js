@@ -10,7 +10,7 @@ window.routes = [];
 
 window.routes.push({
     path: '/',
-    async: function({to, from, resolve, reject}) {
+    async: function ({ to, from, resolve, reject }) {
         if (window.config.navigation.splash.enabled) {
             resolve({
                 componentUrl: './partials/screens/splash.html'
@@ -46,6 +46,52 @@ window.routes.push({
 | Sidebar Route (For Both The Single View Layout & Tab View Layout)
 |------------------------------------------------------------------------------
 */
+
+/*
+|------------------------------------------------------------------------------
+| Home Route (/)
+|------------------------------------------------------------------------------
+
+
+window.routes.push({
+    path: '/',
+    async: function ({ to, from, resolve, reject }) {
+        if (window.config.navigation.splash.enabled) {
+            resolve({
+                componentUrl: './partials/screens/splash.html'
+            });
+        }
+        else if (window.config.navigation.walkthrough.enabled && (!window.config.navigation.walkthrough.showFirstTimeOnly || (window.config.navigation.walkthrough.showFirstTimeOnly && localStorage.getItem('Nectar_Walkthrough_Shown') == null))) {
+            resolve({
+                componentUrl: './partials/screens/walkthrough.html'
+            });
+        }
+        else if (window.config.navigation.authentication.required && !window.config.navigation.authentication.guestAccess) {
+            resolve({
+                componentUrl: './partials/screens/login.html'
+            });
+        }
+        else {
+            if (window.config.layout.default == 'singleView' && window.config.layout.singleView.tabbar.enabled) {
+                resolve({
+                    componentUrl: './partials/tabbar.html'
+                });
+            }
+            else {
+                resolve({
+                    componentUrl: window.config.navigation.home.url
+                });
+            }
+        }
+    }
+});
+
+
+|------------------------------------------------------------------------------
+| Sidebar Route (For Both The Single View Layout & Tab View Layout)
+|------------------------------------------------------------------------------
+*/
+
 
 if (window.config.layout[window.config.layout.default].sidebar.enabled) {
     window.routes.push({
@@ -145,7 +191,7 @@ window.routes.push(
                 resolve();
             }
             else {
-                LazyLoad.js(['assets/vendor/show-more/showMore.min.js'], function() {
+                LazyLoad.js(['lib/vendor/show-more/showMore.min.js'], function() {
                     app.preloader.hide();
                     resolve();
                 });
@@ -562,8 +608,8 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/juxtapose/juxtapose.min.js'], function() {
-                        LazyLoad.css(['assets/vendor/juxtapose/juxtapose.min.css'], function() {
+                    LazyLoad.js(['lib/vendor/juxtapose/juxtapose.min.js'], function() {
+                        LazyLoad.css(['lib/vendor/juxtapose/juxtapose.min.css'], function() {
                             app.preloader.hide();
                             resolve();
                         });
@@ -605,7 +651,7 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/jquery-marquee/jquery.marquee.min.js'], function() {
+                    LazyLoad.js(['lib/vendor/jquery-marquee/jquery.marquee.min.js'], function() {
                         app.preloader.hide();
                         resolve();
                     });
@@ -672,7 +718,7 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/pure-pajinate/purePajinate.min.js'], function() {
+                    LazyLoad.js(['lib/vendor/pure-pajinate/purePajinate.min.js'], function() {
                         app.preloader.hide();
                         resolve();
                     });
@@ -759,7 +805,7 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/show-more/showMore.min.js'], function() {
+                    LazyLoad.js(['lib/vendor/show-more/showMore.min.js'], function() {
                         app.preloader.hide();
                         resolve();
                     });
@@ -780,7 +826,7 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/signature-pad/signature_pad.umd.min.js', 'assets/vendor/file-saver/FileSaver.min.js'], function() {
+                    LazyLoad.js(['lib/vendor/signature-pad/signature_pad.umd.min.js', 'lib/vendor/file-saver/FileSaver.min.js'], function() {
                         app.preloader.hide();
                         resolve();
                     });
@@ -839,8 +885,8 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/highlight/highlight.min.js'], function() {
-                        LazyLoad.css(['assets/vendor/highlight/default.min.css'], function() {
+                    LazyLoad.js(['lib/vendor/highlight/highlight.min.js'], function() {
+                        LazyLoad.css(['lib/vendor/highlight/default.min.css'], function() {
                             app.preloader.hide();
                             resolve();
                         });
@@ -966,8 +1012,8 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/shepherd/shepherd.min.js'], function() {
-                        LazyLoad.css(['assets/vendor/shepherd/shepherd.min.css'], function() {
+                    LazyLoad.js(['lib/vendor/shepherd/shepherd.min.js'], function() {
+                        LazyLoad.css(['lib/vendor/shepherd/shepherd.min.css'], function() {
                             app.preloader.hide();
                             resolve();
                         });
@@ -1204,7 +1250,7 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/alasql/alasql.min.js'], function() {
+                    LazyLoad.js(['lib/vendor/alasql/alasql.min.js'], function() {
                         app.preloader.hide();
                         resolve();
                     });
@@ -1294,7 +1340,7 @@ window.routes.push({
                             resolve();
                         }
                         else {
-                            LazyLoad.js(['assets/vendor/easy-qrcode/easy.qrcode.min.js'], function() {
+                            LazyLoad.js(['lib/vendor/easy-qrcode/easy.qrcode.min.js'], function() {
                                 app.preloader.hide();
                                 resolve();
                             });
@@ -1311,7 +1357,7 @@ window.routes.push({
                             resolve();
                         }
                         else {
-                            LazyLoad.js(['assets/vendor/qr-scanner/qr-scanner.umd.min.js'], function() {
+                            LazyLoad.js(['lib/vendor/qr-scanner/qr-scanner.umd.min.js'], function() {
                                 app.preloader.hide();
                                 resolve();
                             });
@@ -1330,7 +1376,7 @@ window.routes.push({
                     resolve();
                 }
                 else {
-                    LazyLoad.js(['assets/vendor/rss-parser/rss-parser.min.js'], function() {
+                    LazyLoad.js(['lib/vendor/rss-parser/rss-parser.min.js'], function() {
                         app.preloader.hide();
                         resolve();
                     });

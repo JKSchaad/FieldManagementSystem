@@ -1,0 +1,308 @@
+<template>
+    <div class="page" data-name="leaderboard">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Leaderboard</div>
+                <div class="subnavbar">
+                    <div class="subnavbar-inner">
+                        <div class="segmented segmented-strong segmented-round color-pink">
+                            <a href="#tab-today" class="button button-round button-small tab-link tab-link-active">Today</a>
+                            <a href="#tab-weekly" class="button button-round button-small tab-link">Weekly</a>
+                            <a href="#tab-monthly" class="button button-round button-small tab-link">Monthly</a>
+                            <a href="#tab-all-time" class="button button-round button-small tab-link">All-Time</a>
+                            <span class="segmented-highlight"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs-swipeable-wrap">
+            <div class="tabs">
+
+                <div id="tab-today" class="page-content tab tab-active">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            ${leaderboardToday && $h`
+                            <div class="list inset margin-vertical">
+                                <ul>
+                                    ${leaderboardToday.map((item, index) => $h`
+                                    <li class="${(index+1) == leaderboardTodayMyRank && $h`my-rank`}">
+                                        <div class="item-content">
+                                            <div class="item-inner item-cell">
+                                                <div class="item-row">
+                                                    <div class="item-cell flex-shrink-0" style="width: 36px;">
+                                                        <div class="font-size-24 font-weight-bold" style="color: var(--color-gray-300);">${(index+1).toString().padStart(2, '0')}</div>
+                                                    </div>
+                                                    <div class="item-cell width-auto">
+                                                        <img src="${item.avatar}" height="40" width="40" alt="" />
+                                                    </div>
+                                                    <div class="item-cell">
+                                                        ${(index+1) == leaderboardTodayMyRank ? $h`
+                                                        <div class="font-size-20 font-weight-bold text-color-primary">You</div>
+                                                        ` : $h`
+                                                        <div class="font-size-16 font-weight-600 text-color-primary">${item.name}</div>
+                                                        <div class="font-size-14 text-color-gray">${item.country}</div>
+                                                        `}
+                                                    </div>
+                                                    <div class="item-cell flex-shrink-0 width-auto">
+                                                        <div class="font-size-18 font-weight-bold text-color-bluegray">${item.points.toLocaleString()}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    `)}
+                                </ul>
+                            </div>
+                            `}
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-weekly" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            ${leaderboardWeekly && $h`
+                            <div class="list inset margin-vertical">
+                                <ul>
+                                    ${leaderboardWeekly.map((item, index) => $h`
+                                    <li class="${(index+1) == leaderboardWeeklyMyRank && $h`my-rank`}">
+                                        <div class="item-content">
+                                            <div class="item-inner item-cell">
+                                                <div class="item-row">
+                                                    <div class="item-cell flex-shrink-0" style="width: 36px;">
+                                                        <div class="font-size-24 font-weight-bold" style="color: var(--color-gray-300);">${(index+1).toString().padStart(2, '0')}</div>
+                                                    </div>
+                                                    <div class="item-cell width-auto">
+                                                        <img src="${item.avatar}" height="40" width="40" alt="" />
+                                                    </div>
+                                                    <div class="item-cell">
+                                                        ${(index+1) == leaderboardWeeklyMyRank ? $h`
+                                                        <div class="font-size-20 font-weight-bold text-color-primary">You</div>
+                                                        ` : $h`
+                                                        <div class="font-size-16 font-weight-600 text-color-primary">${item.name}</div>
+                                                        <div class="font-size-14 text-color-gray">${item.country}</div>
+                                                        `}
+                                                    </div>
+                                                    <div class="item-cell flex-shrink-0 width-auto">
+                                                        <div class="font-size-18 font-weight-bold text-color-bluegray">${item.points.toLocaleString()}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    `)}
+                                </ul>
+                            </div>
+                            `}
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-monthly" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            ${leaderboardMonthly && $h`
+                            <div class="list inset margin-vertical">
+                                <ul>
+                                    ${leaderboardMonthly.map((item, index) => $h`
+                                    <li class="${(index+1) == leaderboardMonthlyMyRank && $h`my-rank`}">
+                                        <div class="item-content">
+                                            <div class="item-inner item-cell">
+                                                <div class="item-row">
+                                                    <div class="item-cell flex-shrink-0" style="width: 36px;">
+                                                        <div class="font-size-24 font-weight-bold" style="color: var(--color-gray-300);">${(index+1).toString().padStart(2, '0')}</div>
+                                                    </div>
+                                                    <div class="item-cell width-auto">
+                                                        <img src="${item.avatar}" height="40" width="40" alt="" />
+                                                    </div>
+                                                    <div class="item-cell">
+                                                        ${(index+1) == leaderboardMonthlyMyRank ? $h`
+                                                        <div class="font-size-20 font-weight-bold text-color-primary">You</div>
+                                                        ` : $h`
+                                                        <div class="font-size-16 font-weight-600 text-color-primary">${item.name}</div>
+                                                        <div class="font-size-14 text-color-gray">${item.country}</div>
+                                                        `}
+                                                    </div>
+                                                    <div class="item-cell flex-shrink-0 width-auto">
+                                                        <div class="font-size-18 font-weight-bold text-color-bluegray">${item.points.toLocaleString()}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    `)}
+                                </ul>
+                            </div>
+                            `}
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-all-time" class="page-content tab">
+                    <div class="row justify-content-center">
+                        <div class="col-100 medium-75 large-60 xlarge-50">
+                            ${leaderboardAllTime && $h`
+                            <div class="list inset margin-vertical">
+                                <ul>
+                                    ${leaderboardAllTime.map((item, index) => $h`
+                                    <li class="${(index+1) == leaderboardAllTimeMyRank && $h`my-rank`}">
+                                        <div class="item-content">
+                                            <div class="item-inner item-cell">
+                                                <div class="item-row">
+                                                    <div class="item-cell flex-shrink-0" style="width: 36px;">
+                                                        <div class="font-size-24 font-weight-bold" style="color: var(--color-gray-300);">${(index+1).toString().padStart(2, '0')}</div>
+                                                    </div>
+                                                    <div class="item-cell width-auto">
+                                                        <img src="${item.avatar}" height="40" width="40" alt="" />
+                                                    </div>
+                                                    <div class="item-cell">
+                                                        ${(index+1) == leaderboardAllTimeMyRank ? $h`
+                                                        <div class="font-size-20 font-weight-bold text-color-primary">You</div>
+                                                        ` : $h`
+                                                        <div class="font-size-16 font-weight-600 text-color-primary">${item.name}</div>
+                                                        <div class="font-size-14 text-color-gray">${item.country}</div>
+                                                        `}
+                                                    </div>
+                                                    <div class="item-cell flex-shrink-0 width-auto">
+                                                        <div class="font-size-18 font-weight-bold text-color-bluegray">${item.points.toLocaleString()}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    `)}
+                                </ul>
+                            </div>
+                            `}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</template>
+
+<style>
+    .page[data-name=leaderboard] .my-rank {
+        background-color: var(--f7-theme-color);
+        border-radius: var(--f7-list-inset-border-radius);
+        box-shadow: var(--f7-elevation-12);
+        margin: 0 -8px;
+        width: calc(100% + 16px);
+    }
+
+    .page[data-name=leaderboard] .my-rank * {
+        color: #FFFFFF !important;
+    }
+</style>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let leaderboardToday = null;
+        let leaderboardTodayMyRank = faker.datatype.number({min: 1, max: 50});
+        let leaderboardWeekly = null;
+        let leaderboardWeeklyMyRank = faker.datatype.number({min: 1, max: 50});
+        let leaderboardMonthly = null;
+        let leaderboardMonthlyMyRank = faker.datatype.number({min: 1, max: 50});
+        let leaderboardAllTime = null;
+        let leaderboardAllTimeMyRank = faker.datatype.number({min: 1, max: 50});
+
+        let loadLeaderboardToday = function() {
+            let data = [];
+            for (i=1; i<=50; i++) {
+                data.push({
+                    name: faker.name.firstName() + ' ' + faker.name.lastName(),
+                    avatar: `https://avatars.dicebear.com/api/personas/${i}.svg`,
+                    country: faker.address.country(),
+                    points: faker.datatype.number({min: 500, max: 5000})
+                });
+                fastSort.inPlaceSort(data).by([
+                    {desc: d => d.points},
+                    {asc: d => d.name},
+                    {asc: d => d.country}
+                ]);
+            }
+            leaderboardToday = data;
+            $update();
+        }
+
+        let loadLeaderboardWeekly = function() {
+            let data = [];
+            for (i=1; i<=50; i++) {
+                data.push({
+                    name: faker.name.firstName() + ' ' + faker.name.lastName(),
+                    avatar: `https://avatars.dicebear.com/api/personas/${i}.svg`,
+                    country: faker.address.country(),
+                    points: faker.datatype.number({min: 2500, max: 12500})
+                });
+                fastSort.inPlaceSort(data).by([
+                    {desc: d => d.points},
+                    {asc: d => d.name},
+                    {asc: d => d.country}
+                ]);
+            }
+            leaderboardWeekly = data;
+            $update();
+        }
+
+        let loadLeaderboardMonthly = function() {
+            let data = [];
+            for (i=1; i<=50; i++) {
+                data.push({
+                    name: faker.name.firstName() + ' ' + faker.name.lastName(),
+                    avatar: `https://avatars.dicebear.com/api/personas/${i}.svg`,
+                    country: faker.address.country(),
+                    points: faker.datatype.number({min: 5000, max: 25000})
+                });
+                fastSort.inPlaceSort(data).by([
+                    {desc: d => d.points},
+                    {asc: d => d.name},
+                    {asc: d => d.country}
+                ]);
+            }
+            leaderboardMonthly = data;
+            $update();
+        }
+
+        let loadLeaderboardAllTime = function() {
+            let data = [];
+            for (i=1; i<=50; i++) {
+                data.push({
+                    name: faker.name.firstName() + ' ' + faker.name.lastName(),
+                    avatar: `https://avatars.dicebear.com/api/personas/${i}.svg`,
+                    country: faker.address.country(),
+                    points: faker.datatype.number({min: 7500, max: 37500})
+                });
+                fastSort.inPlaceSort(data).by([
+                    {desc: d => d.points},
+                    {asc: d => d.name},
+                    {asc: d => d.country}
+                ]);
+            }
+            leaderboardAllTime = data;
+            $update();
+        }
+
+        $on('pageBeforeIn', function() {
+            loadLeaderboardToday();
+            loadLeaderboardWeekly();
+            loadLeaderboardMonthly();
+            loadLeaderboardAllTime();
+        });
+
+        return $render;
+    }
+</script>

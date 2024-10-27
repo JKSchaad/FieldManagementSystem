@@ -1,0 +1,234 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Menu List</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center no-gap padding-horizontal-half" style="--f7-card-margin-horizontal: 8px;">
+
+                <div class="col-100 medium-35 large-30 xlarge-35 medium-sticky sticky-top">
+                    <div class="card no-shadow ${$f7.rtl ? 'no-safe-area-left' : 'no-safe-area-right'}">
+                        <div class="card-content">
+                            <div class="list media-list menu-list no-chevron no-hairlines no-hairlines-between no-safe-areas">
+                                <ul>
+                                    <li>
+                                        <a href="#tab-personal" class="item-link tab-link tab-link-active color-blue">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <span class="icons">
+                                                        <i class="icon f7-icons">person</i>
+                                                        <i class="icon icon-active f7-icons">person_fill</i>
+                                                    </span>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-title">Personal</div>
+                                                    </div>
+                                                    <div class="item-text">Your Personal Information</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab-work" class="item-link tab-link color-green">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <span class="icons">
+                                                        <i class="icon f7-icons">briefcase</i>
+                                                        <i class="icon icon-active f7-icons">briefcase_fill</i>
+                                                    </span>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-title">Work</div>
+                                                    </div>
+                                                    <div class="item-text">Your Work Information</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab-blog" class="item-link tab-link color-red">
+                                            <div class="item-content">
+                                                <div class="item-media">
+                                                    <span class="icons">
+                                                        <i class="icon f7-icons">square_list</i>
+                                                        <i class="icon icon-active f7-icons">square_list_fill</i>
+                                                    </span>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="item-title">Blog</div>
+                                                        <div class="item-after">
+                                                            <span class="badge color-red">5</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-text">Your Published Articles</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-100 medium-65 large-70 xlarge-65">
+                    <div class="tabs">
+
+                        <div id="tab-personal" class="tab tab-active">
+                            <div class="card no-shadow ${$f7.rtl ? 'no-safe-area-right' : 'no-safe-area-left'} medium-margin-top no-margin-top">
+                                <div class="card-header">Personal</div>
+                                <div class="card-content">
+                                    <div class="list no-hairlines-between no-safe-areas padding-vertical-half">
+                                        <ul>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-media">
+                                                        <span class="shape-container shape-auto bg-color-chrome">
+                                                            <i class="icon material-icons">person</i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">
+                                                            <div class="item-header">Name</div>
+                                                            <div>${faker.name.firstName() + ' ' + faker.name.lastName()}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-media">
+                                                        <span class="shape-container shape-auto bg-color-chrome">
+                                                            <i class="icon material-icons">cake</i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">
+                                                            <div class="item-header">Birthday</div>
+                                                            <div>${moment.unix(faker.datatype.datetime({min: moment('1980-01-01').unix(), max: moment('1999-12-31').unix()})).format('DD MMMM YYYY')}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-media">
+                                                        <span class="shape-container shape-auto bg-color-chrome">
+                                                            <i class="icon material-icons">place</i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">
+                                                            <div class="item-header">Location</div>
+                                                            <div>${faker.address.country()}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-media">
+                                                        <span class="shape-container shape-auto bg-color-chrome">
+                                                            <i class="icon material-icons">email</i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title">
+                                                            <div class="item-header">Email</div>
+                                                            <div>${faker.internet.email()}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-work" class="tab">
+                            <div class="card no-shadow ${$f7.rtl ? 'no-safe-area-right' : 'no-safe-area-left'} medium-margin-top no-margin-top">
+                                <div class="card-header">Work</div>
+                                <div class="card-content">
+                                    <div class="list media-list no-hairlines-between no-safe-areas">
+                                        <ul>
+                                            ${Array(3).fill().map((item, index) => $h`
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-media">
+                                                        <span class="shape-container shape-auto bg-color-chrome">
+                                                            <i class="icon material-icons">business_center</i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-title">${faker.name.jobTitle()}</div>
+                                                        </div>
+                                                        <div class="item-text">${faker.company.companyName()}</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            `)}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-blog" class="tab">
+                            <div class="card no-shadow ${$f7.rtl ? 'no-safe-area-right' : 'no-safe-area-left'} medium-margin-top no-margin-top">
+                                <div class="card-header">Blog</div>
+                                <div class="card-content">
+                                    <div class="list media-list no-hairlines-between no-safe-areas">
+                                        <ul>
+                                            ${Array(5).fill().map((item, index) => $h`
+                                            <li>
+                                                <div class="item-content">
+                                                    <div class="item-media">
+                                                        <img class="shape-rounded-square" src="https://picsum.photos/128/128?r=${index}" loading="lazy" height="96" width="96" alt="" />
+                                                    </div>
+                                                    <div class="item-inner">
+                                                        <div class="item-title-row">
+                                                            <div class="item-title text-capitalize">${faker.lorem.words(5)}</div>
+                                                        </div>
+                                                        <div class="item-text">${faker.lorem.sentences(3)}</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            `)}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

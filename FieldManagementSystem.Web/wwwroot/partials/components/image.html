@@ -1,0 +1,119 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Image</div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block-title margin-vertical">Shape</div>
+                    <div class="block block-strong inset margin-vertical padding-half">
+                        <div class="row justify-content-center no-gap">
+                            ${Array(10).fill().map((item, index) => $h`
+                            <div class="col-50 small-33 padding-half">
+                                <img class="shape-rounded-square" src="https://picsum.photos/320/240?r=${index}" loading="lazy" alt="" />
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+                    <div class="block block-strong inset margin-vertical padding-half">
+                        <div class="row justify-content-center no-gap">
+                            ${Array(10).fill().map((item, index) => $h`
+                            <div class="col-50 small-33 padding-half">
+                                <img class="shape-circle" src="https://picsum.photos/240/240?r=${index}" loading="lazy" alt="" />
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Overlay</div>
+                    <div class="block block-strong inset margin-vertical padding-half">
+                        <div class="row justify-content-center no-gap">
+                            ${Array(10).fill().map((item, index) => $h`
+                            <div class="col-50 small-33 padding-half">
+                                <div class="overlay-container shape-rounded-square">
+                                    <img src="https://source.unsplash.com/random/160x240?movie&r=${index}" loading="lazy" alt="" />
+                                    <div class="overlay-content justify-content-flex-end">
+                                        <div class="font-size-14 font-weight-600 text-capitalize">${faker.lorem.words(2)}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+                    <div class="block block-strong inset margin-vertical padding-half">
+                        <div class="row justify-content-center no-gap">
+                            ${Array(10).fill().map((item, index) => $h`
+                            <div class="col-50 small-33 padding-half">
+                                <div class="overlay-container shape-circle">
+                                    <img src="https://source.unsplash.com/random/360x360?face&r=${index}" loading="lazy" alt="" />
+                                    <div class="overlay-content justify-content-flex-end">
+                                        <div class="font-size-14 font-weight-600 text-capitalize">${faker.name.firstName()}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Avatar</div>
+                    <div class="block block-strong inset margin-vertical padding-half">
+                        <div class="row justify-content-center no-gap">
+                            ${Array(10).fill().map((item, index) => $h`
+                            <div class="col-50 small-33 medium-25 large-20 padding-half">
+                                <img class="avatar shape-circle elevation-24 color-random" src="https://source.unsplash.com/random/360x360?movie&r=${index}" loading="lazy" alt="" />
+                            </div>
+                            `)}
+                        </div>
+                    </div>
+
+                    <div class="block-title margin-vertical">Avatar Group</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <div class="avatar-group">
+                            <div class="avatar tooltip-init" data-tooltip="${faker.name.firstName()}">
+                                <img src="https://source.unsplash.com/jzY0KRJopEI/128x128" loading="lazy" alt="" />
+                            </div>
+                            <div class="avatar tooltip-init" data-tooltip="${faker.name.firstName()}">
+                                <img src="https://source.unsplash.com/ZHvM3XIOHoE/128x128" loading="lazy" alt="" />
+                            </div>
+                            <div class="avatar tooltip-init" data-tooltip="${faker.name.firstName()}">
+                                <img src="https://source.unsplash.com/SXWSP9XWGvU/128x128" loading="lazy" alt="" />
+                            </div>
+                            <div class="avatar tooltip-init" data-tooltip="${faker.name.firstName()}">
+                                <img src="https://source.unsplash.com/n4KewLKFOZw/128x128" loading="lazy" alt="" />
+                            </div>
+                            <div class="avatar tooltip-init" data-tooltip="${faker.name.firstName()}">
+                                <img src="https://source.unsplash.com/XHVpWcr5grQ/128x128" loading="lazy" alt="" />
+                            </div>
+                            <div class="avatar-count">
+                                <a href="#">10+</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+        return $render;
+    }
+</script>

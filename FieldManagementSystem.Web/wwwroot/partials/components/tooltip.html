@@ -1,0 +1,159 @@
+<template>
+    <div class="page">
+
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Tooltip</div>
+                <div class="right">
+                    <a href="#" class="link icon-only tooltip-init" data-tooltip="My Account">
+                        <i class="icon material-icons">person</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="row justify-content-center">
+                <div class="col-100 medium-75 large-60 xlarge-50">
+
+                    <div class="block block-strong inset margin-vertical">
+                        <p>Tooltip can be used to display informative text when the user hovers over or long tap an element.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Default</div>
+                    <div class="block block-strong inset margin-vertical">
+                        <p>The rain and wind <span class="text-color-primary text-underline-dotted tooltip-init" data-tooltip="In an abrupt manner; without giving notice, or without the usual forms; suddenly; precipitously.">abruptly</span> stopped, but the sky still had the gray <span class="text-color-primary text-underline-dotted tooltip-init" data-tooltip="A whirling eddy.">swirls</span> of storms in the distance. Dave knew this feeling all too well. The <span class="text-color-primary text-underline-dotted tooltip-init" data-tooltip="(in a person) The state of being calm; peacefulness; absence of worry, anger, fear or other strong negative emotion.">calm</span> before the storm. He only had a limited amount of time before all hell broke loose, but he stopped to <span class="text-color-primary text-underline-dotted tooltip-init" data-tooltip="To be amazed at; to view with surprise; to marvel at.">admire</span> the calmness. Maybe it would be different this time, he thought, with the knowledge deep within that it wouldn't.</p>
+                    </div>
+
+                    <div class="block-title margin-vertical">Dynamic Value</div>
+                    <div class="list simple-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <span>Current Date & Time</span>
+                                <i id="tooltip-dynamic-value" class="icon material-icons">info_outline</i>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-title margin-vertical">Colored</div>
+                    <div class="list simple-list inset margin-vertical">
+                        <ul>
+                            <li>
+                                <span>Red</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-red">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Pink</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-pink">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Purple</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-purple">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Deep Purple</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-deeppurple">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Indigo</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-indigo">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Blue</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-blue">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Light Blue</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-lightblue">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Cyan</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-cyan">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Teal</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-teal">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Green</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-green">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Light Green</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-lightgreen">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Lime</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-lime">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Yellow</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-yellow text-color-black">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Amber</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-amber text-color-black">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Orange</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-orange">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Deep Orange</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-deeporange">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Brown</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-brown">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Gray</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-gray">info_outline</i>
+                            </li>
+                            <li>
+                                <span>Blue Gray</span>
+                                <i class="icon material-icons tooltip-custom-init"  data-tooltip="${faker.music.songName()}" data-tooltip-class="color-bluegray">info_outline</i>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</template>
+
+<script>
+    export default function(props, {$, $el, $f7, $f7route, $f7router, $h, $on, $store, $theme, $update}) {
+
+        let tooltipDynamicValue = null;
+
+        let initializeTooltipDynamicValue = function() {
+            tooltipDynamicValue = $f7.tooltip.create({
+                targetEl: $el.value.find('#tooltip-dynamic-value'),
+                text: window.moment ? moment().format('dddd, MMMM DD, YYYY, hh:mm:ss A') : new Date().toLocaleString(),
+                on: {
+                    show: function(tooltip) {
+                        tooltip.setText(window.moment ? moment().format('dddd, MMMM DD, YYYY, hh:mm:ss A') : new Date().toLocaleString());
+                    }
+                }
+            });
+        }
+
+        $on('pageBeforeIn', function() {
+            initializeTooltipDynamicValue();
+        });
+
+        return $render;
+    }
+</script>
