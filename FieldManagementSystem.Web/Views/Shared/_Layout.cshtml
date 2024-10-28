@@ -37,31 +37,13 @@
     <link rel="stylesheet" href="lib/vendor/nectar/wordpress.css" />
 </head>
 <body>
+
     @* Main application container used by Framework7 *@
     <div id="app"></div> @* This div is where the main application UI will be rendered by Framework7 *@
 
     @* Header containing navigation *@
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FieldManagementSystem.Web</a> @* Brand logo linking to the home page *@
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span> @* Button for toggling navigation menu on smaller screens *@
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a> @* Link to Home page *@
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> @* Link to Privacy page *@
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" /> @* Partial view for login/logout functionality *@
-                </div>
-            </div>
-        </nav>
+
     </header>
 
     @* Main content container *@

@@ -15,12 +15,12 @@ window.config.app = {
     tagline: 'Mobile Web App Kit',
     description: 'Build Beautiful & Performant Progressive Web Apps, Hybrid Apps & Desktop Apps.',
     logos: {
-        logomarkLight: 'lib/custom/img/logomark-light.svg',
-        logomarkDark: 'lib/custom/img/logomark-dark.svg',
-        logotypeLight: 'lib/custom/img/logotype-light.svg',
-        logotypeDark: 'lib/custom/img/logotype-dark.svg',
-        logomarkSquareLight: 'lib/custom/img/logomark-square-light.svg',
-        logomarkSquareDark: 'lib/custom/img/logomark-square-dark.svg'
+        logomarkLight: 'lib/img/logo.ClancyCore.trans.png',
+        logomarkDark: 'lib/img/logo.ClancyCore.trans.png',
+        logotypeLight: 'lib/img/logo.ClancyCore.trans.png',
+        logotypeDark: 'lib/img/logo.ClancyCore.trans.png',
+        logomarkSquareLight: 'lib/img/logo.ClancyCore.trans.png',
+        logomarkSquareDark: 'lib/img/logo.ClancyCore.trans.png'
     },
     themeforestUrl: 'https://themeforest.net/item/nectar-mobile-web-app-kit/20466093?ref=pmsgz',
     gitbookUrl: 'https://pmsgz.gitbook.io/nectar'
@@ -235,30 +235,30 @@ window.config.navigation = {
         enabled: !Framework7.device.standalone && !Framework7.device.cordova
     },
     walkthrough: {
-        enabled: true,
+        enabled: false,
         showFirstTimeOnly: true
     },
     authentication: {
         required: false,
-        guestAccess: true,
+        guestAccess: false,
         ignoreRoutes: [
-            '/',
-            '/404/',
-            '/about/',
-            '/careers/', '/coming-soon/', '/contact/', '/cookie-policy/',
-            '/faq/', '/feedback/', '/forgot-password/',
-            '/home/',
-            '/login/',
-            '/pricing/', '/privacy-policy/',
-            '/select-language/', '/select-appearance/', '/sidebar/', '/signup/', '/splash/',
-            '/team/', '/terms/', '/testimonials/',
-            '/under-maintenance/',
-            '/verify-email/', '/verify-otp/',
-            '/walkthrough/'
+            //'/',
+            //'/404/',
+            //'/about/',
+            //'/careers/', '/coming-soon/', '/contact/', '/cookie-policy/',
+            //'/faq/', '/feedback/', '/forgot-password/',
+            //'/home/',
+            //'/login/',
+            //'/pricing/', '/privacy-policy/',
+            //'/select-language/', '/select-appearance/', '/sidebar/', '/signup/', '/splash/',
+            //'/team/', '/terms/', '/testimonials/',
+            //'/under-maintenance/',
+            //'/verify-email/', '/verify-otp/',
+            //'/walkthrough/'
         ]
     },
     home: {
-        url: './partials/screens/home.html'
+        url: ''
     }
 }
 
