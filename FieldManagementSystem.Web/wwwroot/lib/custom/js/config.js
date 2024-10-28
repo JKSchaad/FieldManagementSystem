@@ -22,7 +22,7 @@ window.config.app = {
         logomarkSquareLight: 'lib/img/logo.ClancyCore.trans.png',
         logomarkSquareDark: 'lib/img/logo.ClancyCore.trans.png'
     },
-    themeforestUrl: 'https://themeforest.net/item/nectar-mobile-web-app-kit/20466093?ref=pmsgz',
+    clancyTheysUrl: 'http://ClancyTheys.com',
     gitbookUrl: 'https://pmsgz.gitbook.io/nectar'
 }
 
@@ -258,7 +258,7 @@ window.config.navigation = {
         ]
     },
     home: {
-        url: ''
+        url: '/'
     }
 }
 

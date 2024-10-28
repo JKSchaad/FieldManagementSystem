@@ -109,7 +109,6 @@
     <Content Remove="lib\custom\img\logotype-dark.svg" />
     <Content Remove="lib\custom\img\logotype-light.svg" />
     <Content Remove="lib\custom\img\under-maintenance.svg" />
-    <Content Remove="lib\custom\js\config.js" />
     <Content Remove="lib\custom\js\init.js" />
     <Content Remove="lib\custom\js\routes.js" />
     <Content Remove="lib\custom\js\store.js" />
@@ -602,7 +601,6 @@
     <None Include="lib\custom\img\logotype-dark.svg" />
     <None Include="lib\custom\img\logotype-light.svg" />
     <None Include="lib\custom\img\under-maintenance.svg" />
-    <None Include="lib\custom\js\config.js" />
     <None Include="lib\custom\js\init.js" />
     <None Include="lib\custom\js\routes.js" />
     <None Include="lib\custom\js\store.js" />
@@ -990,6 +988,7 @@
     <None Include="partials\web-apis\vibration.html" />
     <None Include="partials\web-apis\web-share.html" />
     <None Include="service-worker.js" />
+    <None Include="wwwroot\lib\custom\js\config.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1083,10 +1082,6 @@
     <Content Update="manifest.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="scripts\" />
   </ItemGroup>
 
 </Project>
